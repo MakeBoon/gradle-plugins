@@ -1,0 +1,43 @@
+plugins {
+    `kotlin-dsl`
+}
+
+kotlin {
+    jvmToolchain(libs.versions.kotlin.jvmToolchain.get().toInt())
+}
+
+dependencies {
+    implementation(libs.gradlePlugin.kotlin)
+}
+
+gradlePlugin {
+    plugins {
+        create("jvmToolchain") {
+            id = "convention.jvmToolchain"
+            implementationClass = "gradle.JVMToolchainPlugin"
+        }
+        create("publish") {
+            id = "convention.publish"
+            implementationClass = "gradle.PublishPlugin"
+        }
+    }
+}
+
+with(tasks) {
+    val taskName = "copyConventionDirs"
+    register(taskName) {
+        doLast {
+            val targetPath = "src/main/kotlin/pro/crestfi/gradle"
+            val srcDir = file(targetPath)
+            if (!srcDir.exists()) throw GradleException("$srcDir not found")
+            val dstDir = File(rootDir.parent, "convention/$targetPath")
+
+            copy {
+                dstDir.delete()
+                from(srcDir)
+                into(dstDir)
+            }
+        }
+    }
+    named("jar") { finalizedBy(taskName) }
+}
