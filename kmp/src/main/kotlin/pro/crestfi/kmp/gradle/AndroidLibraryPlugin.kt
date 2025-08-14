@@ -22,7 +22,7 @@ class AndroidLibraryPlugin : Plugin<Project> {
         }
 
         extensions.configure<LibraryExtension> {
-            namespace = name
+            namespace = "$group.$name"
             compileSdk = libs.versionInt("android-compileSdk")
             compileSdkExtension = libs.versionIntOrNull("android-compileSdkExt")
 

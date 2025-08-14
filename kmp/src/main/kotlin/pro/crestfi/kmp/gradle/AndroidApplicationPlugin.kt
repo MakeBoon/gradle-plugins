@@ -20,12 +20,10 @@ class AndroidApplicationPlugin : Plugin<Project> {
         }
 
         extensions.configure<ApplicationExtension> {
-            namespace = name
             compileSdk = libs.versionInt("android-compileSdk")
             compileSdkExtension = libs.versionIntOrNull("android-compileSdkExt")
 
             defaultConfig {
-                applicationId = namespace
                 minSdk = libs.versionInt("android-minSdk")
                 targetSdk = libs.versionInt("android-targetSdk")
             }
