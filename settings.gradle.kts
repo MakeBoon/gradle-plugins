@@ -22,3 +22,4 @@ dependencyResolutionManagement {
 }
 
 include(":convention")
+include(":kmp")
