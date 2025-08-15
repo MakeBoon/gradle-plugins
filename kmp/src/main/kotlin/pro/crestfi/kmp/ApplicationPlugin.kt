@@ -13,6 +13,8 @@ class ApplicationPlugin : Plugin<Project> {
             KSPPlugin(),
             WirePlugin(),
             RoomPlugin(),
+            //
+            ComposePreviewPlugin(),
             AndroidApplicationPlugin(),
             //
             FirebasePlugin()
