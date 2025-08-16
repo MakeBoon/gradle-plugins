@@ -5,6 +5,7 @@ import org.gradle.api.NamedDomainObjectContainer
 import org.gradle.api.Project
 import org.gradle.api.artifacts.VersionCatalog
 import org.gradle.api.artifacts.VersionCatalogsExtension
+import org.gradle.api.file.Directory
 import org.gradle.api.provider.Provider
 import org.gradle.internal.extensions.stdlib.capitalized
 import org.gradle.kotlin.dsl.getByType
@@ -24,7 +25,10 @@ val Project.libs: VersionCatalog
     get(): VersionCatalog = with(extensions.getByType<VersionCatalogsExtension>()) {
         find("core").getOrElse { named("libs") }
     }
-val Project.publishName: String get() = path.drop(1).replace(':', '.')
+val Project.publishName get() = path.drop(1).replace(':', '.')
+
+val Directory.regularFiles get() = asFileTree.map { file(it.path) }
+fun Directory.regularFilesInDir(path: String) = dir(path).regularFiles
 
 fun <T> VersionCatalog.kindly(alias: String, block: VersionCatalog.(String) -> T): T =
     try {
