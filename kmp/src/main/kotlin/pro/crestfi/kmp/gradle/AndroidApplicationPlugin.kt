@@ -38,10 +38,12 @@ class AndroidApplicationPlugin : Plugin<Project> {
             }
 
             val resourcesDir = layout.projectDirectory.file("../resources/kmp").asFile
+
+            val keystoreDir = resourcesDir.with("android")
             signingConfigs {
                 register("release") {
-                    with(resourcesDir.with("android.properties").toProperties()) {
-                        storeFile = resourcesDir.with(getProperty("StoreFile"))
+                    with(keystoreDir.with("android.properties").toProperties()) {
+                        storeFile = keystoreDir.with(getProperty("StoreFile"))
                         storePassword = getProperty("StorePassword")
                         keyAlias = getProperty("KeyAlias")
                         keyPassword = getProperty("KeyPassword")
