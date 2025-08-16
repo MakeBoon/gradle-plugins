@@ -15,8 +15,21 @@ class ComposePlugin : Plugin<Project> {
             apply(libs.pluginId("compose-compiler"))
         }
 
-        // https://www.jetbrains.com/help/kotlin-multiplatform-dev/compose-compiler.html
+        /**
+         * https://www.jetbrains.com/help/kotlin-multiplatform-dev/compose-compiler.html
+         * https://developer.android.com/develop/ui/compose/compiler
+         */
         extensions.configure<ComposeCompilerGradlePluginExtension> {
+            with(layout) {
+                val compilerDir = buildDirectory.dir("compose-compiler")
+                reportsDestination.set(compilerDir)
+                metricsDestination.set(compilerDir)
+                stabilityConfigurationFiles.addAll(
+                    with(projectDirectory) {
+                        dir("stability-conf").asFileTree.map { file(it.path) }
+                    }
+                )
+            }
         }
 
         extensions.configure<ComposeExtension> {
