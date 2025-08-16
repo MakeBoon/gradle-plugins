@@ -11,8 +11,12 @@ import org.gradle.kotlin.dsl.getByType
 import org.gradle.plugin.devel.PluginDeclaration
 import org.jetbrains.kotlin.gradle.plugin.KotlinDependencyHandler
 import java.io.File
+import java.io.InputStream
+import java.net.URL
 import java.util.*
+import kotlin.io.path.createTempFile
 import kotlin.jvm.optionals.getOrElse
+import kotlin.reflect.KClass
 import org.gradle.api.artifacts.ExternalModuleDependencyBundle as Bundle
 import org.gradle.api.artifacts.MinimalExternalModuleDependency as Dependency
 
@@ -65,5 +69,21 @@ fun NamedDomainObjectContainer<PluginDeclaration>.registerOf(
             id = "$groupName.gradle.$lowercasedName"
             implementationClass = "$packageName.${pluginName}Plugin"
         }
+    }
+}
+
+fun KClass<*>.resource(vararg paths: String): URL? =
+    java.getResource("/${paths.joinToString("/")}")
+
+fun KClass<*>.resourceStream(vararg paths: String): InputStream? =
+    java.getResourceAsStream("/${paths.joinToString("/")}")
+
+fun KClass<*>.fileFromResource(
+    vararg paths: String,
+    target: () -> File = { createTempFile().toFile() },
+): File? = resourceStream(*paths)?.let { input ->
+    target().apply {
+        deleteOnExit()
+        outputStream().use { input.copyTo(it) }
     }
 }
