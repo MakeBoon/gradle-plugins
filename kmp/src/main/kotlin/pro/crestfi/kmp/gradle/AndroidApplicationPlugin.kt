@@ -37,7 +37,7 @@ class AndroidApplicationPlugin : Plugin<Project> {
                 }
             }
 
-            val resourcesDir = rootDir.with("resources/kmp")
+            val resourcesDir = layout.projectDirectory.file("../resources/kmp").asFile
             signingConfigs {
                 register("release") {
                     with(resourcesDir.with("android.properties").toProperties()) {
