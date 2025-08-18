@@ -4,6 +4,7 @@ import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.configure
 import org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension
+import org.jetbrains.kotlin.gradle.dsl.KotlinVersion
 import pro.crestfi.gradle.libs
 import pro.crestfi.gradle.pluginId
 import pro.crestfi.gradle.versionInt
@@ -17,6 +18,11 @@ class FrameworkPlugin : Plugin<Project> {
 
         extensions.configure<KotlinMultiplatformExtension> {
             jvmToolchain(libs.versionInt("kotlin-jvmToolchain"))
+            compilerOptions {
+                val kotlinVersion = KotlinVersion.KOTLIN_2_2
+                languageVersion.set(kotlinVersion)
+                apiVersion.set(kotlinVersion)
+            }
         }
     }
 }
