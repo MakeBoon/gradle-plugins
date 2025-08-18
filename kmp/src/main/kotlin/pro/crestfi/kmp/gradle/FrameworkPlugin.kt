@@ -5,6 +5,7 @@ import org.gradle.api.Project
 import org.gradle.kotlin.dsl.configure
 import org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension
 import org.jetbrains.kotlin.gradle.dsl.KotlinVersion
+import pro.crestfi.gradle.`-X`
 import pro.crestfi.gradle.libs
 import pro.crestfi.gradle.pluginId
 import pro.crestfi.gradle.versionInt
@@ -22,6 +23,13 @@ class FrameworkPlugin : Plugin<Project> {
                 val kotlinVersion = KotlinVersion.KOTLIN_2_2
                 languageVersion.set(kotlinVersion)
                 apiVersion.set(kotlinVersion)
+                freeCompilerArgs.addAll(
+                    `-X`(
+                        "expect-actual-classes",
+                        "context-parameters",
+                        "context-sensitive-resolution"
+                    )
+                )
             }
         }
     }

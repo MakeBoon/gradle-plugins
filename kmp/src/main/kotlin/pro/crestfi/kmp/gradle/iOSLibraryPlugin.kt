@@ -11,10 +11,10 @@ import pro.crestfi.gradle.fileFromResource
 class iOSLibraryPlugin : Plugin<Project> {
     override fun apply(target: Project) = with(target) {
         extensions.configure<KotlinMultiplatformExtension> {
-            mutableListOf<KotlinNativeTarget>().apply {
-                add(iosArm64())
-                add(iosSimulatorArm64())
-            }.forEach(KotlinNativeTarget::configureCinterop)
+            listOf(
+                iosArm64(),
+                iosSimulatorArm64()
+            ).forEach(KotlinNativeTarget::configureCinterop)
         }
     }
 }

@@ -16,6 +16,7 @@ class ApplicationPlugin : Plugin<Project> {
             //
             ComposePreviewPlugin(),
             AndroidApplicationPlugin(),
+            OptInPlugin(true),
             //
             FirebasePlugin()
         ).forEach { it.apply(target) }

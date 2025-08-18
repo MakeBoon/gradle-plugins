@@ -67,11 +67,11 @@ fun NamedDomainObjectContainer<PluginDeclaration>.registerOf(
             append(groupName)
             if (suffix) append(".gradle")
         }
-        val pluginName = pluginName?.invoke(name) ?: name.split('-').joinToString("", transform = String::capitalized)
+        val pluginClassName = pluginName?.invoke(name) ?: name.split('-').joinToString("", transform = String::capitalized)
 
         register(lowercasedName) {
             id = "$groupName.gradle.$lowercasedName"
-            implementationClass = "$packageName.${pluginName}Plugin"
+            implementationClass = "$packageName.${pluginClassName}Plugin"
         }
     }
 }
@@ -91,3 +91,6 @@ fun KClass<*>.fileFromResource(
         outputStream().use { input.copyTo(it) }
     }
 }
+
+fun `-opt-in`(vararg api: String) = api.map { "-opt-in=$it" }
+fun `-X`(vararg api: String) = api.map { "-X$it" }
