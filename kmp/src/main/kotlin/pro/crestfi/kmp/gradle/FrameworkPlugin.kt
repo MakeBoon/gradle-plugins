@@ -10,7 +10,7 @@ import pro.crestfi.gradle.libs
 import pro.crestfi.gradle.pluginId
 import pro.crestfi.gradle.versionInt
 
-class FrameworkPlugin : Plugin<Project> {
+class FrameworkPlugin(private val application: Boolean = false) : Plugin<Project> {
     override fun apply(target: Project) = with(target) {
         with(pluginManager) {
             apply(libs.pluginId("kotlin-multiplatform"))
@@ -19,10 +19,12 @@ class FrameworkPlugin : Plugin<Project> {
 
         extensions.configure<KotlinMultiplatformExtension> {
             jvmToolchain(libs.versionInt("kotlin-jvmToolchain"))
+            if (!application) explicitApi()
             compilerOptions {
                 val kotlinVersion = KotlinVersion.KOTLIN_2_2
                 languageVersion.set(kotlinVersion)
                 apiVersion.set(kotlinVersion)
+                progressiveMode.set(true)
                 freeCompilerArgs.addAll(
                     `-X`(
                         "expect-actual-classes",
