@@ -50,6 +50,7 @@ val String.asFile get() = File(this)
 fun String.toFile(parent: String) = File(parent, this)
 fun File.with(append: String) = File(path, append)
 fun File.toProperties() = Properties().apply { inputStream().use(::load) }
+fun Properties.getPropertyInt(key: String) = getProperty(key).toInt()
 
 fun KotlinDependencyHandler.bom(dependencyProvider: Provider<Dependency>) =
     api(project.dependencies.platform(dependencyProvider))
@@ -67,7 +68,8 @@ fun NamedDomainObjectContainer<PluginDeclaration>.registerOf(
             append(groupName)
             if (suffix) append(".gradle")
         }
-        val pluginClassName = pluginName?.invoke(name) ?: name.split('-').joinToString("", transform = String::capitalized)
+        val pluginClassName = pluginName?.invoke(name)
+            ?: name.split('-').joinToString("", transform = String::capitalized)
 
         register(lowercasedName) {
             id = "$groupName.gradle.$lowercasedName"
