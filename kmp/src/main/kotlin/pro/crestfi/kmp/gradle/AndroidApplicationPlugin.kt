@@ -24,6 +24,7 @@ class AndroidApplicationPlugin : Plugin<Project> {
                 versionMinor = getPropertyInt("VersionMinor")
                 versionPatch = getPropertyInt("VersionPatch")
                 versionBuild = getPropertyInt("VersionBuild")
+                paymentTest = getPropertyBooleanOrNull("PaymentTest") ?: false
             }
         }
 
@@ -75,7 +76,7 @@ class AndroidApplicationPlugin : Plugin<Project> {
             val proguardDir = resourcesDir.with("proguard")
             buildTypes {
                 debug {
-                    applicationIdSuffix = ".dev"
+                    if (!appConfig.paymentTest) applicationIdSuffix = ".dev"
                     versionNameSuffix = "-dev"
                 }
                 release {
@@ -122,6 +123,7 @@ abstract class AppConfigExtension {
     abstract var versionMinor: Int
     abstract var versionPatch: Int
     abstract var versionBuild: Int
+    abstract var paymentTest: Boolean
     val versionCode: Int get() = versionMajor * 1_000_000 + versionMinor * 10_000 + versionPatch * 100 + versionBuild
     val versionName: String get() = "$versionMajor.$versionMinor.$versionPatch"
 }

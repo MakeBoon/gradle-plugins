@@ -50,7 +50,10 @@ val String.asFile get() = File(this)
 fun String.toFile(parent: String) = File(parent, this)
 fun File.with(append: String) = File(path, append)
 fun File.toProperties() = Properties().apply { inputStream().use(::load) }
-fun Properties.getPropertyInt(key: String) = getProperty(key).toInt()
+fun Properties.getPropertyInt(key: String) = getPropertyIntOrNull(key)!!
+fun Properties.getPropertyIntOrNull(key: String) = getProperty(key)?.toInt()
+fun Properties.getPropertyBoolean(key: String) = getPropertyBooleanOrNull(key)!!
+fun Properties.getPropertyBooleanOrNull(key: String) = getProperty(key)?.toBoolean()
 
 fun KotlinDependencyHandler.bom(dependencyProvider: Provider<Dependency>) =
     api(project.dependencies.platform(dependencyProvider))
