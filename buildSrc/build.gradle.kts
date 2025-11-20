@@ -30,7 +30,7 @@ with(tasks) {
             val targetPath = "src/main/kotlin/pro/crestfi/gradle"
             val srcDir = file(targetPath)
             if (!srcDir.exists()) throw GradleException("$srcDir not found")
-            val dstDir = File(rootDir.parent, "convention/$targetPath")
+            val dstDir = layout.projectDirectory.file("../convention/$targetPath").asFile
 
             copy {
                 dstDir.delete()

@@ -11,8 +11,11 @@ class LibraryPlugin : Plugin<Project> {
             KSPPlugin(),
             WirePlugin(),
             RoomPlugin(),
+            //
             AndroidLibraryPlugin(),
             iOSLibraryPlugin(),
+            OptInPlugin(),
+            //
             PublishPlugin(),
         ).forEach { it.apply(target) }
     }
