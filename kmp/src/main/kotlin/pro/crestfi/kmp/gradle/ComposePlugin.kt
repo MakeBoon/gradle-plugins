@@ -7,6 +7,7 @@ import org.jetbrains.compose.ComposeExtension
 import org.jetbrains.kotlin.compose.compiler.gradle.ComposeCompilerGradlePluginExtension
 import pro.crestfi.gradle.libs
 import pro.crestfi.gradle.pluginId
+import pro.crestfi.gradle.regularFiles
 
 class ComposePlugin : Plugin<Project> {
     override fun apply(target: Project) = with(target) {
@@ -15,8 +16,18 @@ class ComposePlugin : Plugin<Project> {
             apply(libs.pluginId("compose-compiler"))
         }
 
-        // https://www.jetbrains.com/help/kotlin-multiplatform-dev/compose-compiler.html
+        val resourcesDir = layout.projectDirectory.dir("../resources/kmp")
+        val stabilityConfDir = resourcesDir.dir("stability-conf")
+
+        /**
+         * https://www.jetbrains.com/help/kotlin-multiplatform-dev/compose-compiler.html
+         * https://developer.android.com/develop/ui/compose/compiler
+         */
         extensions.configure<ComposeCompilerGradlePluginExtension> {
+            val compilerDir = layout.buildDirectory.dir("compose-compiler")
+            reportsDestination.set(compilerDir)
+            metricsDestination.set(compilerDir)
+            stabilityConfigurationFiles.addAll(stabilityConfDir.regularFiles)
         }
 
         extensions.configure<ComposeExtension> {

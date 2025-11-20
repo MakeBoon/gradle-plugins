@@ -5,14 +5,19 @@ import org.gradle.api.NamedDomainObjectContainer
 import org.gradle.api.Project
 import org.gradle.api.artifacts.VersionCatalog
 import org.gradle.api.artifacts.VersionCatalogsExtension
+import org.gradle.api.file.Directory
 import org.gradle.api.provider.Provider
 import org.gradle.internal.extensions.stdlib.capitalized
 import org.gradle.kotlin.dsl.getByType
 import org.gradle.plugin.devel.PluginDeclaration
 import org.jetbrains.kotlin.gradle.plugin.KotlinDependencyHandler
 import java.io.File
+import java.io.InputStream
+import java.net.URL
 import java.util.*
+import kotlin.io.path.createTempFile
 import kotlin.jvm.optionals.getOrElse
+import kotlin.reflect.KClass
 import org.gradle.api.artifacts.ExternalModuleDependencyBundle as Bundle
 import org.gradle.api.artifacts.MinimalExternalModuleDependency as Dependency
 
@@ -20,7 +25,10 @@ val Project.libs: VersionCatalog
     get(): VersionCatalog = with(extensions.getByType<VersionCatalogsExtension>()) {
         find("core").getOrElse { named("libs") }
     }
-val Project.publishName: String get() = path.drop(1).replace(':', '.')
+val Project.publishName get() = path.drop(1).replace(':', '.')
+
+val Directory.regularFiles get() = asFileTree.map { file(it.path) }
+fun Directory.regularFilesInDir(path: String) = dir(path).regularFiles
 
 fun <T> VersionCatalog.kindly(alias: String, block: VersionCatalog.(String) -> T): T =
     try {
@@ -42,6 +50,10 @@ val String.asFile get() = File(this)
 fun String.toFile(parent: String) = File(parent, this)
 fun File.with(append: String) = File(path, append)
 fun File.toProperties() = Properties().apply { inputStream().use(::load) }
+fun Properties.getPropertyInt(key: String) = getPropertyIntOrNull(key)!!
+fun Properties.getPropertyIntOrNull(key: String) = getProperty(key)?.toInt()
+fun Properties.getPropertyBoolean(key: String) = getPropertyBooleanOrNull(key)!!
+fun Properties.getPropertyBooleanOrNull(key: String) = getProperty(key)?.toBoolean()
 
 fun KotlinDependencyHandler.bom(dependencyProvider: Provider<Dependency>) =
     api(project.dependencies.platform(dependencyProvider))
@@ -59,11 +71,31 @@ fun NamedDomainObjectContainer<PluginDeclaration>.registerOf(
             append(groupName)
             if (suffix) append(".gradle")
         }
-        val pluginName = pluginName?.invoke(name) ?: name.split('-').joinToString("", transform = String::capitalized)
+        val pluginClassName = pluginName?.invoke(name)
+            ?: name.split('-').joinToString("", transform = String::capitalized)
 
         register(lowercasedName) {
             id = "$groupName.gradle.$lowercasedName"
-            implementationClass = "$packageName.${pluginName}Plugin"
+            implementationClass = "$packageName.${pluginClassName}Plugin"
         }
     }
 }
+
+fun KClass<*>.resource(vararg paths: String): URL? =
+    java.getResource("/${paths.joinToString("/")}")
+
+fun KClass<*>.resourceStream(vararg paths: String): InputStream? =
+    java.getResourceAsStream("/${paths.joinToString("/")}")
+
+fun KClass<*>.fileFromResource(
+    vararg paths: String,
+    target: () -> File = { createTempFile().toFile() },
+): File? = resourceStream(*paths)?.let { input ->
+    target().apply {
+        deleteOnExit()
+        outputStream().use { input.copyTo(it) }
+    }
+}
+
+fun `-opt-in`(vararg api: String) = api.map { "-opt-in=$it" }
+fun `-X`(vararg api: String) = api.map { "-X$it" }

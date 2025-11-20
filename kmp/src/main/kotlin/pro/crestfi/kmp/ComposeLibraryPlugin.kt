@@ -12,8 +12,12 @@ class ComposeLibraryPlugin : Plugin<Project> {
             KSPPlugin(),
             WirePlugin(),
             RoomPlugin(),
+            //
+            ComposePreviewPlugin(),
             AndroidLibraryPlugin(),
             iOSLibraryPlugin(),
+            OptInPlugin(true),
+            //
             PublishPlugin(),
         ).forEach { it.apply(target) }
     }

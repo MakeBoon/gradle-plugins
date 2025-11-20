@@ -20,7 +20,7 @@ class PublishPlugin : Plugin<Project> {
         group = PROJECT_GROUP_ID
         version = PROJECT_VERSION
 
-        extensions.configure<GradlePluginDevelopmentExtension>() {
+        extensions.configure<GradlePluginDevelopmentExtension> {
             val url = "https://github.com/ib-fi/gradle-plugins"
             website.set(url)
             vcsUrl.set(url)

@@ -25,6 +25,7 @@ gradlePlugin {
         //
         registerOf(project, "framework")
         registerOf(project, "compose")
+        registerOf(project, "compose-preview")
         registerOf(project, "compose-flatten-drawable-resource")
         registerOf(project, "ksp") { it.uppercase() }
         registerOf(project, "wire")
