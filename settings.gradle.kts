@@ -1,6 +1,8 @@
 rootProject.name = "gradle-plugins"
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 
+includeBuild("../gradle-resources")
+
 pluginManagement {
     repositories {
         google()
@@ -16,7 +18,7 @@ dependencyResolutionManagement {
     }
     versionCatalogs {
         create("libs") {
-            from(files("resources/versions/build-plugins.toml"))
+            from(files("../gradle-resources/versions/build-plugins.toml"))
         }
     }
 }
