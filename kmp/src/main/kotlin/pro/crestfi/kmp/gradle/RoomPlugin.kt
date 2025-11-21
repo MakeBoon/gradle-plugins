@@ -42,11 +42,14 @@ class RoomPlugin : Plugin<Project> {
         afterEvaluate {
             val compiler = libs.library("room-compiler")
             extensions.configure<KotlinMultiplatformExtension> {
-                dependencies {
-//                    "kspCommonMainMetadata"(compiler)
-                    targets.filter { it.platformType != KotlinPlatformType.common }
-                        .map { "ksp${it.targetName.capitalized()}" }
-                        .forEach { it.invoke(compiler) }
+                with(this@afterEvaluate) {
+                    dependencies {
+                        "testImplementation"(libs.library("room-testing"))
+//                        "kspCommonMainMetadata"(compiler)
+                        targets.filter { it.platformType != KotlinPlatformType.common }
+                            .map { "ksp${it.targetName.capitalized()}" }
+                            .forEach { it.invoke(compiler) }
+                    }
                 }
             }
         }

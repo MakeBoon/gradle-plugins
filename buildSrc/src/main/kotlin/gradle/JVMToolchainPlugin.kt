@@ -12,7 +12,7 @@ import pro.crestfi.gradle.versionInt
 class JVMToolchainPlugin : Plugin<Project> {
     override fun apply(target: Project) = with(target) {
         dependencies {
-            "compileOnly"(libs.library("gradlePlugin-kotlin"))
+            "implementation"(libs.library("gradlePlugin-kotlin-api"))
         }
         extensions.configure<KotlinProjectExtension> {
             jvmToolchain(libs.versionInt("kotlin-jvmToolchain"))

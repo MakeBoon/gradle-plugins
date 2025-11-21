@@ -19,8 +19,10 @@ class ComposePreviewPlugin : Plugin<Project> {
         afterEvaluate {
             extensions.configure<KotlinMultiplatformExtension> {
                 val compose = extensions.getByType<ComposePlugin.Dependencies>()
-                dependencies {
-                    "debugImplementation"(compose.uiTooling)
+                with(this@afterEvaluate) {
+                    dependencies {
+                        "debugImplementation"(compose.uiTooling)
+                    }
                 }
                 with(sourceSets) {
                     commonMain.dependencies {
