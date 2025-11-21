@@ -8,5 +8,10 @@ dependencies {
 }
 
 gradlePlugin {
-    plugins {}
+    plugins {
+        create("dependencyResolutionManagement") {
+            id = "convention.dependencyResolutionManagement"
+            implementationClass = "gradle.DependencyResolutionManagementPlugin"
+        }
+    }
 }

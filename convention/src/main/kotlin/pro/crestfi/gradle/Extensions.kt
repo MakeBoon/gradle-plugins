@@ -6,6 +6,8 @@ import org.gradle.api.Project
 import org.gradle.api.artifacts.VersionCatalog
 import org.gradle.api.artifacts.VersionCatalogsExtension
 import org.gradle.api.file.Directory
+import org.gradle.api.initialization.Settings
+import org.gradle.api.initialization.resolve.MutableVersionCatalogContainer
 import org.gradle.api.provider.Provider
 import org.gradle.internal.extensions.stdlib.capitalized
 import org.gradle.kotlin.dsl.getByType
@@ -20,6 +22,23 @@ import kotlin.jvm.optionals.getOrElse
 import kotlin.reflect.KClass
 import org.gradle.api.artifacts.ExternalModuleDependencyBundle as Bundle
 import org.gradle.api.artifacts.MinimalExternalModuleDependency as Dependency
+
+fun Settings.create(
+    versionCatalog: MutableVersionCatalogContainer,
+    name: String,
+    target: String = name,
+    resources: Boolean = true,
+) {
+    versionCatalog.create(name) {
+        from(layout.rootDirectory.files(buildString {
+            when {
+                resources -> append("../gradle-resources/versions")
+                else -> append("gradle")
+            }
+            append("/$target.toml")
+        }))
+    }
+}
 
 val Project.libs: VersionCatalog
     get(): VersionCatalog = with(extensions.getByType<VersionCatalogsExtension>()) {
