@@ -13,5 +13,9 @@ gradlePlugin {
             id = "convention.dependencyResolutionManagement"
             implementationClass = "gradle.DependencyResolutionManagementPlugin"
         }
+        create("dependencyResolutionManagementForBuildSrc") {
+            id = "convention.dependencyResolutionManagementForBuildSrc"
+            implementationClass = "gradle.DependencyResolutionManagementForBuildSrcPlugin"
+        }
     }
 }

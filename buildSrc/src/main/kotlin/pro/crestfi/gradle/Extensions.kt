@@ -16,7 +16,7 @@ import org.jetbrains.kotlin.gradle.plugin.KotlinDependencyHandler
 import java.io.File
 import java.io.InputStream
 import java.net.URL
-import java.util.*
+import java.util.Properties
 import kotlin.io.path.createTempFile
 import kotlin.jvm.optionals.getOrElse
 import kotlin.reflect.KClass
@@ -27,12 +27,16 @@ fun Settings.create(
     versionCatalog: MutableVersionCatalogContainer,
     name: String,
     target: String = name,
-    resources: Boolean = true,
+    resources: Boolean = false,
+    buildSrc: Boolean = false,
 ) {
     versionCatalog.create(name) {
         from(layout.rootDirectory.files(buildString {
             when {
-                resources -> append("../gradle-resources/versions")
+                resources -> {
+                    if (buildSrc) append("../")
+                    append("../gradle-resources/versions")
+                }
                 else -> append("gradle")
             }
             append("/$target.toml")
