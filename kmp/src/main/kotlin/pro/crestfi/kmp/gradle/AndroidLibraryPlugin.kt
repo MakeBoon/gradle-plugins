@@ -24,6 +24,8 @@ class AndroidLibraryPlugin : Plugin<Project> {
                 compileSdk = kmpAndroid.versionInt("compileSdk")
                 compileSdkExtension = kmpAndroid.versionIntOrNull("compileSdkExt")
                 minSdk = kmpAndroid.versionInt("minSdk")
+
+                androidResources { enable = true }
             }
         }
     }

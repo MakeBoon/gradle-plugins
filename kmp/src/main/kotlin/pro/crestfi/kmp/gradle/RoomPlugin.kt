@@ -45,7 +45,7 @@ class RoomPlugin : Plugin<Project> {
             extensions.configure<KotlinMultiplatformExtension> {
                 with(this@afterEvaluate) {
                     dependencies {
-                        "testImplementation"(kmp.library("room-testing"))
+//                        "testImplementation"(kmp.library("room-testing"))
 //                        "kspCommonMainMetadata"(compiler)
                         targets.filter { it.platformType != KotlinPlatformType.common }
                             .map { "ksp${it.targetName.capitalized()}" }

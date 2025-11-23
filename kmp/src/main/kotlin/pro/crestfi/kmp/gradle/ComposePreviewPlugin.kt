@@ -22,7 +22,7 @@ class ComposePreviewPlugin : Plugin<Project> {
                 with(this@afterEvaluate) {
                     dependencies {
                         // https://developer.android.com/kotlin/multiplatform/plugin#compose-preview-dependencies
-                        "androidRuntimeClasspath"(compose.uiTooling)
+//                        "androidRuntimeClasspath"(compose.uiTooling)
                     }
                 }
                 with(sourceSets) {
