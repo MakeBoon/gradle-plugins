@@ -30,6 +30,7 @@ private fun Settings.dependencyResolutionManagement(
         versionCatalogs {
             create(this, "core", "build-plugins", resource, buildSrc)
             create(this, "crestfi", "crestfi-plugins", resource, buildSrc)
+            create(this, "kmp", "kmp", resource, buildSrc)
             create(this, "kmpShared", "kmp-shared", resource, buildSrc)
             create(this, "kmpApp", "kmp-app", resource, buildSrc)
         }

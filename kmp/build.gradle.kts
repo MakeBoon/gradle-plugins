@@ -8,13 +8,13 @@ plugins {
 
 dependencies {
     implementation(projects.convention)
-    compileOnly(libs.gradlePlugin.compose)
     compileOnly(libs.gradlePlugin.compose.compiler)
-    compileOnly(libs.gradlePlugin.ksp)
-    compileOnly(libs.gradlePlugin.wire)
-    compileOnly(libs.gradlePlugin.room)
-    compileOnly(libs.gradlePlugin.android)
-    compileOnly(libs.gradlePlugin.android.tools)
+    compileOnly(kmp.gradlePlugin.compose)
+    compileOnly(kmp.gradlePlugin.ksp)
+    compileOnly(kmp.gradlePlugin.wire)
+    compileOnly(kmp.gradlePlugin.room)
+    compileOnly(kmp.gradlePlugin.android)
+    compileOnly(kmp.gradlePlugin.android.tools)
 }
 
 gradlePlugin {

@@ -17,8 +17,13 @@ dependencyResolutionManagement {
         mavenCentral()
     }
     versionCatalogs {
-        create("libs") {
-            from(files("../gradle-resources/versions/build-plugins.toml"))
+        listOf(
+            "libs" to "build-plugins",
+            "kmp" to "kmp"
+        ).forEach { (name, target) ->
+            create(name) {
+                from(files("../gradle-resources/versions/$target.toml"))
+            }
         }
     }
 }
