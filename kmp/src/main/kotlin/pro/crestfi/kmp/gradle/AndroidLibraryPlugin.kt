@@ -6,7 +6,7 @@ import org.gradle.api.Project
 import org.gradle.kotlin.dsl.configure
 import org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension
 import pro.crestfi.gradle.core
-import pro.crestfi.gradle.kmp
+import pro.crestfi.gradle.kmpAndroid
 import pro.crestfi.gradle.pluginId
 import pro.crestfi.gradle.versionInt
 import pro.crestfi.gradle.versionIntOrNull
@@ -14,16 +14,16 @@ import pro.crestfi.gradle.versionIntOrNull
 class AndroidLibraryPlugin : Plugin<Project> {
     override fun apply(target: Project) = with(target) {
         with(pluginManager) {
-            apply(kmp.pluginId("kotlin-multiplatform-library"))
+            apply(kmpAndroid.pluginId("library"))
             apply(core.pluginId("kotlin-parcelize"))
         }
 
         extensions.configure<KotlinMultiplatformExtension> {
             androidLibrary {
                 namespace = "$group.$name"
-                compileSdk = kmp.versionInt("android-compileSdk")
-                compileSdkExtension = kmp.versionIntOrNull("android-compileSdkExt")
-                minSdk = kmp.versionInt("android-minSdk")
+                compileSdk = kmpAndroid.versionInt("compileSdk")
+                compileSdkExtension = kmpAndroid.versionIntOrNull("compileSdkExt")
+                minSdk = kmpAndroid.versionInt("minSdk")
             }
         }
     }

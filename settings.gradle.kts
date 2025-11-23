@@ -19,7 +19,9 @@ dependencyResolutionManagement {
     versionCatalogs {
         listOf(
             "core" to "build-plugins",
-            "kmp" to "kmp"
+            "kmp" to "kmp",
+            "kmpAndroid" to "kmp-android",
+            "kmpIos" to "kmp-ios",
         ).forEach { (name, target) ->
             create(name) {
                 from(files("../gradle-resources/versions/$target.toml"))

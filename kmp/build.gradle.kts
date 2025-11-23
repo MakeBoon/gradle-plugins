@@ -13,8 +13,8 @@ dependencies {
     compileOnly(core.gradlePlugin.compose.compiler)
     compileOnly(kmp.gradlePlugin.compose)
     compileOnly(kmp.gradlePlugin.room)
-    compileOnly(kmp.gradlePlugin.android)
-    compileOnly(kmp.gradlePlugin.android.tools)
+    compileOnly(kmpAndroid.gradlePlugin)
+    compileOnly(kmpAndroid.gradlePlugin.tools)
 }
 
 gradlePlugin {

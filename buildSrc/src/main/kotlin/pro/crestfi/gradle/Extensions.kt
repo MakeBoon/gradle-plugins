@@ -49,6 +49,7 @@ fun Project.versionCatalog(name: String): VersionCatalog =
 
 val Project.core: VersionCatalog get(): VersionCatalog = versionCatalog("core")
 val Project.kmp: VersionCatalog get(): VersionCatalog = versionCatalog("kmp")
+val Project.kmpAndroid: VersionCatalog get(): VersionCatalog = versionCatalog("kmpAndroid")
 
 val Project.publishName get() = path.drop(1).replace(':', '.')
 

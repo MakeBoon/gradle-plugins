@@ -31,7 +31,9 @@ private fun Settings.dependencyResolutionManagement(
             create(this, "core", "build-plugins", resource, buildSrc)
             create(this, "crestfi", "crestfi-plugins", resource, buildSrc)
             create(this, "kmp", "kmp", resource, buildSrc)
-            create(this, "kmpShared", "kmp-shared", resource, buildSrc)
+            create(this, "kmpExt", "kmp-ext", resource, buildSrc)
+            create(this, "kmpAndroid", "kmp-android", resource, buildSrc)
+            create(this, "kmpIos", "kmp-ios", resource, buildSrc)
             create(this, "kmpApp", "kmp-app", resource, buildSrc)
         }
     }

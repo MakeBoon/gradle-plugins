@@ -29,7 +29,7 @@ class AndroidApplicationPlugin : Plugin<Project> {
         }
 
         with(pluginManager) {
-            apply(kmp.pluginId("android-application"))
+            apply(kmpAndroid.pluginId("application"))
             apply(core.pluginId("kotlin-parcelize"))
         }
 
@@ -39,13 +39,13 @@ class AndroidApplicationPlugin : Plugin<Project> {
 
         extensions.configure<BaseAppModuleExtension> {
             namespace = appConfig.projectNamespace.lowercase()
-            compileSdk = kmp.versionInt("android-compileSdk")
-            compileSdkExtension = kmp.versionIntOrNull("android-compileSdkExt")
+            compileSdk = kmpAndroid.versionInt("compileSdk")
+            compileSdkExtension = kmpAndroid.versionIntOrNull("compileSdkExt")
 
             defaultConfig {
                 applicationId = namespace
-                minSdk = kmp.versionInt("android-minSdk")
-                targetSdk = kmp.versionInt("android-targetSdk")
+                minSdk = kmpAndroid.versionInt("minSdk")
+                targetSdk = kmpAndroid.versionInt("targetSdk")
                 versionCode = appConfig.versionCode
                 versionName = appConfig.versionName
             }
@@ -59,7 +59,7 @@ class AndroidApplicationPlugin : Plugin<Project> {
                 }
             }
 
-            val resourcesDir = layout.projectDirectory.file("../resources/kmp").asFile
+            val resourcesDir = layout.projectDirectory.file("../../kmp-resources").asFile
 
             val keystoreDir = resourcesDir.with("android")
             signingConfigs {
