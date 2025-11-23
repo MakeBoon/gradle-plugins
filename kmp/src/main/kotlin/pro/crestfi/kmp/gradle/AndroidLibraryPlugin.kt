@@ -1,6 +1,6 @@
 package pro.crestfi.kmp.gradle
 
-import com.android.build.gradle.LibraryExtension
+import com.android.build.api.dsl.androidLibrary
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.configure
@@ -14,20 +14,15 @@ import pro.crestfi.gradle.versionIntOrNull
 class AndroidLibraryPlugin : Plugin<Project> {
     override fun apply(target: Project) = with(target) {
         with(pluginManager) {
-            apply(kmp.pluginId("android-library"))
+            apply(kmp.pluginId("kotlin-multiplatform-library"))
             apply(core.pluginId("kotlin-parcelize"))
         }
 
         extensions.configure<KotlinMultiplatformExtension> {
-            androidTarget()
-        }
-
-        extensions.configure<LibraryExtension> {
-            namespace = "$group.$name"
-            compileSdk = kmp.versionInt("android-compileSdk")
-            compileSdkExtension = kmp.versionIntOrNull("android-compileSdkExt")
-
-            defaultConfig {
+            androidLibrary {
+                namespace = "$group.$name"
+                compileSdk = kmp.versionInt("android-compileSdk")
+                compileSdkExtension = kmp.versionIntOrNull("android-compileSdkExt")
                 minSdk = kmp.versionInt("android-minSdk")
             }
         }

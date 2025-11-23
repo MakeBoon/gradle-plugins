@@ -1,5 +1,6 @@
 package pro.crestfi.kmp
 
+import com.android.build.api.dsl.androidLibrary
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.configure
@@ -18,11 +19,13 @@ class OptInPlugin(private val compose: Boolean = false) : Plugin<Project> {
                 `-opt-in`(*optIns.toTypedArray())
             )
 
-            androidTarget().compilerOptions.freeCompilerArgs.addAll(
-                `-opt-in`(
-                    "androidx.media3.common.util.UnstableApi"
+            androidLibrary {
+                compilerOptions.freeCompilerArgs.addAll(
+                    `-opt-in`(
+                        "androidx.media3.common.util.UnstableApi"
+                    )
                 )
-            )
+            }
         }
     }
 }

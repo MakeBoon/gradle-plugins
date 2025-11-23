@@ -21,7 +21,8 @@ class ComposePreviewPlugin : Plugin<Project> {
                 val compose = extensions.getByType<ComposePlugin.Dependencies>()
                 with(this@afterEvaluate) {
                     dependencies {
-                        "debugImplementation"(compose.uiTooling)
+                        // https://developer.android.com/kotlin/multiplatform/plugin#compose-preview-dependencies
+                        "androidRuntimeClasspath"(compose.uiTooling)
                     }
                 }
                 with(sourceSets) {
