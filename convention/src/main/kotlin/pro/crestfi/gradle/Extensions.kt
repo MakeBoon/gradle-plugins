@@ -44,10 +44,12 @@ fun Settings.create(
     }
 }
 
-val Project.libs: VersionCatalog
-    get(): VersionCatalog = with(extensions.getByType<VersionCatalogsExtension>()) {
-        find("core").getOrElse { named("libs") }
-    }
+fun Project.versionCatalog(name: String): VersionCatalog =
+    extensions.getByType<VersionCatalogsExtension>().named(name)
+
+val Project.core: VersionCatalog get(): VersionCatalog = versionCatalog("core")
+val Project.kmp: VersionCatalog get(): VersionCatalog = versionCatalog("kmp")
+
 val Project.publishName get() = path.drop(1).replace(':', '.')
 
 val Directory.regularFiles get() = asFileTree.map { file(it.path) }

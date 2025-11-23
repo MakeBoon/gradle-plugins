@@ -29,8 +29,8 @@ class AndroidApplicationPlugin : Plugin<Project> {
         }
 
         with(pluginManager) {
-            apply(libs.pluginId("android-application"))
-            apply(libs.pluginId("kotlin-parcelize"))
+            apply(kmp.pluginId("android-application"))
+            apply(core.pluginId("kotlin-parcelize"))
         }
 
         extensions.configure<KotlinMultiplatformExtension> {
@@ -39,13 +39,13 @@ class AndroidApplicationPlugin : Plugin<Project> {
 
         extensions.configure<BaseAppModuleExtension> {
             namespace = appConfig.projectNamespace.lowercase()
-            compileSdk = libs.versionInt("android-compileSdk")
-            compileSdkExtension = libs.versionIntOrNull("android-compileSdkExt")
+            compileSdk = kmp.versionInt("android-compileSdk")
+            compileSdkExtension = kmp.versionIntOrNull("android-compileSdkExt")
 
             defaultConfig {
                 applicationId = namespace
-                minSdk = libs.versionInt("android-minSdk")
-                targetSdk = libs.versionInt("android-targetSdk")
+                minSdk = kmp.versionInt("android-minSdk")
+                targetSdk = kmp.versionInt("android-targetSdk")
                 versionCode = appConfig.versionCode
                 versionName = appConfig.versionName
             }

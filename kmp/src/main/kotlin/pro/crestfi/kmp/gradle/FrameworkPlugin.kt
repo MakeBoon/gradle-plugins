@@ -6,7 +6,7 @@ import org.gradle.kotlin.dsl.configure
 import org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension
 import org.jetbrains.kotlin.gradle.dsl.KotlinVersion
 import pro.crestfi.gradle.`-X`
-import pro.crestfi.gradle.libs
+import pro.crestfi.gradle.core
 import pro.crestfi.gradle.pluginId
 import pro.crestfi.gradle.version
 import pro.crestfi.gradle.versionInt
@@ -14,15 +14,15 @@ import pro.crestfi.gradle.versionInt
 class FrameworkPlugin(private val application: Boolean = false) : Plugin<Project> {
     override fun apply(target: Project) = with(target) {
         with(pluginManager) {
-            apply(libs.pluginId("kotlin-multiplatform"))
-            apply(libs.pluginId("kotlin-serialization"))
+            apply(core.pluginId("kotlin-multiplatform"))
+            apply(core.pluginId("kotlin-serialization"))
         }
 
         extensions.configure<KotlinMultiplatformExtension> {
-            jvmToolchain(libs.versionInt("kotlin-jvmToolchain"))
+            jvmToolchain(core.versionInt("kotlin-jvmToolchain"))
             if (!application) explicitApi()
             compilerOptions {
-                val kotlinVersion = KotlinVersion.fromVersion(libs.version("kotlin-compile"))
+                val kotlinVersion = KotlinVersion.fromVersion(core.version("kotlin-compile"))
                 languageVersion.set(kotlinVersion)
                 apiVersion.set(kotlinVersion)
                 progressiveMode.set(true)

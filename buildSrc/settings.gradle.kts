@@ -4,8 +4,12 @@ dependencyResolutionManagement {
         mavenCentral()
     }
     versionCatalogs {
-        create("libs") {
-            from(files("../../gradle-resources/versions/build-plugins.toml"))
+        listOf(
+            "core" to "build-plugins",
+        ).forEach { (name, target) ->
+            create(name) {
+                from(files("../../gradle-resources/versions/$target.toml"))
+            }
         }
     }
 }

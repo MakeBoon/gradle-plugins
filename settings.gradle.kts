@@ -18,7 +18,7 @@ dependencyResolutionManagement {
     }
     versionCatalogs {
         listOf(
-            "libs" to "build-plugins",
+            "core" to "build-plugins",
             "kmp" to "kmp"
         ).forEach { (name, target) ->
             create(name) {

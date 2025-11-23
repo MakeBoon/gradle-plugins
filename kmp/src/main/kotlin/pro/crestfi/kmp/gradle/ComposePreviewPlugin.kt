@@ -7,13 +7,13 @@ import org.gradle.kotlin.dsl.dependencies
 import org.gradle.kotlin.dsl.getByType
 import org.jetbrains.compose.ComposePlugin
 import org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension
-import pro.crestfi.gradle.libs
+import pro.crestfi.gradle.kmp
 import pro.crestfi.gradle.pluginId
 
 class ComposePreviewPlugin : Plugin<Project> {
     override fun apply(target: Project) = with(target) {
         with(pluginManager) {
-            apply(libs.pluginId("compose"))
+            apply(kmp.pluginId("compose"))
         }
 
         afterEvaluate {

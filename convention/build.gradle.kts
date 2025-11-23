@@ -1,7 +1,7 @@
 plugins {
     `kotlin-dsl`
-    alias(libs.plugins.convention.jvmToolchain)
-    alias(libs.plugins.convention.publish)
+    alias(core.plugins.convention.jvmToolchain)
+    alias(core.plugins.convention.publish)
 }
 
 dependencies {

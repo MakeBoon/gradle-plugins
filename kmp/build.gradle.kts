@@ -2,16 +2,16 @@ import pro.crestfi.gradle.registerOf
 
 plugins {
     `kotlin-dsl`
-    alias(libs.plugins.convention.jvmToolchain)
-    alias(libs.plugins.convention.publish)
+    alias(core.plugins.convention.jvmToolchain)
+    alias(core.plugins.convention.publish)
 }
 
 dependencies {
     implementation(projects.convention)
-    compileOnly(libs.gradlePlugin.compose.compiler)
+    compileOnly(core.gradlePlugin.ksp)
+    compileOnly(core.gradlePlugin.wire)
+    compileOnly(core.gradlePlugin.compose.compiler)
     compileOnly(kmp.gradlePlugin.compose)
-    compileOnly(kmp.gradlePlugin.ksp)
-    compileOnly(kmp.gradlePlugin.wire)
     compileOnly(kmp.gradlePlugin.room)
     compileOnly(kmp.gradlePlugin.android)
     compileOnly(kmp.gradlePlugin.android.tools)
