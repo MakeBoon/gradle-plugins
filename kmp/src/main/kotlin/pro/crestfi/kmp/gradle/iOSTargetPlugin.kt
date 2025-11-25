@@ -8,7 +8,7 @@ import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeCompilation
 import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget
 import pro.crestfi.gradle.fileFromResource
 
-class iOSLibraryPlugin : Plugin<Project> {
+class iOSTargetPlugin : Plugin<Project> {
     override fun apply(target: Project) = with(target) {
         extensions.configure<KotlinMultiplatformExtension> {
             listOf(
@@ -35,7 +35,7 @@ private fun KotlinNativeTarget.configureCinterop() {
 private fun KotlinNativeCompilation.create(name: String) {
     cinterops.create(name) {
         definitionFile.set(
-            iOSLibraryPlugin::class
+            iOSTargetPlugin::class
                 .fileFromResource(DIR_cinterop, "$name.def")!!
         )
     }

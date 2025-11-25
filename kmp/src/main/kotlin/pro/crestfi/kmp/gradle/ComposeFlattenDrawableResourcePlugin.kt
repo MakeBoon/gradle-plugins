@@ -2,7 +2,6 @@ package pro.crestfi.kmp.gradle
 
 import com.android.ide.common.vectordrawable.Svg2Vector
 import org.gradle.api.DefaultTask
-import org.gradle.api.GradleException
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.api.file.DirectoryProperty
@@ -12,6 +11,7 @@ import org.gradle.api.tasks.InputDirectory
 import org.gradle.api.tasks.OutputDirectory
 import org.gradle.api.tasks.TaskAction
 import org.gradle.kotlin.dsl.create
+import org.gradle.kotlin.dsl.invoke
 import org.gradle.kotlin.dsl.register
 import pro.crestfi.gradle.asFile
 import pro.crestfi.kmp.gradle.ComposeFlattenDrawableResourceExtension.Companion.EXTENSION_NAME
@@ -21,18 +21,26 @@ import java.nio.file.Files
 import java.nio.file.Path
 import java.nio.file.StandardCopyOption
 import java.util.regex.Pattern
-import kotlin.io.path.*
+import kotlin.io.path.Path
+import kotlin.io.path.deleteIfExists
+import kotlin.io.path.extension
+import kotlin.io.path.isRegularFile
+import kotlin.io.path.name
+import kotlin.io.path.pathString
+import kotlin.io.path.writeText
 
 class ComposeFlattenDrawableResourcePlugin : Plugin<Project> {
     override fun apply(target: Project) = with(target) {
-        val extension = extensions.create(EXTENSION_NAME, ComposeFlattenDrawableResourceExtension::class)
+        val extension = extensions.create(
+            EXTENSION_NAME,
+            ComposeFlattenDrawableResourceExtension::class
+        )
 
         afterEvaluate {
             val inputDir = extension.inputDir
             val inputDirFile = inputDir.asFile
 
-            if (inputDir.isBlank())
-                throw GradleException("A valid input directory must be specified.")
+            if (inputDir.isBlank()) return@afterEvaluate
 
             tasks.register<ComposeFlattenDrawableResourceTask>(TASK_NAME) {
                 group = "kmp"
@@ -43,7 +51,8 @@ class ComposeFlattenDrawableResourcePlugin : Plugin<Project> {
             listOf(
                 "preBuild",
                 "copyNonXmlValueResourcesForCommonMain"
-            ).forEach { tasks.named(it) { dependsOn(TASK_NAME) } }
+            ).mapNotNull { runCatching { tasks.named(it) }.getOrNull() }
+                .forEach { it.invoke { dependsOn(TASK_NAME) } }
         }
     }
 }

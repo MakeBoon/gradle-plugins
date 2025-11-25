@@ -19,9 +19,10 @@ dependencies {
 
 gradlePlugin {
     plugins {
-        registerOf(project, "application", false)
-        registerOf(project, "library", false)
+        registerOf(project, "app-config", false)
+        registerOf(project, "compose-application", false)
         registerOf(project, "compose-library", false)
+        registerOf(project, "library", false)
         //
         registerOf(project, "framework")
         registerOf(project, "compose")
@@ -32,8 +33,8 @@ gradlePlugin {
         registerOf(project, "room")
         registerOf(project, "firebase")
         registerOf(project, "android-application")
-        registerOf(project, "android-library")
-        registerOf(project, "ios-library") { "iOSLibrary" }
+        registerOf(project, "android-target")
+        registerOf(project, "ios-target") { "iOSTarget" }
         registerOf(project, "publish")
     }
 }

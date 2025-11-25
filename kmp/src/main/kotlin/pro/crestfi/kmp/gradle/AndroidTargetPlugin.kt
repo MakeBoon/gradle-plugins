@@ -11,7 +11,7 @@ import pro.crestfi.gradle.pluginId
 import pro.crestfi.gradle.versionInt
 import pro.crestfi.gradle.versionIntOrNull
 
-class AndroidLibraryPlugin : Plugin<Project> {
+class AndroidTargetPlugin : Plugin<Project> {
     override fun apply(target: Project) = with(target) {
         with(pluginManager) {
             apply(kmpAndroid.pluginId("library"))
