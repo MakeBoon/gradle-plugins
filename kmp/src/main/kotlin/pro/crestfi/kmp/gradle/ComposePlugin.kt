@@ -15,6 +15,7 @@ class ComposePlugin : Plugin<Project> {
         with(pluginManager) {
             apply(core.pluginId("compose-compiler"))
             apply(kmp.pluginId("compose"))
+            apply(kmp.pluginId("compose-hotReload"))
         }
 
         val resourcesDir = layout.projectDirectory.dir("../resources/kmp")
