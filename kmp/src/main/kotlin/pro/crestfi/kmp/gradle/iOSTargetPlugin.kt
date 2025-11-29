@@ -8,7 +8,10 @@ import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeCompilation
 import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget
 import pro.crestfi.gradle.fileFromResource
 
-class iOSTargetPlugin : Plugin<Project> {
+@Suppress("ClassName")
+class iOSTargetPlugin(
+    private val library: Boolean,
+) : Plugin<Project> {
     override fun apply(target: Project) = with(target) {
         extensions.configure<KotlinMultiplatformExtension> {
             listOf(

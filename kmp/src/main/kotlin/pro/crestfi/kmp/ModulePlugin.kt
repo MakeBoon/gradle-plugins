@@ -69,7 +69,7 @@ private class ModulePlugin(
             addAll(
                 listOf(
                     AndroidTargetPlugin(),
-                    iOSTargetPlugin(),
+                    iOSTargetPlugin(library),
                     OptInPlugin(compose, library),
                 )
             )
