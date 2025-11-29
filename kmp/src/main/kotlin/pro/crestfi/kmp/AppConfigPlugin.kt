@@ -10,8 +10,8 @@ import pro.crestfi.kmp.AppConfigExtension.Companion.EXTENSION_NAME
 
 class AppConfigPlugin : Plugin<Project> {
     override fun apply(target: Project) = with(target) {
-        extensions.create(EXTENSION_NAME, AppConfigExtension::class).apply {
-            with(layout.projectDirectory.file("../AppConfig.properties").asFile.toProperties()) {
+        val appConfig = extensions.create(EXTENSION_NAME, AppConfigExtension::class).apply {
+            with(layout.projectDirectory.file("../AppConfig.xcconfig").asFile.toProperties()) {
                 projectNamespace = getProperty("ProjectNamespace")
                 versionMajor = getPropertyInt("VersionMajor")
                 versionMinor = getPropertyInt("VersionMinor")
@@ -20,7 +20,10 @@ class AppConfigPlugin : Plugin<Project> {
                 paymentTest = getPropertyBooleanOrNull("PaymentTest") ?: false
             }
         }
-        return@with
+        with(appConfig) {
+            group = projectNamespace
+            version = versionNameWithBuild
+        }
     }
 }
 
@@ -37,4 +40,5 @@ abstract class AppConfigExtension {
     abstract var paymentTest: Boolean
     val versionCode: Int get() = versionMajor * 1_000_000 + versionMinor * 10_000 + versionPatch * 100 + versionBuild
     val versionName: String get() = "$versionMajor.$versionMinor.$versionPatch"
+    val versionNameWithBuild: String get() = "$versionName.$versionBuild"
 }
