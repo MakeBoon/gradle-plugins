@@ -8,7 +8,6 @@ import org.gradle.api.Project
 import org.gradle.internal.extensions.stdlib.capitalized
 import org.gradle.kotlin.dsl.configure
 import org.gradle.kotlin.dsl.get
-import org.gradle.kotlin.dsl.getByType
 import org.gradle.kotlin.dsl.named
 import pro.crestfi.gradle.core
 import pro.crestfi.gradle.kmpAndroid
@@ -17,8 +16,8 @@ import pro.crestfi.gradle.toProperties
 import pro.crestfi.gradle.versionInt
 import pro.crestfi.gradle.versionIntOrNull
 import pro.crestfi.gradle.with
-import pro.crestfi.kmp.AppConfigExtension
 import pro.crestfi.kmp.AppConfigPlugin
+import pro.crestfi.kmp.appConfig
 import java.io.File
 
 class AndroidApplicationPlugin : Plugin<Project> {
@@ -30,7 +29,7 @@ class AndroidApplicationPlugin : Plugin<Project> {
     }
 
     private fun Project.androidTarget() {
-        val appConfig = extensions.getByType<AppConfigExtension>()
+        val appConfig = appConfig
 
         with(pluginManager) {
             apply(kmpAndroid.pluginId("application"))

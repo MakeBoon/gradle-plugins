@@ -18,7 +18,6 @@ import java.io.InputStream
 import java.net.URL
 import java.util.Properties
 import kotlin.io.path.createTempFile
-import kotlin.jvm.optionals.getOrElse
 import kotlin.reflect.KClass
 import org.gradle.api.artifacts.ExternalModuleDependencyBundle as Bundle
 import org.gradle.api.artifacts.MinimalExternalModuleDependency as Dependency
@@ -47,9 +46,9 @@ fun Settings.create(
 fun Project.versionCatalog(name: String): VersionCatalog =
     extensions.getByType<VersionCatalogsExtension>().named(name)
 
-val Project.core: VersionCatalog get(): VersionCatalog = versionCatalog("core")
-val Project.kmp: VersionCatalog get(): VersionCatalog = versionCatalog("kmp")
-val Project.kmpAndroid: VersionCatalog get(): VersionCatalog = versionCatalog("kmpAndroid")
+val Project.core: VersionCatalog get() = versionCatalog("core")
+val Project.kmp: VersionCatalog get() = versionCatalog("kmp")
+val Project.kmpAndroid: VersionCatalog get() = versionCatalog("kmpAndroid")
 
 val Project.publishName get() = path.drop(1).replace(':', '.')
 
