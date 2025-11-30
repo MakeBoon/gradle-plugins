@@ -4,9 +4,8 @@ import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.configure
 import org.gradle.kotlin.dsl.dependencies
-import org.gradle.kotlin.dsl.getByType
-import org.jetbrains.compose.ComposePlugin
 import org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension
+import pro.crestfi.gradle.bundle
 import pro.crestfi.gradle.kmp
 import pro.crestfi.gradle.pluginId
 
@@ -18,7 +17,6 @@ class ComposePreviewPlugin : Plugin<Project> {
 
         afterEvaluate {
             extensions.configure<KotlinMultiplatformExtension> {
-                val compose = extensions.getByType<ComposePlugin.Dependencies>()
                 with(this@afterEvaluate) {
                     dependencies {
                         // https://developer.android.com/kotlin/multiplatform/plugin#compose-preview-dependencies
@@ -27,10 +25,10 @@ class ComposePreviewPlugin : Plugin<Project> {
                 }
                 with(sourceSets) {
                     commonMain.dependencies {
-                        api(compose.components.uiToolingPreview)
+                        api(kmp.bundle("compose-preview"))
                     }
                     androidMain.dependencies {
-                        api(compose.preview)
+                        api(kmp.bundle("compose-android"))
                     }
                 }
             }
