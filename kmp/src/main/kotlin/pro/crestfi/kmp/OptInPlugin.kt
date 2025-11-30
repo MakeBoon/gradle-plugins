@@ -53,6 +53,7 @@ enum class OptIn(private vararg val value: String) {
         "androidx.compose.material3.ExperimentalMaterial3ExpressiveApi",
         "androidx.compose.foundation.ExperimentalFoundationApi",
         "androidx.compose.foundation.layout.ExperimentalLayoutApi",
+        "androidx.compose.ui.ExperimentalComposeUiApi",
         //
         "dev.chrisbanes.haze.materials.ExperimentalHazeMaterialsApi",
     ),
