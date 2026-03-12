@@ -6,6 +6,8 @@ import org.gradle.api.Project
 import org.gradle.api.artifacts.VersionCatalog
 import org.gradle.api.artifacts.VersionCatalogsExtension
 import org.gradle.api.file.Directory
+import org.gradle.api.initialization.Settings
+import org.gradle.api.initialization.resolve.MutableVersionCatalogContainer
 import org.gradle.api.provider.Provider
 import org.gradle.internal.extensions.stdlib.capitalized
 import org.gradle.kotlin.dsl.getByType
@@ -14,17 +16,40 @@ import org.jetbrains.kotlin.gradle.plugin.KotlinDependencyHandler
 import java.io.File
 import java.io.InputStream
 import java.net.URL
-import java.util.*
+import java.util.Properties
 import kotlin.io.path.createTempFile
-import kotlin.jvm.optionals.getOrElse
 import kotlin.reflect.KClass
 import org.gradle.api.artifacts.ExternalModuleDependencyBundle as Bundle
 import org.gradle.api.artifacts.MinimalExternalModuleDependency as Dependency
 
-val Project.libs: VersionCatalog
-    get(): VersionCatalog = with(extensions.getByType<VersionCatalogsExtension>()) {
-        find("core").getOrElse { named("libs") }
+fun Settings.create(
+    versionCatalog: MutableVersionCatalogContainer,
+    name: String,
+    target: String = name,
+    resources: Boolean = false,
+    buildSrc: Boolean = false,
+) {
+    versionCatalog.create(name) {
+        from(layout.rootDirectory.files(buildString {
+            when {
+                resources -> {
+                    if (buildSrc) append("../")
+                    append("../gradle-resources/versions")
+                }
+                else -> append("gradle")
+            }
+            append("/$target.toml")
+        }))
     }
+}
+
+fun Project.versionCatalog(name: String): VersionCatalog =
+    extensions.getByType<VersionCatalogsExtension>().named(name)
+
+val Project.core: VersionCatalog get() = versionCatalog("core")
+val Project.kmp: VersionCatalog get() = versionCatalog("kmp")
+val Project.kmpAndroid: VersionCatalog get() = versionCatalog("kmpAndroid")
+
 val Project.publishName get() = path.drop(1).replace(':', '.')
 
 val Directory.regularFiles get() = asFileTree.map { file(it.path) }

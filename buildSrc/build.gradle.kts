@@ -3,11 +3,11 @@ plugins {
 }
 
 kotlin {
-    jvmToolchain(libs.versions.kotlin.jvmToolchain.get().toInt())
+    jvmToolchain(core.versions.kotlin.jvmToolchain.get().toInt())
 }
 
 dependencies {
-    implementation(libs.gradlePlugin.kotlin)
+    implementation(core.gradlePlugin.kotlin)
 }
 
 gradlePlugin {

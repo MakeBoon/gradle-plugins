@@ -2,26 +2,27 @@ import pro.crestfi.gradle.registerOf
 
 plugins {
     `kotlin-dsl`
-    alias(libs.plugins.convention.jvmToolchain)
-    alias(libs.plugins.convention.publish)
+    alias(core.plugins.convention.jvmToolchain)
+    alias(core.plugins.convention.publish)
 }
 
 dependencies {
     implementation(projects.convention)
-    compileOnly(libs.gradlePlugin.compose)
-    compileOnly(libs.gradlePlugin.compose.compiler)
-    compileOnly(libs.gradlePlugin.ksp)
-    compileOnly(libs.gradlePlugin.wire)
-    compileOnly(libs.gradlePlugin.room)
-    compileOnly(libs.gradlePlugin.android)
-    compileOnly(libs.gradlePlugin.android.tools)
+    compileOnly(core.gradlePlugin.ksp)
+    compileOnly(core.gradlePlugin.wire)
+    compileOnly(core.gradlePlugin.compose.compiler)
+    compileOnly(kmp.gradlePlugin.compose)
+    compileOnly(kmp.gradlePlugin.room)
+    compileOnly(kmpAndroid.gradlePlugin)
+    compileOnly(kmpAndroid.gradlePlugin.tools)
 }
 
 gradlePlugin {
     plugins {
-        registerOf(project, "application", false)
-        registerOf(project, "library", false)
+        registerOf(project, "app-config", false)
+        registerOf(project, "compose-application", false)
         registerOf(project, "compose-library", false)
+        registerOf(project, "library", false)
         //
         registerOf(project, "framework")
         registerOf(project, "compose")
@@ -32,8 +33,8 @@ gradlePlugin {
         registerOf(project, "room")
         registerOf(project, "firebase")
         registerOf(project, "android-application")
-        registerOf(project, "android-library")
-        registerOf(project, "ios-library") { "iOSLibrary" }
+        registerOf(project, "android-target")
+        registerOf(project, "ios-target") { "iOSTarget" }
         registerOf(project, "publish")
     }
 }

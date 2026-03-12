@@ -10,15 +10,16 @@ import org.gradle.kotlin.dsl.dependencies
 import org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension
 import org.jetbrains.kotlin.gradle.plugin.KotlinPlatformType
 import pro.crestfi.gradle.bundle
+import pro.crestfi.gradle.core
+import pro.crestfi.gradle.kmp
 import pro.crestfi.gradle.library
-import pro.crestfi.gradle.libs
 import pro.crestfi.gradle.pluginId
 
 class RoomPlugin : Plugin<Project> {
     override fun apply(target: Project) = with(target) {
         with(pluginManager) {
-            apply(libs.pluginId("ksp"))
-            apply(libs.pluginId("room"))
+            apply(core.pluginId("ksp"))
+            apply(kmp.pluginId("room"))
         }
 
         extensions.configure<KspExtension> {
@@ -35,18 +36,21 @@ class RoomPlugin : Plugin<Project> {
 
         extensions.configure<KotlinMultiplatformExtension> {
             sourceSets.commonMain.dependencies {
-                api(libs.bundle("room"))
+                api(kmp.bundle("room"))
             }
         }
 
         afterEvaluate {
-            val compiler = libs.library("room-compiler")
+            val compiler = kmp.library("room-compiler")
             extensions.configure<KotlinMultiplatformExtension> {
-                dependencies {
-//                    "kspCommonMainMetadata"(compiler)
-                    targets.filter { it.platformType != KotlinPlatformType.common }
-                        .map { "ksp${it.targetName.capitalized()}" }
-                        .forEach { it.invoke(compiler) }
+                with(this@afterEvaluate) {
+                    dependencies {
+//                        "testImplementation"(kmp.library("room-testing"))
+//                        "kspCommonMainMetadata"(compiler)
+                        targets.filter { it.platformType != KotlinPlatformType.common }
+                            .map { "ksp${it.targetName.capitalized()}" }
+                            .forEach { it.invoke(compiler) }
+                    }
                 }
             }
         }

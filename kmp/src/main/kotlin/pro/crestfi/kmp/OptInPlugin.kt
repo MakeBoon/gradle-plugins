@@ -1,12 +1,16 @@
 package pro.crestfi.kmp
 
+import com.android.build.api.dsl.androidLibrary
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.configure
 import org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension
 import pro.crestfi.gradle.`-opt-in`
 
-class OptInPlugin(private val compose: Boolean = false) : Plugin<Project> {
+class OptInPlugin(
+    private val compose: Boolean = false,
+    private val library: Boolean = false,
+) : Plugin<Project> {
     override fun apply(target: Project) = with(target) {
         extensions.configure<KotlinMultiplatformExtension> {
             val optIns = mutableListOf<OptIn>().apply {
@@ -18,11 +22,15 @@ class OptInPlugin(private val compose: Boolean = false) : Plugin<Project> {
                 `-opt-in`(*optIns.toTypedArray())
             )
 
-            androidTarget().compilerOptions.freeCompilerArgs.addAll(
-                `-opt-in`(
-                    "androidx.media3.common.util.UnstableApi"
-                )
-            )
+            if (library) {
+                androidLibrary {
+                    compilerOptions.freeCompilerArgs.addAll(
+                        `-opt-in`(
+                            "androidx.media3.common.util.UnstableApi"
+                        )
+                    )
+                }
+            }
         }
     }
 }
@@ -45,6 +53,7 @@ enum class OptIn(private vararg val value: String) {
         "androidx.compose.material3.ExperimentalMaterial3ExpressiveApi",
         "androidx.compose.foundation.ExperimentalFoundationApi",
         "androidx.compose.foundation.layout.ExperimentalLayoutApi",
+        "androidx.compose.ui.ExperimentalComposeUiApi",
         //
         "dev.chrisbanes.haze.materials.ExperimentalHazeMaterialsApi",
     ),
