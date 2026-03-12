@@ -4,10 +4,10 @@ import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.configure
 import org.gradle.plugin.devel.GradlePluginDevelopmentExtension
-import pro.crestfi.gradle.PROJECT_GROUP_ID
-import pro.crestfi.gradle.PROJECT_VERSION
-import pro.crestfi.gradle.core
-import pro.crestfi.gradle.pluginId
+import com.makeboon.gradle.PROJECT_GROUP_ID
+import com.makeboon.gradle.PROJECT_VERSION
+import com.makeboon.gradle.core
+import com.makeboon.gradle.pluginId
 
 class PublishPlugin : Plugin<Project> {
     override fun apply(target: Project) = with(target) {
@@ -21,7 +21,7 @@ class PublishPlugin : Plugin<Project> {
         version = PROJECT_VERSION
 
         extensions.configure<GradlePluginDevelopmentExtension> {
-            val url = "https://github.com/ib-fi/gradle-plugins"
+            val url = "https://github.com/MakeBoon/gradle-plugins"
             website.set(url)
             vcsUrl.set(url)
         }

@@ -1,11 +1,11 @@
-package pro.crestfi.kmp
+package com.makeboon.kmp
 
 import com.android.build.api.dsl.androidLibrary
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.configure
 import org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension
-import pro.crestfi.gradle.`-opt-in`
+import com.makeboon.gradle.`-opt-in`
 
 class OptInPlugin(
     private val compose: Boolean = false,

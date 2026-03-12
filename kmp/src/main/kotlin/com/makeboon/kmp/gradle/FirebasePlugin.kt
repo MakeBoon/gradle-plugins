@@ -1,9 +1,9 @@
-package pro.crestfi.kmp.gradle
+package com.makeboon.kmp.gradle
 
 import org.gradle.api.Plugin
 import org.gradle.api.Project
-import pro.crestfi.gradle.kmpAndroid
-import pro.crestfi.gradle.pluginId
+import com.makeboon.gradle.kmpAndroid
+import com.makeboon.gradle.pluginId
 
 class FirebasePlugin : Plugin<Project> {
     override fun apply(target: Project) = with(target) {

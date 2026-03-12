@@ -1,12 +1,12 @@
-package pro.crestfi.kmp
+package com.makeboon.kmp
 
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.create
-import pro.crestfi.gradle.getPropertyBooleanOrNull
-import pro.crestfi.gradle.getPropertyInt
-import pro.crestfi.gradle.toProperties
-import pro.crestfi.kmp.AppConfigExtension.Companion.EXTENSION_NAME
+import com.makeboon.gradle.getPropertyBooleanOrNull
+import com.makeboon.gradle.getPropertyInt
+import com.makeboon.gradle.toProperties
+import com.makeboon.kmp.AppConfigExtension.Companion.EXTENSION_NAME
 
 class AppConfigPlugin : Plugin<Project> {
     override fun apply(target: Project) = with(target) {

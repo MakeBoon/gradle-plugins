@@ -1,4 +1,4 @@
-package pro.crestfi.kmp
+package com.makeboon.kmp
 
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.getByType

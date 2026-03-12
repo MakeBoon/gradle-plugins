@@ -1,4 +1,4 @@
-package pro.crestfi.kmp.gradle
+package com.makeboon.kmp.gradle
 
 import androidx.room.gradle.RoomExtension
 import com.google.devtools.ksp.gradle.KspExtension
@@ -9,11 +9,11 @@ import org.gradle.kotlin.dsl.configure
 import org.gradle.kotlin.dsl.dependencies
 import org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension
 import org.jetbrains.kotlin.gradle.plugin.KotlinPlatformType
-import pro.crestfi.gradle.bundle
-import pro.crestfi.gradle.core
-import pro.crestfi.gradle.kmp
-import pro.crestfi.gradle.library
-import pro.crestfi.gradle.pluginId
+import com.makeboon.gradle.bundle
+import com.makeboon.gradle.core
+import com.makeboon.gradle.kmp
+import com.makeboon.gradle.library
+import com.makeboon.gradle.pluginId
 
 class RoomPlugin : Plugin<Project> {
     override fun apply(target: Project) = with(target) {

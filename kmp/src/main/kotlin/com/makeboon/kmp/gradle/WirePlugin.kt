@@ -1,11 +1,11 @@
-package pro.crestfi.kmp.gradle
+package com.makeboon.kmp.gradle
 
 import com.squareup.wire.gradle.WireExtension
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.configure
-import pro.crestfi.gradle.core
-import pro.crestfi.gradle.pluginId
+import com.makeboon.gradle.core
+import com.makeboon.gradle.pluginId
 
 class WirePlugin : Plugin<Project> {
     override fun apply(target: Project) = with(target) {

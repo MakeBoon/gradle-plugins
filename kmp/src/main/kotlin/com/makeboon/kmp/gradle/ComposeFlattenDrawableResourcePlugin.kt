@@ -1,4 +1,4 @@
-package pro.crestfi.kmp.gradle
+package com.makeboon.kmp.gradle
 
 import com.android.ide.common.vectordrawable.Svg2Vector
 import org.gradle.api.DefaultTask
@@ -13,9 +13,9 @@ import org.gradle.api.tasks.TaskAction
 import org.gradle.kotlin.dsl.create
 import org.gradle.kotlin.dsl.invoke
 import org.gradle.kotlin.dsl.register
-import pro.crestfi.gradle.asFile
-import pro.crestfi.kmp.gradle.ComposeFlattenDrawableResourceExtension.Companion.EXTENSION_NAME
-import pro.crestfi.kmp.gradle.ComposeFlattenDrawableResourceTask.Companion.TASK_NAME
+import com.makeboon.gradle.asFile
+import com.makeboon.kmp.gradle.ComposeFlattenDrawableResourceExtension.Companion.EXTENSION_NAME
+import com.makeboon.kmp.gradle.ComposeFlattenDrawableResourceTask.Companion.TASK_NAME
 import java.io.ByteArrayOutputStream
 import java.nio.file.Files
 import java.nio.file.Path

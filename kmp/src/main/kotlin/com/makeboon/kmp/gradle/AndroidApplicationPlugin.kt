@@ -1,4 +1,4 @@
-package pro.crestfi.kmp.gradle
+package com.makeboon.kmp.gradle
 
 import com.android.build.gradle.internal.api.BaseVariantOutputImpl
 import com.android.build.gradle.internal.dsl.BaseAppModuleExtension
@@ -9,15 +9,15 @@ import org.gradle.internal.extensions.stdlib.capitalized
 import org.gradle.kotlin.dsl.configure
 import org.gradle.kotlin.dsl.get
 import org.gradle.kotlin.dsl.named
-import pro.crestfi.gradle.core
-import pro.crestfi.gradle.kmpAndroid
-import pro.crestfi.gradle.pluginId
-import pro.crestfi.gradle.toProperties
-import pro.crestfi.gradle.versionInt
-import pro.crestfi.gradle.versionIntOrNull
-import pro.crestfi.gradle.with
-import pro.crestfi.kmp.AppConfigPlugin
-import pro.crestfi.kmp.appConfig
+import com.makeboon.gradle.core
+import com.makeboon.gradle.kmpAndroid
+import com.makeboon.gradle.pluginId
+import com.makeboon.gradle.toProperties
+import com.makeboon.gradle.versionInt
+import com.makeboon.gradle.versionIntOrNull
+import com.makeboon.gradle.with
+import com.makeboon.kmp.AppConfigPlugin
+import com.makeboon.kmp.appConfig
 import java.io.File
 
 class AndroidApplicationPlugin : Plugin<Project> {

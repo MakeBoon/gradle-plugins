@@ -1,15 +1,15 @@
-package pro.crestfi.kmp.gradle
+package com.makeboon.kmp.gradle
 
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.configure
 import org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension
 import org.jetbrains.kotlin.gradle.dsl.KotlinVersion
-import pro.crestfi.gradle.`-X`
-import pro.crestfi.gradle.core
-import pro.crestfi.gradle.pluginId
-import pro.crestfi.gradle.version
-import pro.crestfi.gradle.versionInt
+import com.makeboon.gradle.`-X`
+import com.makeboon.gradle.core
+import com.makeboon.gradle.pluginId
+import com.makeboon.gradle.version
+import com.makeboon.gradle.versionInt
 
 class FrameworkPlugin(private val library: Boolean) : Plugin<Project> {
     override fun apply(target: Project) = with(target) {
@@ -30,7 +30,6 @@ class FrameworkPlugin(private val library: Boolean) : Plugin<Project> {
                     `-X`(
                         "expect-actual-classes", // https://kotlinlang.org/docs/multiplatform/multiplatform-expect-actual.html#expected-and-actual-classes
                         // whatsnew22
-//                        "nested-type-aliases", // https://kotlinlang.org/docs/whatsnew22.html#support-for-nested-type-aliases
                         "context-parameters", // https://kotlinlang.org/docs/whatsnew22.html#preview-of-context-parameters
                         /*
                          * https://kotlinlang.org/docs/whatsnew22.html#preview-of-context-sensitive-resolution
@@ -38,11 +37,12 @@ class FrameworkPlugin(private val library: Boolean) : Plugin<Project> {
                          */
                         "context-sensitive-resolution",
                         // whatsnew2220
-//                        "data-flow-based-exhaustiveness", // https://kotlinlang.org/docs/whatsnew2220.html#data-flow-based-exhaustiveness-checks-for-when-expressions
                         "allow-reified-type-in-catch", // https://kotlinlang.org/docs/whatsnew2220.html#support-for-reified-types-in-catch-clauses
                         "when-expressions=indy", // https://kotlinlang.org/docs/whatsnew2220.html#kotlin-jvm-support-invokedynamic-with-when-expressions
-                        // whatsnew-eap: 2.3.0-RC
-                        "return-value-checker=check", // https://kotlinlang.org/docs/whatsnew-eap.html#unused-return-value-checker
+                        // whatsnew23
+                        "return-value-checker=check", // https://kotlinlang.org/docs/whatsnew23.html#unused-return-value-checker
+                        "explicit-backing-fields", // https://kotlinlang.org/docs/whatsnew23.html#explicit-backing-fields
+                        // whatsnew-eap: ?
                     )
                 )
             }

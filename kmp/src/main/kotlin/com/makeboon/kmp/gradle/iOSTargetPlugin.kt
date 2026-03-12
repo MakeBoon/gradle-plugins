@@ -1,4 +1,4 @@
-package pro.crestfi.kmp.gradle
+package com.makeboon.kmp.gradle
 
 import org.gradle.api.Plugin
 import org.gradle.api.Project
@@ -6,9 +6,9 @@ import org.gradle.kotlin.dsl.configure
 import org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension
 import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeCompilation
 import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget
-import pro.crestfi.gradle.fileFromResource
-import pro.crestfi.gradle.with
-import pro.crestfi.kmp.iosTargets
+import com.makeboon.gradle.fileFromResource
+import com.makeboon.gradle.with
+import com.makeboon.kmp.iosTargets
 
 @Suppress("ClassName")
 class iOSTargetPlugin(

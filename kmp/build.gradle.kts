@@ -1,4 +1,4 @@
-import pro.crestfi.gradle.registerOf
+import com.makeboon.gradle.registerOf
 
 plugins {
     `kotlin-dsl`

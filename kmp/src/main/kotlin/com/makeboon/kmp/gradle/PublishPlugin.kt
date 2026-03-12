@@ -1,4 +1,4 @@
-package pro.crestfi.kmp.gradle
+package com.makeboon.kmp.gradle
 
 import org.gradle.api.Plugin
 import org.gradle.api.Project

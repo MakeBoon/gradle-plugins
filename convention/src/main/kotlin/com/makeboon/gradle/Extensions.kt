@@ -1,4 +1,4 @@
-package pro.crestfi.gradle
+package com.makeboon.gradle
 
 import org.gradle.api.GradleException
 import org.gradle.api.NamedDomainObjectContainer

@@ -27,7 +27,7 @@ with(tasks) {
     val taskName = "copyConventionDirs"
     register(taskName) {
         doLast {
-            val targetPath = "src/main/kotlin/pro/crestfi/gradle"
+            val targetPath = "src/main/kotlin/com/makeboon/gradle"
             val srcDir = file(targetPath)
             if (!srcDir.exists()) throw GradleException("$srcDir not found")
             val dstDir = layout.projectDirectory.file("../convention/$targetPath").asFile

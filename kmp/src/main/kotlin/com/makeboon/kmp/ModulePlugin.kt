@@ -1,17 +1,17 @@
-package pro.crestfi.kmp
+package com.makeboon.kmp
 
 import org.gradle.api.Plugin
 import org.gradle.api.Project
-import pro.crestfi.kmp.gradle.AndroidTargetPlugin
-import pro.crestfi.kmp.gradle.ComposeFlattenDrawableResourcePlugin
-import pro.crestfi.kmp.gradle.ComposePlugin
-import pro.crestfi.kmp.gradle.ComposePreviewPlugin
-import pro.crestfi.kmp.gradle.FrameworkPlugin
-import pro.crestfi.kmp.gradle.KSPPlugin
-import pro.crestfi.kmp.gradle.PublishPlugin
-import pro.crestfi.kmp.gradle.RoomPlugin
-import pro.crestfi.kmp.gradle.WirePlugin
-import pro.crestfi.kmp.gradle.iOSTargetPlugin
+import com.makeboon.kmp.gradle.AndroidTargetPlugin
+import com.makeboon.kmp.gradle.ComposeFlattenDrawableResourcePlugin
+import com.makeboon.kmp.gradle.ComposePlugin
+import com.makeboon.kmp.gradle.ComposePreviewPlugin
+import com.makeboon.kmp.gradle.FrameworkPlugin
+import com.makeboon.kmp.gradle.KSPPlugin
+import com.makeboon.kmp.gradle.PublishPlugin
+import com.makeboon.kmp.gradle.RoomPlugin
+import com.makeboon.kmp.gradle.WirePlugin
+import com.makeboon.kmp.gradle.iOSTargetPlugin
 
 class ComposeApplicationPlugin : Plugin<Project> {
     override fun apply(target: Project) =
