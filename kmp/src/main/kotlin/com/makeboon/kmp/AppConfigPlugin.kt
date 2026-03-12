@@ -1,12 +1,12 @@
 package com.makeboon.kmp
 
-import org.gradle.api.Plugin
-import org.gradle.api.Project
-import org.gradle.kotlin.dsl.create
 import com.makeboon.gradle.getPropertyBooleanOrNull
 import com.makeboon.gradle.getPropertyInt
 import com.makeboon.gradle.toProperties
 import com.makeboon.kmp.AppConfigExtension.Companion.EXTENSION_NAME
+import org.gradle.api.Plugin
+import org.gradle.api.Project
+import org.gradle.kotlin.dsl.create
 
 class AppConfigPlugin : Plugin<Project> {
     override fun apply(target: Project) = with(target) {

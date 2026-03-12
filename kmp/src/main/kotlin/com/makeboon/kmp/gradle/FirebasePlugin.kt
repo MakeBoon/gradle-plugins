@@ -1,9 +1,9 @@
 package com.makeboon.kmp.gradle
 
-import org.gradle.api.Plugin
-import org.gradle.api.Project
 import com.makeboon.gradle.kmpAndroid
 import com.makeboon.gradle.pluginId
+import org.gradle.api.Plugin
+import org.gradle.api.Project
 
 class FirebasePlugin : Plugin<Project> {
     override fun apply(target: Project) = with(target) {

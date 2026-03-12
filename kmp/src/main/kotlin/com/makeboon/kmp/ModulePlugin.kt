@@ -1,17 +1,8 @@
 package com.makeboon.kmp
 
+import com.makeboon.kmp.gradle.*
 import org.gradle.api.Plugin
 import org.gradle.api.Project
-import com.makeboon.kmp.gradle.AndroidTargetPlugin
-import com.makeboon.kmp.gradle.ComposeFlattenDrawableResourcePlugin
-import com.makeboon.kmp.gradle.ComposePlugin
-import com.makeboon.kmp.gradle.ComposePreviewPlugin
-import com.makeboon.kmp.gradle.FrameworkPlugin
-import com.makeboon.kmp.gradle.KSPPlugin
-import com.makeboon.kmp.gradle.PublishPlugin
-import com.makeboon.kmp.gradle.RoomPlugin
-import com.makeboon.kmp.gradle.WirePlugin
-import com.makeboon.kmp.gradle.iOSTargetPlugin
 
 class ComposeApplicationPlugin : Plugin<Project> {
     override fun apply(target: Project) =

@@ -1,13 +1,13 @@
 package gradle
 
-import org.gradle.api.Plugin
-import org.gradle.api.Project
-import org.gradle.kotlin.dsl.configure
-import org.gradle.plugin.devel.GradlePluginDevelopmentExtension
 import com.makeboon.gradle.PROJECT_GROUP_ID
 import com.makeboon.gradle.PROJECT_VERSION
 import com.makeboon.gradle.core
 import com.makeboon.gradle.pluginId
+import org.gradle.api.Plugin
+import org.gradle.api.Project
+import org.gradle.kotlin.dsl.configure
+import org.gradle.plugin.devel.GradlePluginDevelopmentExtension
 
 class PublishPlugin : Plugin<Project> {
     override fun apply(target: Project) = with(target) {

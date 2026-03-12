@@ -1,8 +1,8 @@
 package gradle
 
+import com.makeboon.gradle.create
 import org.gradle.api.Plugin
 import org.gradle.api.initialization.Settings
-import com.makeboon.gradle.create
 
 class DependencyResolutionManagementPlugin : Plugin<Settings> {
     override fun apply(target: Settings) = target.dependencyResolutionManagement(buildSrc = false)

@@ -1,6 +1,9 @@
 package com.makeboon.kmp.gradle
 
 import com.android.ide.common.vectordrawable.Svg2Vector
+import com.makeboon.gradle.asFile
+import com.makeboon.kmp.gradle.ComposeFlattenDrawableResourceExtension.Companion.EXTENSION_NAME
+import com.makeboon.kmp.gradle.ComposeFlattenDrawableResourceTask.Companion.TASK_NAME
 import org.gradle.api.DefaultTask
 import org.gradle.api.Plugin
 import org.gradle.api.Project
@@ -13,21 +16,12 @@ import org.gradle.api.tasks.TaskAction
 import org.gradle.kotlin.dsl.create
 import org.gradle.kotlin.dsl.invoke
 import org.gradle.kotlin.dsl.register
-import com.makeboon.gradle.asFile
-import com.makeboon.kmp.gradle.ComposeFlattenDrawableResourceExtension.Companion.EXTENSION_NAME
-import com.makeboon.kmp.gradle.ComposeFlattenDrawableResourceTask.Companion.TASK_NAME
 import java.io.ByteArrayOutputStream
 import java.nio.file.Files
 import java.nio.file.Path
 import java.nio.file.StandardCopyOption
 import java.util.regex.Pattern
-import kotlin.io.path.Path
-import kotlin.io.path.deleteIfExists
-import kotlin.io.path.extension
-import kotlin.io.path.isRegularFile
-import kotlin.io.path.name
-import kotlin.io.path.pathString
-import kotlin.io.path.writeText
+import kotlin.io.path.*
 
 class ComposeFlattenDrawableResourcePlugin : Plugin<Project> {
     override fun apply(target: Project) = with(target) {

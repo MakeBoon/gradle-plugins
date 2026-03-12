@@ -1,14 +1,14 @@
 package com.makeboon.kmp.gradle
 
+import com.makeboon.gradle.fileFromResource
+import com.makeboon.gradle.with
+import com.makeboon.kmp.iosTargets
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.configure
 import org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension
 import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeCompilation
 import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget
-import com.makeboon.gradle.fileFromResource
-import com.makeboon.gradle.with
-import com.makeboon.kmp.iosTargets
 
 @Suppress("ClassName")
 class iOSTargetPlugin(

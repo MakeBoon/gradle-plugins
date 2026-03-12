@@ -16,7 +16,7 @@ import org.jetbrains.kotlin.gradle.plugin.KotlinDependencyHandler
 import java.io.File
 import java.io.InputStream
 import java.net.URL
-import java.util.Properties
+import java.util.*
 import kotlin.io.path.createTempFile
 import kotlin.reflect.KClass
 import org.gradle.api.artifacts.ExternalModuleDependencyBundle as Bundle
