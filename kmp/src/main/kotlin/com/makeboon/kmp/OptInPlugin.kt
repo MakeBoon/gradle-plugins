@@ -1,6 +1,6 @@
 package com.makeboon.kmp
 
-import com.android.build.api.dsl.androidLibrary
+import com.android.build.api.dsl.KotlinMultiplatformAndroidLibraryTarget
 import com.makeboon.gradle.`-opt-in`
 import org.gradle.api.Plugin
 import org.gradle.api.Project
@@ -23,7 +23,7 @@ class OptInPlugin(
             )
 
             if (library) {
-                androidLibrary {
+                targets.withType(KotlinMultiplatformAndroidLibraryTarget::class.java).configureEach {
                     compilerOptions.freeCompilerArgs.addAll(
                         `-opt-in`(
                             "androidx.media3.common.util.UnstableApi"

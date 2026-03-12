@@ -44,7 +44,7 @@ private class ModulePlugin(
                     FrameworkPlugin(library),
                     KSPPlugin(),
                     WirePlugin(),
-                    RoomPlugin(),
+                    Room3Plugin(),
                 )
             )
             if (compose) {

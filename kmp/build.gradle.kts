@@ -12,7 +12,7 @@ dependencies {
     compileOnly(core.gradlePlugin.wire)
     compileOnly(core.gradlePlugin.compose.compiler)
     compileOnly(kmp.gradlePlugin.compose)
-    compileOnly(kmp.gradlePlugin.room)
+    compileOnly(kmp.gradlePlugin.room3)
     compileOnly(kmpAndroid.gradlePlugin)
     compileOnly(kmpAndroid.gradlePlugin.tools)
 }
@@ -30,7 +30,7 @@ gradlePlugin {
         registerOf(project, "compose-flatten-drawable-resource")
         registerOf(project, "ksp") { it.uppercase() }
         registerOf(project, "wire")
-        registerOf(project, "room")
+        registerOf(project, "room3")
         registerOf(project, "firebase")
         registerOf(project, "android-application")
         registerOf(project, "android-target")

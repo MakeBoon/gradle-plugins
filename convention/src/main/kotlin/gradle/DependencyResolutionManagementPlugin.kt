@@ -29,7 +29,7 @@ private fun Settings.dependencyResolutionManagement(
         }
         versionCatalogs {
             create(this, "core", "build-plugins", resource, buildSrc)
-            create(this, "crestfi", "crestfi-plugins", resource, buildSrc)
+            create(this, "makeboon", "makeboon-plugins", resource, buildSrc)
             create(this, "kmp", "kmp", resource, buildSrc)
             create(this, "kmpExt", "kmp-ext", resource, buildSrc)
             create(this, "kmpAndroid", "kmp-android", resource, buildSrc)

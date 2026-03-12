@@ -1,6 +1,6 @@
 package com.makeboon.kmp.gradle
 
-import com.android.build.api.dsl.androidLibrary
+import com.android.build.api.dsl.KotlinMultiplatformAndroidLibraryTarget
 import com.makeboon.gradle.*
 import org.gradle.api.Plugin
 import org.gradle.api.Project
@@ -15,7 +15,7 @@ class AndroidTargetPlugin : Plugin<Project> {
         }
 
         extensions.configure<KotlinMultiplatformExtension> {
-            androidLibrary {
+            targets.withType(KotlinMultiplatformAndroidLibraryTarget::class.java).configureEach {
                 namespace = "$group.$name"
                 compileSdk = kmpAndroid.versionInt("compileSdk")
                 compileSdkExtension = kmpAndroid.versionIntOrNull("compileSdkExt")
