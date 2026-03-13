@@ -1,18 +1,21 @@
 package com.makeboon.kmp.gradle
 
-import com.android.build.gradle.internal.api.BaseVariantOutputImpl
-import com.android.build.gradle.internal.dsl.BaseAppModuleExtension
-import com.android.build.gradle.internal.tasks.FinalizeBundleTask
+import com.android.build.api.artifact.SingleArtifact
+import com.android.build.api.dsl.ApplicationExtension
+import com.android.build.api.variant.ApplicationAndroidComponentsExtension
+import com.android.build.api.variant.impl.VariantOutputImpl
 import com.makeboon.gradle.*
 import com.makeboon.kmp.AppConfigPlugin
 import com.makeboon.kmp.appConfig
 import org.gradle.api.Plugin
 import org.gradle.api.Project
+import org.gradle.api.tasks.Copy
 import org.gradle.internal.extensions.stdlib.capitalized
 import org.gradle.kotlin.dsl.configure
 import org.gradle.kotlin.dsl.get
-import org.gradle.kotlin.dsl.named
-import java.io.File
+import org.gradle.kotlin.dsl.register
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
 
 class AndroidApplicationPlugin : Plugin<Project> {
     override fun apply(target: Project) = with(target) {
@@ -30,15 +33,21 @@ class AndroidApplicationPlugin : Plugin<Project> {
             apply(core.pluginId("kotlin-parcelize"))
         }
 
-        extensions.configure<BaseAppModuleExtension> {
+        extensions.configure<ApplicationExtension> {
             namespace = appConfig.projectNamespace.lowercase()
-            compileSdk = kmpAndroid.versionInt("compileSdk")
-            compileSdkExtension = kmpAndroid.versionIntOrNull("compileSdkExt")
+            compileSdk {
+                version = with(kmpAndroid) {
+                    release(versionInt("compileSdk")) {
+                        minorApiLevel = versionIntOrNull("compileSdkApi")
+                        sdkExtension = versionIntOrNull("compileSdkExt")
+                    }
+                }
+            }
 
             defaultConfig {
                 applicationId = namespace
                 minSdk = kmpAndroid.versionInt("minSdk")
-//                targetSdk = compileSdk
+//                targetSdk { version = release(kmpAndroid.versionInt("compileSdk")) }
                 versionCode = appConfig.versionCode
                 versionName = appConfig.versionName
             }
@@ -85,22 +94,32 @@ class AndroidApplicationPlugin : Plugin<Project> {
                     )
                 }
             }
+        }
+        extensions.configure<ApplicationAndroidComponentsExtension> {
+            onVariants { variant ->
+                with(variant) {
+                    val capitalizedName = name.capitalized()
+                    val fileName = listOf(
+                        rootProject.name,
+                        capitalizedName,
+                        "v${appConfig.versionCode}",
+                        "c${appConfig.versionName}",
+                        "${LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyyMMdd-HHmm"))}"
+                    ).joinToString("-")
 
-            applicationVariants.all {
-                val fileName = listOf(
-                    rootProject.name,
-                    "$name",
-                    "v${versionName}",
-                    "c${versionCode}",
-                ).joinToString("-")
+                    // APK
+                    outputs.mapNotNull { it as? VariantOutputImpl }
+                        .forEach { it.outputFileName.set("$fileName.apk") }
 
-                outputs.all {
-                    (this as BaseVariantOutputImpl).outputFileName = "$fileName.apk"
-                }
-                tasks.named<FinalizeBundleTask>("sign${name.capitalized()}Bundle") {
-                    finalBundleFile.apply {
-                        set(File(asFile.get().parentFile, "$fileName.aab"))
+                    // BUNDLE
+                    val copy = tasks.register<Copy>("copy${capitalizedName}Bundle") {
+                        val output = artifacts.get(SingleArtifact.BUNDLE).get().asFile
+                        from(output)
+                        into(layout.buildDirectory.dir("outputs/bundle/_"))
+                        rename { "$fileName.aab" }
                     }
+                    tasks.matching { it.name == "bundle${capitalizedName}" }
+                        .configureEach { finalizedBy(copy) }
                 }
             }
         }

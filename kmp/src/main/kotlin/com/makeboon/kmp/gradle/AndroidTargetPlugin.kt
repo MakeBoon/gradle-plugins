@@ -14,11 +14,18 @@ class AndroidTargetPlugin : Plugin<Project> {
             apply(core.pluginId("kotlin-parcelize"))
         }
 
+        val moduleNamespace = "$group.$name"
         extensions.configure<KotlinMultiplatformExtension> {
             targets.withType(KotlinMultiplatformAndroidLibraryTarget::class.java).configureEach {
-                namespace = "$group.$name"
-                compileSdk = kmpAndroid.versionInt("compileSdk")
-                compileSdkExtension = kmpAndroid.versionIntOrNull("compileSdkExt")
+                namespace = moduleNamespace
+                compileSdk {
+                    version = with(kmpAndroid) {
+                        release(versionInt("compileSdk")) {
+                            minorApiLevel = versionIntOrNull("compileSdkApi")
+                            sdkExtension = versionIntOrNull("compileSdkExt")
+                        }
+                    }
+                }
                 minSdk = kmpAndroid.versionInt("minSdk")
 
                 androidResources { enable = true }

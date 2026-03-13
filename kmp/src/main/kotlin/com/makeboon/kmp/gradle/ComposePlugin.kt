@@ -17,7 +17,7 @@ class ComposePlugin : Plugin<Project> {
             apply(kmp.pluginId("compose"))
         }
 
-        val resourcesDir = layout.projectDirectory.dir("../resources/kmp")
+        val resourcesDir = layout.projectDirectory.dir("../kmp-resources")
         val stabilityConfDir = resourcesDir.dir("stability-conf")
 
         /**

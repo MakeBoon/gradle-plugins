@@ -100,6 +100,7 @@ plugins {
 ### Version
 
 - android-compileSdk
+- android-compileSdkApi
 - android-compileSdkExt
 - android-minSdk
 - android-targetSdk
@@ -124,6 +125,7 @@ plugins {
 ### Version
 
 - android-compileSdk
+- android-compileSdkApi
 - android-compileSdkExt
 - android-minSdk
 
