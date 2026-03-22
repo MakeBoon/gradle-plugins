@@ -7,8 +7,29 @@ import org.gradle.api.Project
 class ComposeApplicationPlugin : Plugin<Project> {
     override fun apply(target: Project) =
         ModulePlugin(
+            application = true,
             compose = true,
             library = false,
+            publish = false
+        ).apply(target)
+}
+
+class ApplicationComposeLibraryPlugin : Plugin<Project> {
+    override fun apply(target: Project) =
+        ModulePlugin(
+            application = true,
+            compose = true,
+            library = true,
+            publish = false
+        ).apply(target)
+}
+
+class ApplicationLibraryPlugin : Plugin<Project> {
+    override fun apply(target: Project) =
+        ModulePlugin(
+            application = true,
+            compose = false,
+            library = true,
             publish = false
         ).apply(target)
 }
@@ -16,6 +37,7 @@ class ComposeApplicationPlugin : Plugin<Project> {
 class ComposeLibraryPlugin : Plugin<Project> {
     override fun apply(target: Project) =
         ModulePlugin(
+            application = false,
             compose = true,
             library = true,
             publish = true
@@ -25,6 +47,7 @@ class ComposeLibraryPlugin : Plugin<Project> {
 class LibraryPlugin : Plugin<Project> {
     override fun apply(target: Project) =
         ModulePlugin(
+            application = false,
             compose = false,
             library = true,
             publish = true
@@ -32,13 +55,14 @@ class LibraryPlugin : Plugin<Project> {
 }
 
 private class ModulePlugin(
+    private val application: Boolean,
     private val compose: Boolean,
     private val library: Boolean,
     private val publish: Boolean,
 ) : Plugin<Project> {
     override fun apply(target: Project) {
         mutableListOf<Plugin<Project>>().apply {
-            if (!library) add(AppConfigPlugin())
+            if (application) add(AppConfigPlugin())
             addAll(
                 listOf(
                     FrameworkPlugin(library),

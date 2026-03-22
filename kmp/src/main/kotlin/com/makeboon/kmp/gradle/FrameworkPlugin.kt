@@ -38,6 +38,8 @@ class FrameworkPlugin(private val library: Boolean) : Plugin<Project> {
                         // whatsnew23
                         "return-value-checker=check", // https://kotlinlang.org/docs/whatsnew23.html#unused-return-value-checker
                         "explicit-backing-fields", // https://kotlinlang.org/docs/whatsnew23.html#explicit-backing-fields
+                        // whatsnew2320
+                        "name-based-destructuring=name-mismatch", // https://kotlinlang.org/docs/whatsnew2320.html#language-name-based-destructuring
                         // whatsnew-eap: ?
                     )
                 )

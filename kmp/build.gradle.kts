@@ -21,6 +21,8 @@ gradlePlugin {
     plugins {
         registerOf(project, "app-config", false)
         registerOf(project, "compose-application", false)
+        registerOf(project, "application-compose-library", false)
+        registerOf(project, "application-library", false)
         registerOf(project, "compose-library", false)
         registerOf(project, "library", false)
         //
