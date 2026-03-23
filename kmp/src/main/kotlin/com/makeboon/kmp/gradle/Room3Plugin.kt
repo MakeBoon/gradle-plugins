@@ -1,14 +1,16 @@
 package com.makeboon.kmp.gradle
 
 import androidx.room3.gradle.RoomExtension
-import com.makeboon.gradle.*
+import com.makeboon.gradle.bundle
+import com.makeboon.gradle.core
+import com.makeboon.gradle.kmp
+import com.makeboon.gradle.library
+import com.makeboon.gradle.pluginId
 import org.gradle.api.Plugin
 import org.gradle.api.Project
-import org.gradle.internal.extensions.stdlib.capitalized
 import org.gradle.kotlin.dsl.configure
 import org.gradle.kotlin.dsl.dependencies
 import org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension
-import org.jetbrains.kotlin.gradle.plugin.KotlinPlatformType
 
 class Room3Plugin : Plugin<Project> {
     override fun apply(target: Project) = with(target) {
@@ -30,19 +32,8 @@ class Room3Plugin : Plugin<Project> {
             }
         }
 
-        afterEvaluate {
-            val compiler = kmp.library("room3-compiler")
-            extensions.configure<KotlinMultiplatformExtension> {
-                with(this@afterEvaluate) {
-                    dependencies {
-//                        "testImplementation"(kmp.library("room3-testing"))
-//                        "kspCommonMainMetadata"(compiler)
-                        targets.filter { it.platformType != KotlinPlatformType.common }
-                            .map { "ksp${it.targetName.capitalized()}" }
-                            .forEach { it.invoke(compiler) }
-                    }
-                }
-            }
+        dependencies {
+            add("ksp", kmp.library("room3-compiler"))
         }
     }
 }
