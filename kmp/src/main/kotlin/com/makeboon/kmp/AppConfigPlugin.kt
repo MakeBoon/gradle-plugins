@@ -38,7 +38,22 @@ abstract class AppConfigExtension {
     abstract var versionPatch: Int
     abstract var versionBuild: Int
     abstract var paymentTest: Boolean
-    val versionCode: Int get() = versionMajor * 1_000_000 + versionMinor * 10_000 + versionPatch * 100 + versionBuild
+    val versionCode: Int
+        get() {
+            fun require(version: Int, name: String) {
+                require(version in 0..99) { "$name version ($version) must be between 0 and 99." }
+            }
+            require(versionMajor, "Major")
+            require(versionMinor, "Minor")
+            require(versionPatch, "Patch")
+            require(versionBuild, "Build")
+
+            require(versionMajor > 0 || versionMinor > 0 || versionPatch > 0) {
+                "Invalid version: Major, Minor, or Patch must be at least 1."
+            }
+
+            return versionMajor * 1_000_000 + versionMinor * 10_000 + versionPatch * 100 + versionBuild
+        }
     val versionName: String get() = "$versionMajor.$versionMinor.$versionPatch"
     val versionNameWithBuild: String get() = "$versionName.$versionBuild"
 }
