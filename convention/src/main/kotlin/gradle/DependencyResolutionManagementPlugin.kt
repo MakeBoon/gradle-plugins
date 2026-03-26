@@ -13,7 +13,7 @@ class DependencyResolutionManagementForBuildSrcPlugin : Plugin<Settings> {
 }
 
 private fun Settings.dependencyResolutionManagement(
-    resource: Boolean = true,
+    resources: Boolean = true,
     buildSrc: Boolean = false,
 ) {
     dependencyResolutionManagement {
@@ -27,14 +27,15 @@ private fun Settings.dependencyResolutionManagement(
             }
             mavenCentral()
         }
-        versionCatalogs {
-            create(this, "core", "build-plugins", resource, buildSrc)
-            create(this, "makeboon", "makeboon-plugins", resource, buildSrc)
-            create(this, "kmp", "kmp", resource, buildSrc)
-            create(this, "kmpExt", "kmp-ext", resource, buildSrc)
-            create(this, "kmpAndroid", "kmp-android", resource, buildSrc)
-            create(this, "kmpIos", "kmp-ios", resource, buildSrc)
-            create(this, "kmpApp", "kmp-app", resource, buildSrc)
-        }
+        create(
+            versionCatalogs, resources, buildSrc,
+            "core" to "build-plugins",
+            "makeboon" to "makeboon-plugins",
+            "kmp" to "kmp",
+            "kmpExt" to "kmp-ext",
+            "kmpAndroid" to "kmp-android",
+            "kmpIos" to "kmp-ios",
+            "kmpApp" to "kmp-app",
+        )
     }
 }

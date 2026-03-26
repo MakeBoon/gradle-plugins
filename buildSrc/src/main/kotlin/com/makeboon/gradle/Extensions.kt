@@ -16,11 +16,20 @@ import org.jetbrains.kotlin.gradle.plugin.KotlinDependencyHandler
 import java.io.File
 import java.io.InputStream
 import java.net.URL
-import java.util.*
+import java.util.Properties
 import kotlin.io.path.createTempFile
 import kotlin.reflect.KClass
 import org.gradle.api.artifacts.ExternalModuleDependencyBundle as Bundle
 import org.gradle.api.artifacts.MinimalExternalModuleDependency as Dependency
+
+fun Settings.create(
+    versionCatalog: MutableVersionCatalogContainer,
+    resources: Boolean = false,
+    buildSrc: Boolean = false,
+    vararg targets: Pair<String, String>,
+) = targets.forEach { (name, target) ->
+    create(versionCatalog, name, target, resources, buildSrc)
+}
 
 fun Settings.create(
     versionCatalog: MutableVersionCatalogContainer,
@@ -35,10 +44,13 @@ fun Settings.create(
                 resources -> {
                     if (buildSrc) append("../")
                     append("../gradle-resources/versions")
+                    append("/$target.toml")
                 }
-                else -> append("gradle")
+                else -> {
+                    append("gradle")
+                    append("/$target.versions.toml")
+                }
             }
-            append("/$target.toml")
         }))
     }
 }
