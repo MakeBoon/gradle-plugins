@@ -1,41 +1,13 @@
-package com.makeboon.kmp
+package com.makeboon.gradle.kmp.extension
 
 import com.android.build.api.dsl.KotlinMultiplatformAndroidLibraryTarget
-import com.makeboon.gradle.`-opt-in`
-import org.gradle.api.Plugin
+import com.makeboon.gradle.extension.`-opt-in`
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.configure
+import org.gradle.kotlin.dsl.withType
 import org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension
 
-class OptInPlugin(
-    private val compose: Boolean = false,
-    private val library: Boolean = false,
-) : Plugin<Project> {
-    override fun apply(target: Project) = with(target) {
-        extensions.configure<KotlinMultiplatformExtension> {
-            val optIns = mutableListOf<OptIn>().apply {
-                add(OptIn.Shared)
-                if (compose) add(OptIn.Compose)
-            }.flatMap { it.values }
-
-            compilerOptions.freeCompilerArgs.addAll(
-                `-opt-in`(*optIns.toTypedArray())
-            )
-
-            if (library) {
-                targets.withType(KotlinMultiplatformAndroidLibraryTarget::class.java).configureEach {
-                    compilerOptions.freeCompilerArgs.addAll(
-                        `-opt-in`(
-                            "androidx.media3.common.util.UnstableApi"
-                        )
-                    )
-                }
-            }
-        }
-    }
-}
-
-enum class OptIn(private vararg val value: String) {
+public enum class OptIn(private vararg val value: String) {
     Shared(
         "kotlin.concurrent.atomics.ExperimentalAtomicApi",
         "kotlin.experimental.ExperimentalNativeApi",
@@ -59,5 +31,30 @@ enum class OptIn(private vararg val value: String) {
     ),
     ;
 
-    val values: List<String> get() = value.toList()
+    public val values: List<String> get() = value.toList()
+
+    public companion object {
+        public fun configure(project: Project, library: Boolean, compose: Boolean): Unit = with(project) {
+            val optIns = mutableListOf<OptIn>().apply {
+                add(Shared)
+                if (compose) add(Compose)
+            }.flatMap { it.values }
+
+            extensions.configure<KotlinMultiplatformExtension> {
+                compilerOptions.freeCompilerArgs.addAll(
+                    `-opt-in`(*optIns.toTypedArray())
+                )
+
+                if (library) {
+                    targets.withType<KotlinMultiplatformAndroidLibraryTarget>().configureEach {
+                        compilerOptions.freeCompilerArgs.addAll(
+                            `-opt-in`(
+                                "androidx.media3.common.util.UnstableApi"
+                            )
+                        )
+                    }
+                }
+            }
+        }
+    }
 }

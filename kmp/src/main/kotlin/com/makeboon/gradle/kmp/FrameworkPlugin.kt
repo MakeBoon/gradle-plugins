@@ -1,24 +1,26 @@
-package com.makeboon.kmp.gradle
+package com.makeboon.gradle.kmp
 
-import com.makeboon.gradle.*
+import com.makeboon.gradle.extension.`-X`
+import com.makeboon.gradle.extension.apply
+import com.makeboon.gradle.kmp.extension.core
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.configure
 import org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension
 import org.jetbrains.kotlin.gradle.dsl.KotlinVersion
 
-class FrameworkPlugin(private val library: Boolean) : Plugin<Project> {
+internal class FrameworkPlugin(val library: Boolean) : Plugin<Project> {
     override fun apply(target: Project) = with(target) {
         with(pluginManager) {
-            apply(core.pluginId("kotlin-multiplatform"))
-            apply(core.pluginId("kotlin-serialization"))
+            apply(core.plugins.kotlin.multiplatform)
+            apply(core.plugins.kotlin.serialization)
         }
 
         extensions.configure<KotlinMultiplatformExtension> {
-            jvmToolchain(core.versionInt("kotlin-jvmToolchain"))
+            jvmToolchain(core.versions.kotlin.jvmToolchain.get().toInt())
             if (library) explicitApi()
             compilerOptions {
-                val kotlinVersion = KotlinVersion.fromVersion(core.version("kotlin-compile"))
+                val kotlinVersion = KotlinVersion.fromVersion(core.versions.kotlin.compile.get())
                 languageVersion.set(kotlinVersion)
                 apiVersion.set(kotlinVersion)
                 progressiveMode.set(true)

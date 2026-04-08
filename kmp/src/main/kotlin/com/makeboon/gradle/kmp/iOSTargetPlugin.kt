@@ -1,28 +1,23 @@
-package com.makeboon.kmp.gradle
+package com.makeboon.gradle.kmp
 
-import com.makeboon.gradle.fileFromResource
-import com.makeboon.gradle.with
-import com.makeboon.kmp.iosTargets
+import com.makeboon.gradle.extension.filesInProjectDir
+import com.makeboon.gradle.kmp.extension.iosTargets
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.configure
 import org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension
-import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeCompilation
 import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget
 
 @Suppress("ClassName")
-class iOSTargetPlugin(
-    private val library: Boolean,
-) : Plugin<Project> {
-    override fun apply(target: Project) = with(target) {
+public class iOSTargetPlugin : Plugin<Project> {
+    override fun apply(target: Project): Unit = with(target) {
         extensions.configure<KotlinMultiplatformExtension> {
-            val targets = iosTargets
-            targets.forEach(KotlinNativeTarget::configureCinterop)
+            iosTargets.forEach(KotlinNativeTarget::configureCinterop)
         }
     }
 }
 
-const val DIR_cinterop = "src/nativeInterop/cinterop"
+public const val DIR_cinterop: String = "src/nativeInterop/cinterop"
 
 /**
  * https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-dsl-reference.html#cinterops
@@ -34,21 +29,11 @@ const val DIR_cinterop = "src/nativeInterop/cinterop"
  */
 private fun KotlinNativeTarget.configureCinterop() {
     compilations.getByName("main") {
-        project.projectDir
-            .with(DIR_cinterop)
-            .listFiles()?.forEach {
+        project.filesInProjectDir(DIR_cinterop)
+            .forEach {
                 cinterops.create(it.nameWithoutExtension) {
                     definitionFile.set(it)
                 }
             }
-    }
-}
-
-private fun KotlinNativeCompilation.create(name: String) {
-    cinterops.create(name) {
-        definitionFile.set(
-            iOSTargetPlugin::class
-                .fileFromResource(DIR_cinterop, "$name.def")!!
-        )
     }
 }

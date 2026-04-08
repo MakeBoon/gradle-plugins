@@ -1,9 +1,9 @@
-package com.makeboon.kmp.gradle
+package com.makeboon.gradle.kmp
 
 import com.android.ide.common.vectordrawable.Svg2Vector
-import com.makeboon.gradle.asFile
-import com.makeboon.kmp.gradle.ComposeFlattenDrawableResourceExtension.Companion.EXTENSION_NAME
-import com.makeboon.kmp.gradle.ComposeFlattenDrawableResourceTask.Companion.TASK_NAME
+import com.makeboon.gradle.extension.asFile
+import com.makeboon.gradle.kmp.ComposeFlattenDrawableResourceExtension.Companion.EXTENSION_NAME
+import com.makeboon.gradle.kmp.ComposeFlattenDrawableResourceTask.Companion.TASK_NAME
 import org.gradle.api.DefaultTask
 import org.gradle.api.Plugin
 import org.gradle.api.Project
@@ -23,8 +23,8 @@ import java.nio.file.StandardCopyOption
 import java.util.regex.Pattern
 import kotlin.io.path.*
 
-class ComposeFlattenDrawableResourcePlugin : Plugin<Project> {
-    override fun apply(target: Project) = with(target) {
+public class ComposeFlattenDrawableResourcePlugin : Plugin<Project> {
+    override fun apply(target: Project): Unit = with(target) {
         val extension = extensions.create(
             EXTENSION_NAME,
             ComposeFlattenDrawableResourceExtension::class
@@ -51,32 +51,32 @@ class ComposeFlattenDrawableResourcePlugin : Plugin<Project> {
     }
 }
 
-abstract class ComposeFlattenDrawableResourceExtension {
-    companion object {
-        const val EXTENSION_NAME = "composeFlattenDrawableResource"
+public abstract class ComposeFlattenDrawableResourceExtension {
+    public companion object {
+        public const val EXTENSION_NAME: String = "composeFlattenDrawableResource"
     }
 
-    var inputDir: String = ""
-    var clearOutputDir: Boolean = true
+    public var inputDir: String = ""
+    public var clearOutputDir: Boolean = true
 }
 
-abstract class ComposeFlattenDrawableResourceTask : DefaultTask() {
-    companion object {
-        const val TASK_NAME = "composeFlattenDrawableResource"
+public abstract class ComposeFlattenDrawableResourceTask : DefaultTask() {
+    public companion object {
+        public const val TASK_NAME: String = "composeFlattenDrawableResource"
         private val INVALID_XML_PATTERN = Pattern.compile("pathData=\"\\s*\"")
     }
 
     @get:InputDirectory
-    abstract val inputDirectory: DirectoryProperty
+    public abstract val inputDirectory: DirectoryProperty
 
     @get:OutputDirectory
-    abstract val outputDirectory: DirectoryProperty
+    public abstract val outputDirectory: DirectoryProperty
 
     @get:Input
-    abstract val clearOutputDir: Property<Boolean>
+    public abstract val clearOutputDir: Property<Boolean>
 
     @TaskAction
-    fun action() {
+    public fun action() {
         val inputDir = inputDirectory.get().asFile
         val outputDir = outputDirectory.get().asFile
         val clearOutputDir = clearOutputDir.get()
