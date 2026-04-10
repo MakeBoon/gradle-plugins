@@ -5,8 +5,6 @@ plugins {
 
 dependencies {
     implementation(projects.convention)
-    compileOnly(core.gradlePlugin.dokka)
-    compileOnly(core.gradlePlugin.publish)
     compileOnly(core.gradlePlugin.ksp)
     compileOnly(core.gradlePlugin.wire)
     compileOnly(core.gradlePlugin.compose.compiler)

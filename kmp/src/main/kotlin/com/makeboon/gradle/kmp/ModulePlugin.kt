@@ -16,7 +16,7 @@ public object ModulePlugin {
 
         with(pluginManager) {
             if (publish) // should be the first plugin. group, name.
-                apply("com.makeboon.gradle.kmp.publish")
+                apply("com.makeboon.gradle.publish")
 
             mutableListOf<Plugin<Project>>().apply {
                 addAll(
