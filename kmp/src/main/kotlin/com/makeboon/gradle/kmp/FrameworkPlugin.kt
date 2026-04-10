@@ -5,9 +5,11 @@ import com.makeboon.gradle.extension.apply
 import com.makeboon.gradle.kmp.extension.core
 import org.gradle.api.Plugin
 import org.gradle.api.Project
+import org.gradle.kotlin.dsl.assign
 import org.gradle.kotlin.dsl.configure
 import org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension
 import org.jetbrains.kotlin.gradle.dsl.KotlinVersion
+import org.jetbrains.kotlin.gradle.dsl.abi.ExperimentalAbiValidation
 
 internal class FrameworkPlugin(val library: Boolean) : Plugin<Project> {
     override fun apply(target: Project) = with(target) {
@@ -19,11 +21,13 @@ internal class FrameworkPlugin(val library: Boolean) : Plugin<Project> {
         extensions.configure<KotlinMultiplatformExtension> {
             jvmToolchain(core.versions.kotlin.jvmToolchain.get().toInt())
             if (library) explicitApi()
+            @OptIn(ExperimentalAbiValidation::class)
+            abiValidation { enabled = true }
             compilerOptions {
                 val kotlinVersion = KotlinVersion.fromVersion(core.versions.kotlin.compile.get())
-                languageVersion.set(kotlinVersion)
-                apiVersion.set(kotlinVersion)
-                progressiveMode.set(true)
+                languageVersion = kotlinVersion
+                apiVersion = kotlinVersion
+                progressiveMode = true
                 freeCompilerArgs.addAll(
                     `-X`(
                         "expect-actual-classes", // https://kotlinlang.org/docs/multiplatform/multiplatform-expect-actual.html#expected-and-actual-classes

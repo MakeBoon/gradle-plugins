@@ -21,9 +21,9 @@ kotlin {
     abiValidation { enabled = true }
     compilerOptions {
         val kotlinVersion = KotlinVersion.fromVersion(core.versions.kotlin.compile.get())
-        languageVersion.set(kotlinVersion)
-        apiVersion.set(kotlinVersion)
-        progressiveMode.set(true)
+        languageVersion = kotlinVersion
+        apiVersion = kotlinVersion
+        progressiveMode = true
         freeCompilerArgs.addAll(
             "-Xcontext-parameters"
         )
