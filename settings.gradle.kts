@@ -5,16 +5,16 @@ includeBuild("../gradle-resources")
 
 pluginManagement {
     repositories {
-        google()
         mavenCentral()
+        google()
         gradlePluginPortal()
     }
 }
 
 dependencyResolutionManagement {
     repositories {
-        google()
         mavenCentral()
+        google()
     }
     versionCatalogs {
         listOf(
@@ -28,6 +28,10 @@ dependencyResolutionManagement {
             }
         }
     }
+}
+
+plugins {
+    id("org.gradle.toolchains.foojay-resolver-convention") version "1.0.0"
 }
 
 include(":convention")

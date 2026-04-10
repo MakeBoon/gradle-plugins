@@ -6,6 +6,7 @@ import org.gradle.api.initialization.resolve.MutableVersionCatalogContainer
 public fun Settings.configureDependencyManagement(local: Boolean = false) {
     dependencyResolutionManagement {
         repositories {
+            mavenCentral()
             google {
                 mavenContent {
                     includeGroupAndSubgroups("androidx")
@@ -13,7 +14,6 @@ public fun Settings.configureDependencyManagement(local: Boolean = false) {
                     includeGroupAndSubgroups("com.google")
                 }
             }
-            mavenCentral()
         }
         versionCatalogs.create(
             local,
