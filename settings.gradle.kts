@@ -3,18 +3,11 @@ enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 
 includeBuild("../gradle-resources")
 
-pluginManagement {
-    repositories {
-        mavenCentral()
-        google()
-        gradlePluginPortal()
-    }
-}
-
 dependencyResolutionManagement {
     repositories {
         mavenCentral()
         google()
+        gradlePluginPortal()
     }
     versionCatalogs {
         listOf(

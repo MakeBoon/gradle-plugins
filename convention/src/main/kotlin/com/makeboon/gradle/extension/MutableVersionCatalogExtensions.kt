@@ -1,28 +1,8 @@
-@file:Suppress("UnstableApiUsage")
-
 package com.makeboon.gradle.extension
 
 import org.gradle.api.initialization.Settings
 import org.gradle.api.initialization.resolve.MutableVersionCatalogContainer
 import org.gradle.plugin.management.internal.PluginManagementSpecInternal
-
-public fun Settings.configureDependencyManagement() {
-    dependencyResolutionManagement {
-        repositories {
-            mavenCentral()
-            google()
-        }
-        versionCatalogs.create(
-            "core" to "build-plugins",
-            "makeboon" to "makeboon-plugins",
-            "kmp" to "kmp",
-            "kmpExt" to "kmp-ext",
-            "kmpAndroid" to "kmp-android",
-            "kmpIos" to "kmp-ios",
-            "kmpApp" to "kmp-app",
-        )
-    }
-}
 
 context(settings: Settings)
 public fun MutableVersionCatalogContainer.create(
