@@ -1,22 +1,18 @@
+@file:Suppress("UnstableApiUsage")
+
 package com.makeboon.gradle.extension
 
 import org.gradle.api.initialization.Settings
 import org.gradle.api.initialization.resolve.MutableVersionCatalogContainer
+import org.gradle.plugin.management.internal.PluginManagementSpecInternal
 
-public fun Settings.configureDependencyManagement(local: Boolean = false) {
+public fun Settings.configureDependencyManagement() {
     dependencyResolutionManagement {
         repositories {
             mavenCentral()
-            google {
-                mavenContent {
-                    includeGroupAndSubgroups("androidx")
-                    includeGroupAndSubgroups("com.android")
-                    includeGroupAndSubgroups("com.google")
-                }
-            }
+            google()
         }
         versionCatalogs.create(
-            local,
             "core" to "build-plugins",
             "makeboon" to "makeboon-plugins",
             "kmp" to "kmp",
@@ -30,33 +26,35 @@ public fun Settings.configureDependencyManagement(local: Boolean = false) {
 
 context(settings: Settings)
 public fun MutableVersionCatalogContainer.create(
-    local: Boolean = false,
-    vararg targets: Pair<String, String>,
+    vararg targets: Pair<String, String>
 ) {
-    targets.forEach { (name, target) -> create(name, target, local) }
+    targets.forEach { (name, target) -> create(name, target) }
 }
 
 context(settings: Settings)
 public fun MutableVersionCatalogContainer.create(
     name: String,
     target: String = name,
-    local: Boolean = false,
 ) {
     with(settings) {
-        create(name) {
-            from(layout.rootDirectory.files(buildString {
-                when {
-                    local -> {
-                        if (rootProject.name == "buildSrc") append("../")
-                        append("../gradle-resources/versions")
-                        append("/$target.toml")
-                    }
-                    else -> {
-                        append("gradle")
-                        append("/$target.versions.toml")
-                    }
+        buildString {
+            val isLocal = (pluginManagement as PluginManagementSpecInternal)
+                .includedBuilds
+                .any { it.rootDir.name == "gradle-plugins" }
+            val isBuildSrc = rootProject.name == "buildSrc"
+            when {
+                isLocal -> {
+                    if (isBuildSrc) append("../")
+                    append("../gradle-resources/versions")
+                    append("/$target.toml")
                 }
-            }))
-        }
+                else -> {
+                    append("gradle")
+                    append("/$target.versions.toml")
+                }
+            }
+        }.let { layout.rootDirectory.files(it) }
+            .takeIf { it.singleFile.exists() }
+            ?.also { create(name) { from(it) } }
     }
 }
