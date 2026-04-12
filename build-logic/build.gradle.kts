@@ -9,7 +9,9 @@ dependencies {
     implementation(core.gradlePlugin.dokka)
     implementation(core.gradlePlugin.publish)
     implementation(core.gradlePlugin.gradlePublish)
+    implementation(core.gradlePlugin.foojayResolver)
 
+    // workaround for accessing version-catalog in convention plugins
     // https://github.com/gradle/gradle/issues/15383#issuecomment-779893192
-    compileOnly(files(core.javaClass.superclass.protectionDomain.codeSource.location))
+    implementation(files(core.javaClass.superclass.protectionDomain.codeSource.location))
 }

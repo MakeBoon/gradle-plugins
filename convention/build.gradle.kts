@@ -1,9 +1,13 @@
 plugins {
     `kotlin-dsl`
-    alias(core.plugins.buildSrc.publish)
+    id("com.makeboon.gradle-publish")
 }
 
 dependencies {
-    compileOnly(core.gradlePlugin.dokka)
-    compileOnly(core.gradlePlugin.publish)
+    implementation(core.gradlePlugin.foojayResolver)
+    api(core.gradlePlugin.kotlin)
+    implementation(core.gradlePlugin.serialization)
+    implementation(core.gradlePlugin.wire)
+    implementation(core.gradlePlugin.dokka)
+    implementation(core.gradlePlugin.publish)
 }

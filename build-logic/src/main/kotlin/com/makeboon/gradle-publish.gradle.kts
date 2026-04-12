@@ -1,6 +1,5 @@
-package com.makeboon.gradle
+package com.makeboon
 
-import com.vanniktech.maven.publish.GradlePublishPlugin
 import org.gradle.accessors.dm.LibrariesForCore
 import org.jetbrains.kotlin.gradle.dsl.KotlinVersion
 import org.jetbrains.kotlin.gradle.dsl.abi.ExperimentalAbiValidation
@@ -10,8 +9,8 @@ val core = the<LibrariesForCore>()
 plugins {
     id("org.jetbrains.kotlin.jvm")
     id("org.jetbrains.dokka")
-    id("com.vanniktech.maven.publish")
     id("com.gradle.plugin-publish")
+    id("com.vanniktech.maven.publish")
 }
 
 kotlin {
@@ -32,8 +31,4 @@ kotlin {
 
 dependencies {
     implementation(core.gradlePlugin.kotlin.api)
-}
-
-mavenPublishing {
-    configure(GradlePublishPlugin())
 }

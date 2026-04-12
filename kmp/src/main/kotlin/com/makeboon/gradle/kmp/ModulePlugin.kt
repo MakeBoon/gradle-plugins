@@ -37,7 +37,7 @@ public object ModulePlugin {
                 }
             }.forEach { it.apply(target) }
 
-            apply("com.makeboon.gradle.kmp.wire")
+            apply("com.makeboon.gradle.wire")
 
             OptIn.configure(target, library, compose)
         }

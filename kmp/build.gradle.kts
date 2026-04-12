@@ -1,24 +1,21 @@
 plugins {
     `kotlin-dsl`
-    alias(core.plugins.buildSrc.publish)
+    id("com.makeboon.gradle-publish")
 }
 
 dependencies {
     implementation(projects.convention)
-    compileOnly(core.gradlePlugin.ksp)
-    compileOnly(core.gradlePlugin.wire)
-    compileOnly(core.gradlePlugin.compose.compiler)
-    compileOnly(core.gradlePlugin.serialization)
-    compileOnly(core.gradlePlugin.parcelize)
-    compileOnly(kmp.gradlePlugin.compose)
-    compileOnly(kmp.gradlePlugin.room3)
-    compileOnly(kmpAndroid.gradlePlugin)
-    compileOnly(kmpAndroid.gradlePlugin.tools)
+    implementation(core.gradlePlugin.ksp)
+    implementation(core.gradlePlugin.compose.compiler)
+    implementation(kmp.gradlePlugin.compose)
+//    implementation(kmp.gradlePlugin.room3)
+    implementation(kmpAndroid.gradlePlugin)
+    implementation(kmpAndroid.gradlePlugin.tools)
 
     // https://github.com/gradle/gradle/issues/15383#issuecomment-779893192
     listOf(
         core, kmp, kmpAndroid, kmpIos,
     ).forEach {
-        compileOnly(files(it.javaClass.superclass.protectionDomain.codeSource.location))
+        implementation(files(it.javaClass.superclass.protectionDomain.codeSource.location))
     }
 }

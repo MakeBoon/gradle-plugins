@@ -1,4 +1,4 @@
-package com.makeboon.gradle.kmp
+package com.makeboon.gradle
 
 plugins {
     id("com.squareup.wire")

@@ -3,11 +3,26 @@ enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 
 includeBuild("../gradle-resources")
 
+pluginManagement {
+    includeBuild("build-logic")
+    repositories {
+        mavenCentral()
+        gradlePluginPortal()
+    }
+}
+
 dependencyResolutionManagement {
     repositories {
         mavenCentral()
-        google()
         gradlePluginPortal()
+        google {
+            mavenContent {
+                // https://github.com/gradle/gradle/issues/35562
+                includeGroupAndSubgroups("com.android")
+                includeGroupAndSubgroups("com.google")
+                includeGroupAndSubgroups("androidx")
+            }
+        }
     }
     versionCatalogs {
         listOf(
@@ -24,7 +39,7 @@ dependencyResolutionManagement {
 }
 
 plugins {
-    id("org.gradle.toolchains.foojay-resolver-convention") version "1.0.0"
+    id("com.makeboon.gradle-settings")
 }
 
 include(":convention")

@@ -1,7 +1,14 @@
-dependencyResolutionManagement {
+pluginManagement {
     repositories {
         mavenCentral()
-        google()
+        gradlePluginPortal()
+    }
+}
+
+dependencyResolutionManagement {
+    repositoriesMode = RepositoriesMode.PREFER_SETTINGS
+    repositories {
+        mavenCentral()
         gradlePluginPortal()
     }
     versionCatalogs {
@@ -13,4 +20,8 @@ dependencyResolutionManagement {
             }
         }
     }
+}
+
+plugins {
+    id("org.gradle.toolchains.foojay-resolver-convention") version "1.0.0"
 }

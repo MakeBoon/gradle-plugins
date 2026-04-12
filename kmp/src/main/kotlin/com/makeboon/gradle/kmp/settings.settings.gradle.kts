@@ -1,4 +1,4 @@
-package com.makeboon.gradle
+package com.makeboon.gradle.kmp
 
 import com.makeboon.gradle.extension.create
 
@@ -33,6 +33,11 @@ dependencyResolutionManagement {
     versionCatalogs.create(
         "core" to "build-plugins",
         "makeboon" to "makeboon-plugins",
+        "kmp" to "kmp",
+        "kmpExt" to "kmp-ext",
+        "kmpAndroid" to "kmp-android",
+        "kmpIos" to "kmp-ios",
+        "kmpApp" to "kmp-app",
     )
 }
 

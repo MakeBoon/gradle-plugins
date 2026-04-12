@@ -1,0 +1,5 @@
+package com.makeboon
+
+plugins {
+    id("org.gradle.toolchains.foojay-resolver-convention")
+}
