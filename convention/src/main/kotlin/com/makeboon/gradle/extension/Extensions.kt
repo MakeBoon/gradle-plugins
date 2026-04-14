@@ -16,7 +16,6 @@ public fun String.toFile(parent: String): File = File(parent, this)
 public val Directory.files: List<File> get() = asFileTree.files.toList()
 public val Directory.regularFiles: List<RegularFile> get() = asFileTree.map { file(it.path) }
 public fun Directory.regularFilesInDir(path: String): List<RegularFile> = dir(path).regularFiles
-public fun File.with(append: String): File = File(path, append)
 public fun File.toProperties(): Properties = Properties().apply { inputStream().use(::load) }
 public fun Properties.getPropertyInt(key: String): Int = getPropertyIntOrNull(key)!!
 public fun Properties.getPropertyIntOrNull(key: String): Int? = getProperty(key)?.toInt()

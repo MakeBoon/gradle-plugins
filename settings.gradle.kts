@@ -42,5 +42,8 @@ plugins {
     id("com.makeboon.gradle-settings")
 }
 
-include(":convention")
-include(":kmp")
+include(
+    ":docs",
+    ":convention",
+    ":kmp",
+)

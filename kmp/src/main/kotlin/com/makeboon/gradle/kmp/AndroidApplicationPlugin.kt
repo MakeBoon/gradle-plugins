@@ -57,8 +57,8 @@ public class AndroidApplicationPlugin : Plugin<Project> {
             val keyStoreDir = fileInRootDir(appConfig.keyStoreDir)
             signingConfigs {
                 register("release") {
-                    with(keyStoreDir.with("android.properties").toProperties()) {
-                        storeFile = keyStoreDir.with(getProperty("StoreFile"))
+                    with(keyStoreDir.resolve("android.properties").toProperties()) {
+                        storeFile = keyStoreDir.resolve(getProperty("StoreFile"))
                         storePassword = getProperty("StorePassword")
                         keyAlias = getProperty("KeyAlias")
                         keyPassword = getProperty("KeyPassword")
