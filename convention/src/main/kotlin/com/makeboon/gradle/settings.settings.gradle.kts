@@ -31,7 +31,7 @@ dependencyResolutionManagement {
         }
     }
     versionCatalogs.create(
-        "core" to "build-plugins",
+        "core" to "build-logic",
         "makeboon" to "makeboon-plugins",
     )
 }

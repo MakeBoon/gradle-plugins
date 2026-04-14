@@ -1,27 +1,21 @@
+import com.makeboon.gradle.extension.createBy
+
 pluginManagement {
     repositories {
         mavenCentral()
         gradlePluginPortal()
     }
+    includeBuild("../build-settings-logic")
 }
 
 dependencyResolutionManagement {
-    repositoriesMode = RepositoriesMode.PREFER_SETTINGS
     repositories {
         mavenCentral()
         gradlePluginPortal()
     }
-    versionCatalogs {
-        listOf(
-            "core" to "build-plugins",
-        ).forEach { (name, target) ->
-            create(name) {
-                from(files("../../gradle-resources/versions/$target.toml"))
-            }
-        }
-    }
+    createBy(versionCatalogs, "build-logic")
 }
 
 plugins {
-    id("org.gradle.toolchains.foojay-resolver-convention") version "1.0.0"
+    id("com.makeboon.gradle.gradle-settings")
 }

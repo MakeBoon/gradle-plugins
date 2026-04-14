@@ -1,10 +1,10 @@
 package com.makeboon.gradle
 
-import org.gradle.accessors.dm.LibrariesForCore
+import org.gradle.accessors.dm.LibrariesForBuildLogic
 import org.jetbrains.kotlin.gradle.dsl.KotlinVersion
 import org.jetbrains.kotlin.gradle.dsl.abi.ExperimentalAbiValidation
 
-val core = the<LibrariesForCore>()
+val buildLogic = the<LibrariesForBuildLogic>()
 
 plugins {
     id("com.makeboon.gradle.artifact")
@@ -15,21 +15,19 @@ plugins {
 }
 
 kotlin {
-    jvmToolchain(core.versions.kotlin.jvmToolchain.get().toInt())
+    jvmToolchain(buildLogic.versions.kotlin.jvmToolchain.get().toInt())
     explicitApi()
     @OptIn(ExperimentalAbiValidation::class)
     abiValidation { enabled = true }
     compilerOptions {
-        val kotlinVersion = KotlinVersion.fromVersion(core.versions.kotlin.compile.get())
+        val kotlinVersion = KotlinVersion.fromVersion(buildLogic.versions.kotlin.compile.get())
         languageVersion = kotlinVersion
         apiVersion = kotlinVersion
         progressiveMode = true
-        freeCompilerArgs.addAll(
-            "-Xcontext-parameters"
-        )
+        freeCompilerArgs.addAll()
     }
 }
 
 dependencies {
-    implementation(core.gradlePlugin.kotlin.api)
+    implementation(buildLogic.gradlePlugin.kotlin.api)
 }

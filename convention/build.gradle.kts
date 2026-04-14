@@ -4,10 +4,10 @@ plugins {
 }
 
 dependencies {
-    implementation(core.gradlePlugin.foojayResolver)
-    api(core.gradlePlugin.kotlin)
-    implementation(core.gradlePlugin.serialization)
-    implementation(core.gradlePlugin.wire)
-    implementation(core.gradlePlugin.dokka)
-    implementation(core.gradlePlugin.publish)
+    implementation(buildLogic.gradlePlugin.foojayResolver)
+    api(buildLogic.gradlePlugin.kotlin)
+    implementation(buildLogic.gradlePlugin.serialization)
+    implementation(buildLogic.gradlePlugin.wire)
+    implementation(buildLogic.gradlePlugin.dokka)
+    implementation(buildLogic.gradlePlugin.publish)
 }
