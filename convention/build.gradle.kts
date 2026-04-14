@@ -1,3 +1,5 @@
+import com.makeboon.gradle.extension.implementationDefaultVersionCatalogLibraries
+
 plugins {
     `kotlin-dsl`
     id("com.makeboon.gradle.gradle-publish")
@@ -10,4 +12,6 @@ dependencies {
     implementation(buildLogic.gradlePlugin.wire)
     implementation(buildLogic.gradlePlugin.dokka)
     implementation(buildLogic.gradlePlugin.publish)
+
+    implementationDefaultVersionCatalogLibraries()
 }

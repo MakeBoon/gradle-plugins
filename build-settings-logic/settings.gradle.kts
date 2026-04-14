@@ -11,8 +11,27 @@ dependencyResolutionManagement {
         mavenCentral()
         gradlePluginPortal()
     }
-    versionCatalogs.create("buildLogic") {
-        from(files("../../gradle-resources/versions/build-logic.toml"))
+    listOf(
+        "build-logic",
+        "makeboon",
+        "kmp",
+        "kmp-ext",
+        "kmp-android",
+        "kmp-ios",
+        "kmp-app",
+    ).forEach { target ->
+        val path = "../../gradle-resources/versions/$target.toml"
+        layout.rootDirectory.files(path)
+            .takeIf { it.singleFile.exists() }
+            ?.also { fileCollection ->
+                val name = target.lowercase()
+                    .replace(Regex("[\\s-_]+([a-z])")) {
+                        it.groupValues[1].uppercase()
+                    }
+                versionCatalogs.create(name) {
+                    from(files(fileCollection))
+                }
+            }
     }
 }
 

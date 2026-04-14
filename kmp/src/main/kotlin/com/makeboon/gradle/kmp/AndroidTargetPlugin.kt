@@ -2,9 +2,9 @@ package com.makeboon.gradle.kmp
 
 import com.android.build.api.dsl.KotlinMultiplatformAndroidLibraryTarget
 import com.makeboon.gradle.extension.apply
+import com.makeboon.gradle.extension.buildLogic
+import com.makeboon.gradle.extension.kmpAndroid
 import com.makeboon.gradle.extension.moduleNamespace
-import com.makeboon.gradle.kmp.extension.core
-import com.makeboon.gradle.kmp.extension.kmpAndroid
 import com.makeboon.gradle.kmp.extension.release
 import org.gradle.api.Plugin
 import org.gradle.api.Project
@@ -16,7 +16,7 @@ public class AndroidTargetPlugin : Plugin<Project> {
     override fun apply(target: Project): Unit = with(target) {
         with(pluginManager) {
             apply(kmpAndroid.plugins.library)
-            apply(core.plugins.kotlin.parcelize)
+            apply(buildLogic.plugins.kotlin.parcelize)
         }
 
         extensions.configure<KotlinMultiplatformExtension> {

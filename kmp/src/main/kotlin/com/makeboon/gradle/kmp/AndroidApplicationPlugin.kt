@@ -6,8 +6,6 @@ import com.android.build.api.variant.ApplicationAndroidComponentsExtension
 import com.android.build.api.variant.impl.VariantOutputImpl
 import com.makeboon.gradle.extension.*
 import com.makeboon.gradle.kmp.extension.AppConfig
-import com.makeboon.gradle.kmp.extension.core
-import com.makeboon.gradle.kmp.extension.kmpAndroid
 import com.makeboon.gradle.kmp.extension.release
 import org.gradle.api.Plugin
 import org.gradle.api.Project
@@ -25,7 +23,7 @@ public class AndroidApplicationPlugin : Plugin<Project> {
 
         with(pluginManager) {
             apply(kmpAndroid.plugins.application)
-            apply(core.plugins.kotlin.parcelize)
+            apply(buildLogic.plugins.kotlin.parcelize)
         }
 
         applicationExtension(appConfig)

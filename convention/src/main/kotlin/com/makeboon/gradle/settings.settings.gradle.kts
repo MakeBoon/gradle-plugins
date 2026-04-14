@@ -1,6 +1,6 @@
 package com.makeboon.gradle
 
-import com.makeboon.gradle.extension.create
+import com.makeboon.gradle.extension.createDefaultVersionCatalogs
 
 pluginManagement {
     repositories {
@@ -30,11 +30,9 @@ dependencyResolutionManagement {
             }
         }
     }
-    versionCatalogs.create(
-        "core" to "build-logic",
-        "makeboon" to "makeboon-plugins",
-    )
 }
+
+createDefaultVersionCatalogs()
 
 plugins {
     id("org.gradle.toolchains.foojay-resolver-convention")

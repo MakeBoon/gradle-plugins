@@ -1,4 +1,4 @@
-import com.makeboon.gradle.extension.createBy
+import com.makeboon.gradle.extension.createDefaultVersionCatalogs
 
 rootProject.name = "gradle-plugins"
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
@@ -27,17 +27,9 @@ dependencyResolutionManagement {
             }
         }
     }
-    createBy(
-        versionCatalogs,
-        "build-logic",
-        "makeboon",
-        "kmp",
-        "kmp-ext",
-        "kmp-android",
-        "kmp-ios",
-        "kmp-app",
-    )
 }
+
+createDefaultVersionCatalogs()
 
 plugins {
     id("com.makeboon.gradle.gradle-settings")

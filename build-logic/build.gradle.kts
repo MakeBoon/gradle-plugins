@@ -1,3 +1,5 @@
+import com.makeboon.gradle.extension.implementationDefaultVersionCatalogLibraries
+
 plugins { `kotlin-dsl` }
 
 kotlin {
@@ -10,9 +12,7 @@ dependencies {
     implementation(buildLogic.gradlePlugin.publish)
     implementation(buildLogic.gradlePlugin.gradlePublish)
 
-    // workaround for accessing version-catalog in convention plugins
-    // https://github.com/gradle/gradle/issues/15383#issuecomment-779893192
-    implementation(files(buildLogic.javaClass.superclass.protectionDomain.codeSource.location))
+    implementationDefaultVersionCatalogLibraries()
 }
 
 private val copyTask by tasks.registering(Copy::class) {

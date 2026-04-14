@@ -2,7 +2,7 @@ package com.makeboon.gradle.kmp
 
 import com.makeboon.gradle.extension.`-X`
 import com.makeboon.gradle.extension.apply
-import com.makeboon.gradle.kmp.extension.core
+import com.makeboon.gradle.extension.buildLogic
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.assign
@@ -14,17 +14,17 @@ import org.jetbrains.kotlin.gradle.dsl.abi.ExperimentalAbiValidation
 internal class FrameworkPlugin(val library: Boolean) : Plugin<Project> {
     override fun apply(target: Project) = with(target) {
         with(pluginManager) {
-            apply(core.plugins.kotlin.multiplatform)
-            apply(core.plugins.kotlin.serialization)
+            apply(buildLogic.plugins.kotlin.multiplatform)
+            apply(buildLogic.plugins.kotlin.serialization)
         }
 
         extensions.configure<KotlinMultiplatformExtension> {
-            jvmToolchain(core.versions.kotlin.jvmToolchain.get().toInt())
+            jvmToolchain(buildLogic.versions.kotlin.jvmToolchain.get().toInt())
             if (library) explicitApi()
             @OptIn(ExperimentalAbiValidation::class)
             abiValidation { enabled = true }
             compilerOptions {
-                val kotlinVersion = KotlinVersion.fromVersion(core.versions.kotlin.compile.get())
+                val kotlinVersion = KotlinVersion.fromVersion(buildLogic.versions.kotlin.compile.get())
                 languageVersion = kotlinVersion
                 apiVersion = kotlinVersion
                 progressiveMode = true
