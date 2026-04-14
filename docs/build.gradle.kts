@@ -1,5 +1,5 @@
 plugins {
-    id("com.makeboon.dokka")
+    id("com.makeboon.gradle.dokka")
 }
 
 dependencies {

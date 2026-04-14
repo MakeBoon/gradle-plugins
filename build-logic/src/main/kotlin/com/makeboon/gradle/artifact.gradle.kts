@@ -1,4 +1,4 @@
-package com.makeboon
+package com.makeboon.gradle
 
 // gradle.properties
 group = ext["GROUP"]!!

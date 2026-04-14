@@ -1,4 +1,4 @@
-package com.makeboon
+package com.makeboon.gradle
 
 import org.gradle.accessors.dm.LibrariesForCore
 import org.jetbrains.kotlin.gradle.dsl.KotlinVersion
@@ -7,9 +7,10 @@ import org.jetbrains.kotlin.gradle.dsl.abi.ExperimentalAbiValidation
 val core = the<LibrariesForCore>()
 
 plugins {
+    id("com.makeboon.gradle.artifact")
+    id("org.jetbrains.dokka")
     id("com.gradle.plugin-publish")
     id("org.jetbrains.kotlin.jvm")
-    id("com.makeboon.dokka")
     id("com.vanniktech.maven.publish")
 }
 

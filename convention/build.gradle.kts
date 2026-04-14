@@ -1,6 +1,6 @@
 plugins {
     `kotlin-dsl`
-    id("com.makeboon.gradle-publish")
+    id("com.makeboon.gradle.gradle-publish")
 }
 
 dependencies {

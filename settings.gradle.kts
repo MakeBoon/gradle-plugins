@@ -39,7 +39,7 @@ dependencyResolutionManagement {
 }
 
 plugins {
-    id("com.makeboon.gradle-settings")
+    id("com.makeboon.gradle.gradle-settings")
 }
 
 include(
