@@ -106,16 +106,24 @@ public object AndroidApplicationPlugin : Plugin<Project> {
                     // APK
                     outputs.filterIsInstance<VariantOutputImpl>()
                         .forEach { it.outputFileName.set("$fileName.apk") }
+//                    val copyApk = tasks.register<Copy>("copy${capitalizedName}Apk") {
+//                        val output = artifacts.get(SingleArtifact.APK).get().asFile
+//                        from(output)
+//                        into(dirInBuildDir("outputs/apk/_"))
+//                        rename { "$fileName.apk" }
+//                    }
+//                    tasks.matching { it.name == "package${capitalizedName}" }
+//                        .configureEach { finalizedBy(copyApk) }
 
                     // BUNDLE
-                    val copy = tasks.register<Copy>("copy${capitalizedName}Bundle") {
+                    val copyBundle = tasks.register<Copy>("copy${capitalizedName}Bundle") {
                         val output = artifacts.get(SingleArtifact.BUNDLE).get().asFile
                         from(output)
                         into(dirInBuildDir("outputs/bundle/_"))
                         rename { "$fileName.aab" }
                     }
                     tasks.matching { it.name == "bundle${capitalizedName}" }
-                        .configureEach { finalizedBy(copy) }
+                        .configureEach { finalizedBy(copyBundle) }
                 }
             }
         }

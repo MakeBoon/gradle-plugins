@@ -44,7 +44,8 @@ public object ComposePlugin : Plugin<Project> {
         dependencies {
             when {
                 hasPlugin(kmpAndroid.plugins.application) -> "debugImplementation"
-                else -> "androidRuntimeClasspath"
+                hasPlugin(kmpAndroid.plugins.library) -> "androidRuntimeClasspath"
+                else -> return@dependencies
             }(kmp.compose.ui.tooling)
         }
     }
