@@ -10,7 +10,7 @@ dependencies {
     implementation(buildLogic.gradlePlugin.ksp)
     implementation(buildLogic.gradlePlugin.compose.compiler)
     implementation(kmp.gradlePlugin.compose)
-//    implementation(kmp.gradlePlugin.room3)
+    implementation(kmp.gradlePlugin.room3)
     implementation(kmpAndroid.gradlePlugin) // for `application`
     implementation(kmpAndroid.gradlePlugin.api) // for `library`
     implementation(kmpAndroid.gradlePlugin.tools)

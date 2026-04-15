@@ -37,7 +37,12 @@ public object ModulePlugin {
                 }
             }.forEach { it.apply(target) }
 
-            apply("com.makeboon.gradle.wire")
+            listOf(
+                "com.makeboon.gradle.wire",
+                "com.makeboon.gradle.sqldelight"
+            ).forEach(::apply)
+
+            Room3Plugin.apply(target)
 
             OptIn.configure(target, library, compose)
         }
