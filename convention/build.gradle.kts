@@ -11,7 +11,18 @@ dependencies {
     implementation(buildLogic.gradlePlugin.serialization)
     implementation(buildLogic.gradlePlugin.wire)
     implementation(buildLogic.gradlePlugin.dokka)
+    implementation(buildLogic.gradlePlugin.buildconfig)
     implementation(buildLogic.gradlePlugin.publish)
 
     implementationDefaultVersionCatalogLibraries()
+}
+
+buildConfig {
+    packageName("$group")
+    useKotlinOutput { topLevelConstants = true }
+
+    with(project) {
+        buildConfigField("GROUP_ID", "${ext["GROUP"]}")
+        buildConfigField("VERSION", "${ext["VERSION_NAME"]}")
+    }
 }

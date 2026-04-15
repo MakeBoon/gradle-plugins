@@ -8,9 +8,10 @@ val buildLogic = the<LibrariesForBuildLogic>()
 
 plugins {
     id("com.makeboon.gradle.artifact")
-    id("org.jetbrains.dokka")
     id("com.gradle.plugin-publish")
     id("org.jetbrains.kotlin.jvm")
+    id("com.github.gmazzo.buildconfig")
+    id("org.jetbrains.dokka")
     id("com.vanniktech.maven.publish")
 }
 

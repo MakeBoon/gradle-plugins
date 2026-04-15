@@ -10,6 +10,7 @@ shadow = "9.4.1" # https://plugins.gradle.org/plugin/com.gradleup.shadow
 kotlin = "2.4.0-Beta1"
 kotlin-compile = "2.4"
 kotlin-jvmToolchain = "21"
+buildconfig = "6.0.9" # https://github.com/gmazzo/gradle-buildconfig-plugin
 ### KMP
 ### Android
 ### iOS
@@ -31,6 +32,7 @@ gradlePlugin-dokka = { group = "org.jetbrains.dokka", name = "dokka-gradle-plugi
 gradlePlugin-gradlePublish = { group = "com.gradle.publish", name = "plugin-publish-plugin", version.ref = "gradle-publish" }
 gradlePlugin-foojayResolver = { group = "org.gradle.toolchains", name = "foojay-resolver", version.ref = "foojay-resolver" }
 gradlePlugin-shadow = { group = "com.gradleup.shadow", name = "shadow-gradle-plugin", version.ref = "shadow" }
+gradlePlugin-buildconfig = { group = "com.github.gmazzo.buildconfig", name = "plugin", version.ref = "buildconfig" }
 gradlePlugin-publish = { group = "com.vanniktech", name = "gradle-maven-publish-plugin", version.ref = "publish" }
 ### KMP
 gradlePlugin-compose-compiler = { group = "org.jetbrains.kotlin", name = "compose-compiler-gradle-plugin", version.ref = "kotlin" }
@@ -54,6 +56,7 @@ gradlePlugin-wire = { group = "com.squareup.wire", name = "wire-gradle-plugin", 
 gradle-publish = { id = "com.gradle.plugin-publish", version.ref = "gradle-publish" }
 foojayResolverConvention = { id = "org.gradle.toolchains.foojay-resolver-convention", version.ref = "foojay-resolver" }
 kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
+buildconfig = { id = "com.github.gmazzo.buildconfig", version.ref = "buildconfig" }
 ### KMP
 kotlin-multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
 kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
