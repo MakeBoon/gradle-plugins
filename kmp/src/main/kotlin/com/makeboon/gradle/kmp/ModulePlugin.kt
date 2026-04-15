@@ -22,16 +22,16 @@ public object ModulePlugin {
                 addAll(
                     listOf(
                         FrameworkPlugin(library),
-                        AndroidTargetPlugin(),
-                        iOSTargetPlugin(),
+                        AndroidTargetPlugin,
+                        iOSTargetPlugin,
                     )
                 )
 
                 if (compose) {
                     addAll(
                         listOf(
-                            ComposePlugin(),
-                            ComposeFlattenDrawableResourcePlugin()
+                            ComposePlugin,
+                            ComposeFlattenDrawableResourcePlugin
                         )
                     )
                 }

@@ -34,27 +34,28 @@ public enum class OptIn(private vararg val value: String) {
     public val values: List<String> get() = value.toList()
 
     public companion object {
-        public fun configure(project: Project, library: Boolean, compose: Boolean): Unit = with(project) {
-            val optIns = mutableListOf<OptIn>().apply {
-                add(Shared)
-                if (compose) add(Compose)
-            }.flatMap { it.values }
+        public fun configure(project: Project, library: Boolean, compose: Boolean): Unit =
+            with(project) {
+                val optIns = mutableListOf<OptIn>().apply {
+                    add(Shared)
+                    if (compose) add(Compose)
+                }.flatMap { it.values }
 
-            extensions.configure<KotlinMultiplatformExtension> {
-                compilerOptions.freeCompilerArgs.addAll(
-                    `-opt-in`(*optIns.toTypedArray())
-                )
+                extensions.configure<KotlinMultiplatformExtension> {
+                    compilerOptions.freeCompilerArgs.addAll(
+                        `-opt-in`(*optIns.toTypedArray())
+                    )
 
-                if (library) {
-                    targets.withType<KotlinMultiplatformAndroidLibraryTarget>().configureEach {
-                        compilerOptions.freeCompilerArgs.addAll(
-                            `-opt-in`(
-                                "androidx.media3.common.util.UnstableApi"
+                    if (library) {
+                        targets.withType<KotlinMultiplatformAndroidLibraryTarget>().configureEach {
+                            compilerOptions.freeCompilerArgs.addAll(
+                                `-opt-in`(
+                                    "androidx.media3.common.util.UnstableApi"
+                                )
                             )
-                        )
+                        }
                     }
                 }
             }
-        }
     }
 }

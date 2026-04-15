@@ -9,7 +9,7 @@ import org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension
 import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget
 
 @Suppress("ClassName")
-public class iOSTargetPlugin : Plugin<Project> {
+public object iOSTargetPlugin : Plugin<Project> {
     override fun apply(target: Project): Unit = with(target) {
         extensions.configure<KotlinMultiplatformExtension> {
             iosTargets.forEach(KotlinNativeTarget::configureCinterop)
