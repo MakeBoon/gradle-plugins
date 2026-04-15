@@ -7,11 +7,11 @@ kotlin {
 }
 
 dependencies {
-    implementation(buildLogic.gradlePlugin.kotlin)
-    implementation(buildLogic.gradlePlugin.dokka)
-    implementation(buildLogic.gradlePlugin.buildconfig)
-    implementation(buildLogic.gradlePlugin.publish)
     implementation(buildLogic.gradlePlugin.gradlePublish)
+    implementation(buildLogic.gradlePlugin.kotlin)
+    implementation(buildLogic.gradlePlugin.buildconfig)
+    implementation(buildLogic.gradlePlugin.dokka)
+    implementation(buildLogic.gradlePlugin.publish)
 
     implementationDefaultVersionCatalogLibraries()
 }

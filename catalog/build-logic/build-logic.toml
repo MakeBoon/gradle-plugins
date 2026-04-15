@@ -11,28 +11,29 @@ kotlin = "2.4.0-Beta1"
 kotlin-compile = "2.4"
 kotlin-jvmToolchain = "21"
 buildconfig = "6.0.9" # https://github.com/gmazzo/gradle-buildconfig-plugin
+wire = "6.2.0" # https://github.com/square/wire
+dokka = "2.2.0" # https://github.com/Kotlin/dokka
+publish = "0.36.0" # https://github.com/vanniktech/gradle-maven-publish-plugin
 ### KMP
 ### Android
 ### iOS
 ### Others
 ksp = "2.3.6" # https://github.com/google/ksp
-wire = "6.2.0" # https://github.com/square/wire
 spotless = "8.4.0" # https://github.com/diffplug/spotless
-dokka = "2.2.0" # https://github.com/Kotlin/dokka
 binaryCompatibility = "0.18.1" # https://github.com/Kotlin/binary-compatibility-validator
-publish = "0.36.0" # https://github.com/vanniktech/gradle-maven-publish-plugin
 
 
 [libraries]
 ### build-logic
+gradlePlugin-foojayResolver = { group = "org.gradle.toolchains", name = "foojay-resolver", version.ref = "foojay-resolver" }
+gradlePlugin-shadow = { group = "com.gradleup.shadow", name = "shadow-gradle-plugin", version.ref = "shadow" }
+gradlePlugin-gradlePublish = { group = "com.gradle.publish", name = "plugin-publish-plugin", version.ref = "gradle-publish" }
 gradlePlugin-kotlin = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin", version.ref = "kotlin" }
 gradlePlugin-kotlin-api = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin-api", version.ref = "kotlin" }
 gradlePlugin-serialization = { group = "org.jetbrains.kotlin.plugin.serialization", name = "org.jetbrains.kotlin.plugin.serialization.gradle.plugin", version.ref = "kotlin" }
-gradlePlugin-dokka = { group = "org.jetbrains.dokka", name = "dokka-gradle-plugin", version.ref = "dokka" }
-gradlePlugin-gradlePublish = { group = "com.gradle.publish", name = "plugin-publish-plugin", version.ref = "gradle-publish" }
-gradlePlugin-foojayResolver = { group = "org.gradle.toolchains", name = "foojay-resolver", version.ref = "foojay-resolver" }
-gradlePlugin-shadow = { group = "com.gradleup.shadow", name = "shadow-gradle-plugin", version.ref = "shadow" }
 gradlePlugin-buildconfig = { group = "com.github.gmazzo.buildconfig", name = "plugin", version.ref = "buildconfig" }
+gradlePlugin-wire = { group = "com.squareup.wire", name = "wire-gradle-plugin", version.ref = "wire" }
+gradlePlugin-dokka = { group = "org.jetbrains.dokka", name = "dokka-gradle-plugin", version.ref = "dokka" }
 gradlePlugin-publish = { group = "com.vanniktech", name = "gradle-maven-publish-plugin", version.ref = "publish" }
 ### KMP
 gradlePlugin-compose-compiler = { group = "org.jetbrains.kotlin", name = "compose-compiler-gradle-plugin", version.ref = "kotlin" }
@@ -40,7 +41,6 @@ gradlePlugin-compose-compiler = { group = "org.jetbrains.kotlin", name = "compos
 ### iOS
 ### Others
 gradlePlugin-ksp = { group = "com.google.devtools.ksp", name = "com.google.devtools.ksp.gradle.plugin", version.ref = "ksp" }
-gradlePlugin-wire = { group = "com.squareup.wire", name = "wire-gradle-plugin", version.ref = "wire" }
 
 
 [bundles]
@@ -53,10 +53,13 @@ gradlePlugin-wire = { group = "com.squareup.wire", name = "wire-gradle-plugin", 
 
 [plugins]
 ### build-logic
-gradle-publish = { id = "com.gradle.plugin-publish", version.ref = "gradle-publish" }
 foojayResolverConvention = { id = "org.gradle.toolchains.foojay-resolver-convention", version.ref = "foojay-resolver" }
+gradle-publish = { id = "com.gradle.plugin-publish", version.ref = "gradle-publish" }
 kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
 buildconfig = { id = "com.github.gmazzo.buildconfig", version.ref = "buildconfig" }
+wire = { id = "com.squareup.wire", version.ref = "wire" }
+dokka = { id = "org.jetbrains.dokka", version.ref = "dokka" }
+publish = { id = "com.vanniktech.maven.publish", version.ref = "publish" }
 ### KMP
 kotlin-multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
 kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
@@ -65,9 +68,6 @@ compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "
 ### iOS
 ### Others
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
-wire = { id = "com.squareup.wire", version.ref = "wire" }
 spotless = { id = "com.diffplug.spotless", version.ref = "spotless" }
-dokka = { id = "org.jetbrains.dokka", version.ref = "dokka" }
 binaryCompatibility = { id = "org.jetbrains.kotlinx.binary-compatibility-validator", version.ref = "binaryCompatibility" }
-publish = { id = "com.vanniktech.maven.publish", version.ref = "publish" }
 

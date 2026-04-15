@@ -9,9 +9,9 @@ dependencies {
     implementation(buildLogic.gradlePlugin.foojayResolver)
     api(buildLogic.gradlePlugin.kotlin)
     implementation(buildLogic.gradlePlugin.serialization)
+    implementation(buildLogic.gradlePlugin.buildconfig)
     implementation(buildLogic.gradlePlugin.wire)
     implementation(buildLogic.gradlePlugin.dokka)
-    implementation(buildLogic.gradlePlugin.buildconfig)
     implementation(buildLogic.gradlePlugin.publish)
 
     implementationDefaultVersionCatalogLibraries()
