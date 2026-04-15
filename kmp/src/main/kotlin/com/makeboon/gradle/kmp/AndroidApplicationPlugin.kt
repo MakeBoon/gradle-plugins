@@ -23,7 +23,6 @@ public class AndroidApplicationPlugin : Plugin<Project> {
 
         with(pluginManager) {
             apply(kmpAndroid.plugins.application)
-            apply(buildLogic.plugins.kotlin.parcelize)
         }
 
         applicationExtension(appConfig)

@@ -11,7 +11,8 @@ dependencies {
     implementation(buildLogic.gradlePlugin.compose.compiler)
     implementation(kmp.gradlePlugin.compose)
 //    implementation(kmp.gradlePlugin.room3)
-    implementation(kmpAndroid.gradlePlugin)
+    implementation(kmpAndroid.gradlePlugin) // for `application`
+    implementation(kmpAndroid.gradlePlugin.api) // for `library`
     implementation(kmpAndroid.gradlePlugin.tools)
 
     implementationDefaultVersionCatalogLibraries()

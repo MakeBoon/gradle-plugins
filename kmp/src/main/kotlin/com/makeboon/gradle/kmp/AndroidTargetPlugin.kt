@@ -16,7 +16,6 @@ public class AndroidTargetPlugin : Plugin<Project> {
     override fun apply(target: Project): Unit = with(target) {
         with(pluginManager) {
             apply(kmpAndroid.plugins.library)
-            apply(buildLogic.plugins.kotlin.parcelize)
         }
 
         extensions.configure<KotlinMultiplatformExtension> {
