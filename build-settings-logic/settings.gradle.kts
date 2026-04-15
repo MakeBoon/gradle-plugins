@@ -1,3 +1,5 @@
+rootProject.name = "build-settings-logic"
+
 pluginManagement {
     repositories {
         mavenCentral()
@@ -20,7 +22,7 @@ dependencyResolutionManagement {
         "kmp-ios",
         "kmp-app",
     ).forEach { target ->
-        val path = "../../gradle-resources/versions/$target.toml"
+        val path = "../catalog/$target/$target.toml"
         layout.rootDirectory.files(path)
             .takeIf { it.singleFile.exists() }
             ?.also { fileCollection ->

@@ -1,0 +1,26 @@
+# 26.03.12
+
+[versions]
+kmp-gradle = "0.0.1"
+
+
+[libraries]
+
+
+[bundles]
+
+
+[plugins]
+kmp-module-android-application = { id = "com.makeboon.gradle.kmp.module-android-application", version.ref = "kmp-gradle" }
+kmp-module-application = { id = "com.makeboon.gradle.kmp.module-application", version.ref = "kmp-gradle" }
+kmp-module-application-compose-library = { id = "com.makeboon.gradle.kmp.module-application-compose-library", version.ref = "kmp-gradle" }
+kmp-module-application-library = { id = "com.makeboon.gradle.kmp.module-application-library", version.ref = "kmp-gradle" }
+kmp-module-compose-library = { id = "com.makeboon.gradle.kmp.module-compose-library", version.ref = "kmp-gradle" }
+kmp-module-library = { id = "com.makeboon.gradle.kmp.module-library", version.ref = "kmp-gradle" }
+kmp-module-android-application-local = { id = "com.makeboon.gradle.kmp.module-android-application" }
+kmp-module-application-local = { id = "com.makeboon.gradle.kmp.module-application" }
+kmp-module-application-compose-library-local = { id = "com.makeboon.gradle.kmp.module-application-compose-library" }
+kmp-module-application-library-local = { id = "com.makeboon.gradle.kmp.module-application-library" }
+kmp-module-compose-library-local = { id = "com.makeboon.gradle.kmp.module-compose-library" }
+kmp-module-library-local = { id = "com.makeboon.gradle.kmp.module-library" }
+#

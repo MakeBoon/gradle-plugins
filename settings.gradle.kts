@@ -1,9 +1,8 @@
-import com.makeboon.gradle.extension.createDefaultVersionCatalogs
+import com.makeboon.gradle.extension.createProjectVersionCatalogs
+import com.makeboon.gradle.extension.DefaultVersionCatalogNames
 
 rootProject.name = "gradle-plugins"
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
-
-includeBuild("../gradle-resources")
 
 pluginManagement {
     repositories {
@@ -29,7 +28,7 @@ dependencyResolutionManagement {
     }
 }
 
-createDefaultVersionCatalogs()
+createProjectVersionCatalogs()
 
 plugins {
     id("com.makeboon.gradle.gradle-settings")
@@ -39,4 +38,8 @@ include(
     ":docs",
     ":convention",
     ":kmp",
+)
+
+include(
+    *DefaultVersionCatalogNames.map { ":catalog:$it" }.toTypedArray(),
 )

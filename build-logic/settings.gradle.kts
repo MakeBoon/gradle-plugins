@@ -1,4 +1,6 @@
-import com.makeboon.gradle.extension.createDefaultVersionCatalogs
+import com.makeboon.gradle.extension.createProjectVersionCatalogs
+
+rootProject.name = "build-logic"
 
 pluginManagement {
     repositories {
@@ -15,7 +17,7 @@ dependencyResolutionManagement {
     }
 }
 
-createDefaultVersionCatalogs()
+createProjectVersionCatalogs()
 
 plugins {
     id("com.makeboon.gradle.gradle-settings")

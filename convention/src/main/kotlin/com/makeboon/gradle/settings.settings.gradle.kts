@@ -1,6 +1,6 @@
 package com.makeboon.gradle
 
-import com.makeboon.gradle.extension.createDefaultVersionCatalogs
+import com.makeboon.gradle.extension.createProjectVersionCatalogs
 
 pluginManagement {
     repositories {
@@ -32,7 +32,7 @@ dependencyResolutionManagement {
     }
 }
 
-createDefaultVersionCatalogs()
+createProjectVersionCatalogs()
 
 plugins {
     id("org.gradle.toolchains.foojay-resolver-convention")

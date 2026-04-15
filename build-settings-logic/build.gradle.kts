@@ -23,6 +23,7 @@ private val copyTask by tasks.registering(Copy::class) {
     val packagePath = "src/main/kotlin/com/makeboon/gradle/extension"
     from(projectDir.resolve(packagePath))
     into(rootDir.resolve("../convention/$packagePath"))
+    include(*listOf("Copy").map { "${it}Extensions.kt" }.toTypedArray())
 }
 
 tasks.compileKotlin { dependsOn(copyTask) }

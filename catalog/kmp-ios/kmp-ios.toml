@@ -1,0 +1,19 @@
+# 26.03.12
+
+[versions]
+crashkios = "0.9.0" # https://github.com/touchlab/CrashKiOS
+kermit = "2.1.0" # https://github.com/touchlab/Kermit
+nsexceptionkt = "1.0.7" # https://github.com/rickclephas/NSExceptionKt
+
+
+[libraries]
+nsexceptionkt-core = { group = "com.rickclephas.kmp", name = "nsexception-kt-core", version.ref = "nsexceptionkt" }
+nsexceptionkt-crashlytics = { group = "com.rickclephas.kmp", name = "nsexception-kt-crashlytics", version.ref = "nsexceptionkt" }
+
+
+[bundles]
+nsexceptionkt = ["nsexceptionkt-core"]
+
+
+[plugins]
+
