@@ -2,28 +2,32 @@ package com.makeboon.gradle.kmp
 
 import com.makeboon.gradle.extension.`-X`
 import com.makeboon.gradle.extension.apply
-import com.makeboon.gradle.kmp.extension.core
+import com.makeboon.gradle.extension.buildLogic
 import org.gradle.api.Plugin
 import org.gradle.api.Project
+import org.gradle.kotlin.dsl.assign
 import org.gradle.kotlin.dsl.configure
 import org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension
 import org.jetbrains.kotlin.gradle.dsl.KotlinVersion
+import org.jetbrains.kotlin.gradle.dsl.abi.ExperimentalAbiValidation
 
 internal class FrameworkPlugin(val library: Boolean) : Plugin<Project> {
     override fun apply(target: Project) = with(target) {
         with(pluginManager) {
-            apply(core.plugins.kotlin.multiplatform)
-            apply(core.plugins.kotlin.serialization)
+            apply(buildLogic.plugins.kotlin.multiplatform)
+            apply(buildLogic.plugins.kotlin.serialization)
         }
 
         extensions.configure<KotlinMultiplatformExtension> {
-            jvmToolchain(core.versions.kotlin.jvmToolchain.get().toInt())
+            jvmToolchain(buildLogic.versions.kotlin.jvmToolchain.get().toInt())
             if (library) explicitApi()
+            @OptIn(ExperimentalAbiValidation::class)
+            abiValidation { enabled = true }
             compilerOptions {
-                val kotlinVersion = KotlinVersion.fromVersion(core.versions.kotlin.compile.get())
-                languageVersion.set(kotlinVersion)
-                apiVersion.set(kotlinVersion)
-                progressiveMode.set(true)
+                val kotlinVersion = KotlinVersion.fromVersion(buildLogic.versions.kotlin.compile.get())
+                languageVersion = kotlinVersion
+                apiVersion = kotlinVersion
+                progressiveMode = true
                 freeCompilerArgs.addAll(
                     `-X`(
                         "expect-actual-classes", // https://kotlinlang.org/docs/multiplatform/multiplatform-expect-actual.html#expected-and-actual-classes
@@ -42,6 +46,9 @@ internal class FrameworkPlugin(val library: Boolean) : Plugin<Project> {
                         "explicit-backing-fields", // https://kotlinlang.org/docs/whatsnew23.html#explicit-backing-fields
                         // whatsnew2320
                         "name-based-destructuring=name-mismatch", // https://kotlinlang.org/docs/whatsnew2320.html#language-name-based-destructuring
+                        // whatsnew-eap: 2.4.0-Beta1
+                        "explicit-context-arguments", // https://kotlinlang.org/docs/whatsnew-eap.html#explicit-context-arguments-for-context-parameters
+                        "klib-ir-inliner=full", // https://kotlinlang.org/docs/whatsnew-eap.html#consistent-intra-module-function-inlining-during-klib-compilation
                         // whatsnew-eap: ?
                     )
                 )

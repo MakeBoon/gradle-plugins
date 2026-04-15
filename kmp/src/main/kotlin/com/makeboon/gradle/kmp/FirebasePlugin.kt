@@ -1,7 +1,7 @@
 package com.makeboon.gradle.kmp
 
 import com.makeboon.gradle.extension.apply
-import com.makeboon.gradle.kmp.extension.kmpAndroid
+import com.makeboon.gradle.extension.kmpAndroid
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 

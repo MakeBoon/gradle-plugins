@@ -1,0 +1,73 @@
+# 26.03.12
+
+[versions]
+### build-logic
+gradle-publish = "2.1.1" # https://plugins.gradle.org/plugin/com.gradle.plugin-publish
+foojay-resolver = "1.0.0" # https://plugins.gradle.org/plugin/org.gradle.toolchains.foojay-resolver-convention
+shadow = "9.4.1" # https://plugins.gradle.org/plugin/com.gradleup.shadow
+# https://kotlinlang.org/docs/releases.html
+# https://github.com/JetBrains/kotlin
+kotlin = "2.4.0-Beta1"
+kotlin-compile = "2.4"
+kotlin-jvmToolchain = "21"
+buildconfig = "6.0.9" # https://github.com/gmazzo/gradle-buildconfig-plugin
+wire = "6.2.0" # https://github.com/square/wire
+dokka = "2.2.0" # https://github.com/Kotlin/dokka
+publish = "0.36.0" # https://github.com/vanniktech/gradle-maven-publish-plugin
+### KMP
+### Android
+### iOS
+### Others
+ksp = "2.3.6" # https://github.com/google/ksp
+spotless = "8.4.0" # https://github.com/diffplug/spotless
+binaryCompatibility = "0.18.1" # https://github.com/Kotlin/binary-compatibility-validator
+
+
+[libraries]
+### build-logic
+gradlePlugin-foojayResolver = { group = "org.gradle.toolchains", name = "foojay-resolver", version.ref = "foojay-resolver" }
+gradlePlugin-shadow = { group = "com.gradleup.shadow", name = "shadow-gradle-plugin", version.ref = "shadow" }
+gradlePlugin-gradlePublish = { group = "com.gradle.publish", name = "plugin-publish-plugin", version.ref = "gradle-publish" }
+gradlePlugin-kotlin = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin", version.ref = "kotlin" }
+gradlePlugin-kotlin-api = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin-api", version.ref = "kotlin" }
+gradlePlugin-serialization = { group = "org.jetbrains.kotlin.plugin.serialization", name = "org.jetbrains.kotlin.plugin.serialization.gradle.plugin", version.ref = "kotlin" }
+gradlePlugin-buildconfig = { group = "com.github.gmazzo.buildconfig", name = "plugin", version.ref = "buildconfig" }
+gradlePlugin-wire = { group = "com.squareup.wire", name = "wire-gradle-plugin", version.ref = "wire" }
+gradlePlugin-dokka = { group = "org.jetbrains.dokka", name = "dokka-gradle-plugin", version.ref = "dokka" }
+gradlePlugin-publish = { group = "com.vanniktech", name = "gradle-maven-publish-plugin", version.ref = "publish" }
+### KMP
+gradlePlugin-compose-compiler = { group = "org.jetbrains.kotlin", name = "compose-compiler-gradle-plugin", version.ref = "kotlin" }
+### Android
+### iOS
+### Others
+gradlePlugin-ksp = { group = "com.google.devtools.ksp", name = "com.google.devtools.ksp.gradle.plugin", version.ref = "ksp" }
+
+
+[bundles]
+### build-logic
+### KMP
+### Android
+### iOS
+### Others
+
+
+[plugins]
+### build-logic
+foojayResolverConvention = { id = "org.gradle.toolchains.foojay-resolver-convention", version.ref = "foojay-resolver" }
+gradle-publish = { id = "com.gradle.plugin-publish", version.ref = "gradle-publish" }
+kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
+buildconfig = { id = "com.github.gmazzo.buildconfig", version.ref = "buildconfig" }
+wire = { id = "com.squareup.wire", version.ref = "wire" }
+dokka = { id = "org.jetbrains.dokka", version.ref = "dokka" }
+publish = { id = "com.vanniktech.maven.publish", version.ref = "publish" }
+### KMP
+kotlin-multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
+kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
+compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
+### Android
+### iOS
+### Others
+ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
+spotless = { id = "com.diffplug.spotless", version.ref = "spotless" }
+binaryCompatibility = { id = "org.jetbrains.kotlinx.binary-compatibility-validator", version.ref = "binaryCompatibility" }
+
