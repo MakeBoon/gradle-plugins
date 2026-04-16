@@ -1,4 +1,4 @@
-# 26.03.12
+# 26.04.16
 # https://repo.maven.apache.org/maven2/org/jetbrains/
 # https://maven.google.com/web/index.html#androidx.compose
 
@@ -15,11 +15,6 @@ compose-window = "1.5.1"
 datastore = "1.2.1" # https://developer.android.com/jetpack/androidx/releases/datastore
 room3 = "3.0.0-alpha02" # https://developer.android.com/jetpack/androidx/releases/room3
 sqlite = "2.7.0-alpha02" # https://developer.android.com/jetpack/androidx/releases/sqlite
-kotlinx-datetime = "0.7.1" # https://github.com/Kotlin/kotlinx-datetime
-kotlinx-coroutines = "1.10.2" # https://github.com/Kotlin/kotlinx.coroutines
-kotlinx-serialization = "1.11.0" # https://github.com/Kotlin/kotlinx.serialization
-kotlinx-collections-immutable = "0.4.0" # https://github.com/Kotlin/kotlinx.collections.immutable
-ktor = "3.4.2" # https://github.com/ktorio/ktor
 
 
 [libraries]
@@ -60,27 +55,6 @@ room3-paging = { group = "androidx.room3", name = "room3-paging", version.ref = 
 room3-compiler = { group = "androidx.room3", name = "room3-compiler", version.ref = "room3" }
 room3-testing = { group = "androidx.room3", name = "room3-testing", version.ref = "room3" }
 sqlite = { group = "androidx.sqlite", name = "sqlite-bundled", version.ref = "sqlite" }
-kotlinx-datetime = { group = "org.jetbrains.kotlinx", name = "kotlinx-datetime", version.ref = "kotlinx-datetime" }
-kotlinx-coroutines-core = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-core", version.ref = "kotlinx-coroutines" }
-kotlinx-serialization-core = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-core", version.ref = "kotlinx-serialization" }
-kotlinx-serialization-json = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json", version.ref = "kotlinx-serialization" }
-kotlinx-serialization-protobuf = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-protobuf", version.ref = "kotlinx-serialization" }
-kotlinx-serialization-cbor = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-cbor", version.ref = "kotlinx-serialization" }
-kotlinx-collections-immutable = { group = "org.jetbrains.kotlinx", name = "kotlinx-collections-immutable", version.ref = "kotlinx-collections-immutable" }
-ktor-bom = { group = "io.ktor", name = "ktor-bom", version.ref = "ktor" }
-ktor-client-core = { group = "io.ktor", name = "ktor-client-core" }
-ktor-client-cio = { group = "io.ktor", name = "ktor-client-cio" }
-ktor-client-okhttp = { group = "io.ktor", name = "ktor-client-okhttp" }
-ktor-client-android = { group = "io.ktor", name = "ktor-client-android" }
-ktor-client-drawain = { group = "io.ktor", name = "ktor-client-darwin" }
-ktor-client-logging = { group = "io.ktor", name = "ktor-client-logging" }
-ktor-client-content-negotiation = { group = "io.ktor", name = "ktor-client-content-negotiation" }
-ktor-serialization-kotlinx-json = { group = "io.ktor", name = "ktor-serialization-kotlinx-json" }
-ktor-serialization-kotlinx-protobuf = { group = "io.ktor", name = "ktor-serialization-kotlinx-protobuf" }
-ktor-serialization-kotlinx-cbor = { group = "io.ktor", name = "ktor-serialization-kotlinx-cbor" }
-ktor-server-core = { group = "io.ktor", name = "ktor-server-core-jvm" }
-ktor-server-netty = { group = "io.ktor", name = "ktor-server-netty-jvm" }
-ktor-server-tests = { group = "io.ktor", name = "ktor-server-tests-jvm" }
 
 
 [bundles]
@@ -102,19 +76,6 @@ compose = [
 compose-test = ["compose-ui-test"]
 datastore = ["datastore", "datastore-okio", "datastore-preferences"]
 room3 = ["room3", "room3-paging", "sqlite"]
-kotlinx = [
-    "kotlinx-datetime",
-    "kotlinx-serialization-core",
-    "kotlinx-coroutines-core",
-#    "kotlinx-collections-immutable", # compose-runtime 에 내장되어 있음.
-]
-ktor = [
-    "ktor-client-core",
-    "ktor-client-content-negotiation", "ktor-serialization-kotlinx-json", "ktor-serialization-kotlinx-protobuf",
-    "ktor-client-logging",
-]
-ktor-android = ["ktor-client-okhttp"]
-ktor-ios = ["ktor-client-drawain"]
 
 
 [plugins]
