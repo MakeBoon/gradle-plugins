@@ -8,6 +8,7 @@ plugins {
 dependencies {
     implementation(buildLogic.gradlePlugin.foojayResolver)
     implementation(buildLogic.gradlePlugin.kotlin)
+    implementation(buildLogic.gradlePlugin.binaryCompatibility)
     implementation(buildLogic.gradlePlugin.serialization)
     implementation(buildLogic.gradlePlugin.buildconfig)
     implementation(buildLogic.gradlePlugin.wire)
