@@ -13,9 +13,9 @@ plugins {
 }
 
 tasks.withType<PublishToMavenRepository> {
-    dependsOn(tasks.named("apiCheck"))
+    dependsOn(tasks.named("checkKotlinAbi"))
 }
 
 tasks.withType<PublishToMavenLocal> {
-    dependsOn(tasks.named("apiCheck"))
+    dependsOn(tasks.named("checkKotlinAbi"))
 }
