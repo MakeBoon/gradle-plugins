@@ -8,7 +8,7 @@ plugins {
     alias(libs.plugins.compose.compiler) apply false
     alias(libs.plugins.ksp) apply false
     alias(libs.plugins.wire) apply false
-    alias(libs.plugins.room) apply false
+    alias(libs.plugins.room3) apply false
     alias(libs.plugins.gms.googleServices) apply false
     alias(libs.plugins.firebase.appDistribution) apply false
     alias(libs.plugins.firebase.crashlytics) apply false
@@ -65,18 +65,18 @@ plugins {
 ### Version
 
 - ksp
-- room
+- room3
 - sqlite
 
 ### Plugin
 
 - ksp
-- room
+- room3
 
 ### Library
 
-- room
-- room-compiler
+- room3
+- room3-compiler
 - sqlite
 
 # Firebase
@@ -100,6 +100,7 @@ plugins {
 ### Version
 
 - android-compileSdk
+- android-compileSdkApi
 - android-compileSdkExt
 - android-minSdk
 - android-targetSdk
@@ -124,6 +125,7 @@ plugins {
 ### Version
 
 - android-compileSdk
+- android-compileSdkApi
 - android-compileSdkExt
 - android-minSdk
 

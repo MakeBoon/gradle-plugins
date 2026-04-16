@@ -1,0 +1,20 @@
+# 26.03.12
+
+[versions]
+gradle-kmp = "0.0.1"
+
+
+[libraries]
+
+
+[bundles]
+
+
+[plugins]
+kmp-module-android-application = { id = "com.makeboon.gradle.kmp.module-android-application", version.ref = "gradle-kmp" }
+kmp-module-application = { id = "com.makeboon.gradle.kmp.module-application", version.ref = "gradle-kmp" }
+kmp-module-application-compose-library = { id = "com.makeboon.gradle.kmp.module-application-compose-library", version.ref = "gradle-kmp" }
+kmp-module-application-library = { id = "com.makeboon.gradle.kmp.module-application-library", version.ref = "gradle-kmp" }
+kmp-module-compose-library = { id = "com.makeboon.gradle.kmp.module-compose-library", version.ref = "gradle-kmp" }
+kmp-module-library = { id = "com.makeboon.gradle.kmp.module-library", version.ref = "gradle-kmp" }
+

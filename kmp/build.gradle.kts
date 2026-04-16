@@ -1,39 +1,19 @@
-import pro.crestfi.gradle.registerOf
+import com.makeboon.gradle.extension.implementationDefaultVersionCatalogLibraries
 
 plugins {
     `kotlin-dsl`
-    alias(libs.plugins.convention.jvmToolchain)
-    alias(libs.plugins.convention.publish)
+    id("com.makeboon.gradle.gradle-publish")
 }
 
 dependencies {
     implementation(projects.convention)
-    compileOnly(libs.gradlePlugin.compose)
-    compileOnly(libs.gradlePlugin.compose.compiler)
-    compileOnly(libs.gradlePlugin.ksp)
-    compileOnly(libs.gradlePlugin.wire)
-    compileOnly(libs.gradlePlugin.room)
-    compileOnly(libs.gradlePlugin.android)
-    compileOnly(libs.gradlePlugin.android.tools)
-}
+    implementation(buildLogic.gradlePlugin.ksp)
+    implementation(buildLogic.gradlePlugin.compose.compiler)
+    implementation(kmp.gradlePlugin.compose)
+    implementation(kmp.gradlePlugin.room3)
+    implementation(kmpAndroid.gradlePlugin)
+    implementation(kmpAndroid.gradlePlugin.api)
+    implementation(kmpAndroid.gradlePlugin.tools)
 
-gradlePlugin {
-    plugins {
-        registerOf(project, "application", false)
-        registerOf(project, "library", false)
-        registerOf(project, "compose-library", false)
-        //
-        registerOf(project, "framework")
-        registerOf(project, "compose")
-        registerOf(project, "compose-preview")
-        registerOf(project, "compose-flatten-drawable-resource")
-        registerOf(project, "ksp") { it.uppercase() }
-        registerOf(project, "wire")
-        registerOf(project, "room")
-        registerOf(project, "firebase")
-        registerOf(project, "android-application")
-        registerOf(project, "android-library")
-        registerOf(project, "ios-library") { "iOSLibrary" }
-        registerOf(project, "publish")
-    }
+    implementationDefaultVersionCatalogLibraries()
 }

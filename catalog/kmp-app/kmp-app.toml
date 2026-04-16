@@ -1,0 +1,37 @@
+# 26.03.12
+
+[versions]
+### KMP
+makeboon-kmp-shared = "0.0.1" # https://github.com/MakeBoon/kmp-shared
+### Android
+amplitude-android = "1.27.0" # https://github.com/amplitude/Amplitude-Kotlin
+facebook-android = "18.2.3" # https://github.com/facebook/facebook-android-sdk
+appsFlyer-android = "6.18.0" # https://github.com/AppsFlyerSDK/appsflyer-android-sdk
+### iOS
+#amplitude-ios = ""
+#facebook-ios = ""
+#appsFlyer-ios = ""
+### Others
+
+
+[libraries]
+### KMP
+makeboon-kmp-shared = { group = "com.makeboon.kmp", name = "shared", version.ref = "makeboon-kmp-shared" }
+makeboon-kmp-compose = { group = "com.makeboon.kmp", name = "compose", version.ref = "makeboon-kmp-shared" }
+### Android
+amplitude-android = { group = "com.amplitude", name = "analytics-android", version.ref = "amplitude-android" }
+facebook-android = { group = "com.facebook.android", name = "facebook-core", version.ref = "facebook-android" }
+appsFlyer-android = { group = "com.appsflyer", name = "af-android-sdk", version.ref = "appsFlyer-android" }
+### iOS
+### Others
+
+
+[bundles]
+### KMP
+### Android
+### iOS
+### Others
+
+
+[plugins]
+
