@@ -26,6 +26,7 @@ private val copyTask by tasks.registering(Copy::class) {
         *listOf(
             "artifact",
             "dokka",
+            "publish",
             "kotlin-jvm"
         ).map { "$it.gradle.kts" }.toTypedArray()
     )
