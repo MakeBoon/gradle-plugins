@@ -12,6 +12,7 @@ kotlin-compile = "2.4"
 kotlin-jvmToolchain = "21"
 buildconfig = "6.0.9" # https://github.com/gmazzo/gradle-buildconfig-plugin
 wire = "6.2.0" # https://github.com/square/wire
+sqldelight = "2.3.2" # https://github.com/sqldelight/sqldelight
 dokka = "2.2.0" # https://github.com/Kotlin/dokka
 publish = "0.36.0" # https://github.com/vanniktech/gradle-maven-publish-plugin
 ### KMP
@@ -33,6 +34,7 @@ gradlePlugin-kotlin-api = { group = "org.jetbrains.kotlin", name = "kotlin-gradl
 gradlePlugin-serialization = { group = "org.jetbrains.kotlin.plugin.serialization", name = "org.jetbrains.kotlin.plugin.serialization.gradle.plugin", version.ref = "kotlin" }
 gradlePlugin-buildconfig = { group = "com.github.gmazzo.buildconfig", name = "plugin", version.ref = "buildconfig" }
 gradlePlugin-wire = { group = "com.squareup.wire", name = "wire-gradle-plugin", version.ref = "wire" }
+gradlePlugin-sqldelight = { group = "app.cash.sqldelight", name = "gradle-plugin", version.ref = "sqldelight" }
 gradlePlugin-dokka = { group = "org.jetbrains.dokka", name = "dokka-gradle-plugin", version.ref = "dokka" }
 gradlePlugin-publish = { group = "com.vanniktech", name = "gradle-maven-publish-plugin", version.ref = "publish" }
 ### KMP
@@ -58,6 +60,7 @@ gradle-publish = { id = "com.gradle.plugin-publish", version.ref = "gradle-publi
 kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
 buildconfig = { id = "com.github.gmazzo.buildconfig", version.ref = "buildconfig" }
 wire = { id = "com.squareup.wire", version.ref = "wire" }
+sqldelight = { id = "app.cash.sqldelight", version.ref = "sqldelight" }
 dokka = { id = "org.jetbrains.dokka", version.ref = "dokka" }
 publish = { id = "com.vanniktech.maven.publish", version.ref = "publish" }
 ### KMP

@@ -4,7 +4,13 @@ import com.android.build.api.artifact.SingleArtifact
 import com.android.build.api.dsl.ApplicationExtension
 import com.android.build.api.variant.ApplicationAndroidComponentsExtension
 import com.android.build.api.variant.impl.VariantOutputImpl
-import com.makeboon.gradle.extension.*
+import com.makeboon.gradle.extension.apply
+import com.makeboon.gradle.extension.dirInBuildDir
+import com.makeboon.gradle.extension.fileInRootDir
+import com.makeboon.gradle.extension.filesInProjectDir
+import com.makeboon.gradle.extension.filesInRootDir
+import com.makeboon.gradle.extension.kmpAndroid
+import com.makeboon.gradle.extension.toProperties
 import com.makeboon.gradle.kmp.extension.AppConfig
 import com.makeboon.gradle.kmp.extension.release
 import org.gradle.api.Plugin
@@ -17,7 +23,7 @@ import org.gradle.kotlin.dsl.register
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 
-public class AndroidApplicationPlugin : Plugin<Project> {
+public object AndroidApplicationPlugin : Plugin<Project> {
     override fun apply(target: Project): Unit = with(target) {
         val appConfig = AppConfig.configure(target)
 
@@ -100,16 +106,24 @@ public class AndroidApplicationPlugin : Plugin<Project> {
                     // APK
                     outputs.filterIsInstance<VariantOutputImpl>()
                         .forEach { it.outputFileName.set("$fileName.apk") }
+//                    val copyApk = tasks.register<Copy>("copy${capitalizedName}Apk") {
+//                        val output = artifacts.get(SingleArtifact.APK).get().asFile
+//                        from(output)
+//                        into(dirInBuildDir("outputs/apk/_"))
+//                        rename { "$fileName.apk" }
+//                    }
+//                    tasks.matching { it.name == "package${capitalizedName}" }
+//                        .configureEach { finalizedBy(copyApk) }
 
                     // BUNDLE
-                    val copy = tasks.register<Copy>("copy${capitalizedName}Bundle") {
+                    val copyBundle = tasks.register<Copy>("copy${capitalizedName}Bundle") {
                         val output = artifacts.get(SingleArtifact.BUNDLE).get().asFile
                         from(output)
                         into(dirInBuildDir("outputs/bundle/_"))
                         rename { "$fileName.aab" }
                     }
                     tasks.matching { it.name == "bundle${capitalizedName}" }
-                        .configureEach { finalizedBy(copy) }
+                        .configureEach { finalizedBy(copyBundle) }
                 }
             }
         }

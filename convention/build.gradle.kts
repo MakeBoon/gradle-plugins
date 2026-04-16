@@ -7,10 +7,11 @@ plugins {
 
 dependencies {
     implementation(buildLogic.gradlePlugin.foojayResolver)
-    api(buildLogic.gradlePlugin.kotlin)
+    implementation(buildLogic.gradlePlugin.kotlin)
     implementation(buildLogic.gradlePlugin.serialization)
     implementation(buildLogic.gradlePlugin.buildconfig)
     implementation(buildLogic.gradlePlugin.wire)
+    implementation(buildLogic.gradlePlugin.sqldelight)
     implementation(buildLogic.gradlePlugin.dokka)
     implementation(buildLogic.gradlePlugin.publish)
 

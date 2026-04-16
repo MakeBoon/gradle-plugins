@@ -4,7 +4,7 @@
 # https://developer.android.com/build/releases/about-agp
 # https://developer.android.com/reference/tools/gradle-api
 # https://mvnrepository.com/artifact/com.android.tools.build/gradle
-gradlePlugin = "9.1.0"
+gradlePlugin = "9.1.1"
 tools = "32.1.0" # https://mvnrepository.com/artifact/com.android.tools/sdk-common
 compileSdk = "36"
 compileSdkApi = "1"
@@ -20,7 +20,7 @@ activity = "1.13.0" # https://developer.android.com/jetpack/androidx/releases/ac
 media3 = "1.10.0" # https://developer.android.com/jetpack/androidx/releases/media3
 ### Others
 firebase-bom = "34.11.0" # https://firebase.google.com/support/release-notes/android
-gms-googleServices = "4.4.4" # https://developers.google.com/android/guides/google-services-plugin
+gms-googleServices = "4.4.4" # https://mvnrepository.com/artifact/com.google.gms/google-services
 firebase-appDistribution = "5.2.1" # https://firebase.google.com/docs/app-distribution/android/distribute-gradle
 firebase-crashlytics = "3.0.6" # https://firebase.google.com/docs/crashlytics/android/get-started
 

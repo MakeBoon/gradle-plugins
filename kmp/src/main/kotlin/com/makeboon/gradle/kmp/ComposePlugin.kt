@@ -1,6 +1,11 @@
 package com.makeboon.gradle.kmp
 
-import com.makeboon.gradle.extension.*
+import com.makeboon.gradle.extension.apply
+import com.makeboon.gradle.extension.buildLogic
+import com.makeboon.gradle.extension.dirInBuildDir
+import com.makeboon.gradle.extension.hasPlugin
+import com.makeboon.gradle.extension.kmp
+import com.makeboon.gradle.extension.kmpAndroid
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.configure
@@ -10,7 +15,7 @@ import org.jetbrains.compose.ComposeExtension
 import org.jetbrains.kotlin.compose.compiler.gradle.ComposeCompilerGradlePluginExtension
 import org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension
 
-public class ComposePlugin : Plugin<Project> {
+public object ComposePlugin : Plugin<Project> {
     override fun apply(target: Project): Unit = with(target) {
         with(pluginManager) {
             apply(buildLogic.plugins.compose.compiler)
@@ -39,7 +44,8 @@ public class ComposePlugin : Plugin<Project> {
         dependencies {
             when {
                 hasPlugin(kmpAndroid.plugins.application) -> "debugImplementation"
-                else -> "androidRuntimeClasspath"
+                hasPlugin(kmpAndroid.plugins.library) -> "androidRuntimeClasspath"
+                else -> return@dependencies
             }(kmp.compose.ui.tooling)
         }
     }

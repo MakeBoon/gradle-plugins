@@ -28,7 +28,3 @@ kotlin {
         freeCompilerArgs.addAll()
     }
 }
-
-dependencies {
-    implementation(buildLogic.gradlePlugin.kotlin.api)
-}
