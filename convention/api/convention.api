@@ -1,0 +1,137 @@
+public final class com/makeboon/gradle/ArtifactPlugin : org/gradle/api/Plugin {
+	public fun <init> ()V
+	public synthetic fun apply (Ljava/lang/Object;)V
+	public fun apply (Lorg/gradle/api/Project;)V
+}
+
+public final class com/makeboon/gradle/Artifact_gradle : org/gradle/kotlin/dsl/precompile/v1/PrecompiledProjectScript {
+	public fun <init> (Lorg/gradle/api/Project;Lorg/gradle/api/Project;)V
+	public static final fun main ([Ljava/lang/String;)V
+}
+
+public final class com/makeboon/gradle/DokkaPlugin : org/gradle/api/Plugin {
+	public fun <init> ()V
+	public synthetic fun apply (Ljava/lang/Object;)V
+	public fun apply (Lorg/gradle/api/Project;)V
+}
+
+public final class com/makeboon/gradle/Dokka_gradle : org/gradle/kotlin/dsl/precompile/v1/PrecompiledProjectScript {
+	public fun <init> (Lorg/gradle/api/Project;Lorg/gradle/api/Project;)V
+	public static final fun main ([Ljava/lang/String;)V
+}
+
+public final class com/makeboon/gradle/KotlinJvmPlugin : org/gradle/api/Plugin {
+	public fun <init> ()V
+	public synthetic fun apply (Ljava/lang/Object;)V
+	public fun apply (Lorg/gradle/api/Project;)V
+}
+
+public final class com/makeboon/gradle/Kotlin_jvm_gradle : org/gradle/kotlin/dsl/precompile/v1/PrecompiledProjectScript {
+	public fun <init> (Lorg/gradle/api/Project;Lorg/gradle/api/Project;)V
+	public static final fun main ([Ljava/lang/String;)V
+}
+
+public final class com/makeboon/gradle/PublishPlugin : org/gradle/api/Plugin {
+	public fun <init> ()V
+	public synthetic fun apply (Ljava/lang/Object;)V
+	public fun apply (Lorg/gradle/api/Project;)V
+}
+
+public final class com/makeboon/gradle/Publish_gradle : org/gradle/kotlin/dsl/precompile/v1/PrecompiledProjectScript {
+	public fun <init> (Lorg/gradle/api/Project;Lorg/gradle/api/Project;)V
+	public final fun get$$result ()Lorg/gradle/api/DomainObjectCollection;
+	public static final fun main ([Ljava/lang/String;)V
+}
+
+public final class com/makeboon/gradle/SettingsPlugin : org/gradle/api/Plugin {
+	public fun <init> ()V
+	public synthetic fun apply (Ljava/lang/Object;)V
+	public fun apply (Lorg/gradle/api/initialization/Settings;)V
+}
+
+public final class com/makeboon/gradle/Settings_settings_gradle : org/gradle/kotlin/dsl/precompile/v1/PrecompiledSettingsScript {
+	public fun <init> (Lorg/gradle/api/initialization/Settings;Lorg/gradle/api/initialization/Settings;)V
+	public static final fun main ([Ljava/lang/String;)V
+}
+
+public final class com/makeboon/gradle/SqldelightPlugin : org/gradle/api/Plugin {
+	public fun <init> ()V
+	public synthetic fun apply (Ljava/lang/Object;)V
+	public fun apply (Lorg/gradle/api/Project;)V
+}
+
+public final class com/makeboon/gradle/Sqldelight_gradle : org/gradle/kotlin/dsl/precompile/v1/PrecompiledProjectScript {
+	public fun <init> (Lorg/gradle/api/Project;Lorg/gradle/api/Project;)V
+	public static final fun main ([Ljava/lang/String;)V
+}
+
+public final class com/makeboon/gradle/WirePlugin : org/gradle/api/Plugin {
+	public fun <init> ()V
+	public synthetic fun apply (Ljava/lang/Object;)V
+	public fun apply (Lorg/gradle/api/Project;)V
+}
+
+public final class com/makeboon/gradle/Wire_gradle : org/gradle/kotlin/dsl/precompile/v1/PrecompiledProjectScript {
+	public fun <init> (Lorg/gradle/api/Project;Lorg/gradle/api/Project;)V
+	public static final fun main ([Ljava/lang/String;)V
+}
+
+public final class com/makeboon/gradle/extension/CopyExtensionsKt {
+	public static final fun createProjectVersionCatalogs (Lorg/gradle/api/initialization/Settings;)V
+	public static final fun getDefaultVersionCatalogNames ()Ljava/util/List;
+	public static final fun getLibrariesForAll (Lorg/gradle/api/Project;)Ljava/util/List;
+	public static final fun implementationDefaultVersionCatalogLibraries (Lorg/gradle/api/Project;)V
+	public static final fun toCamelCase (Ljava/lang/String;)Ljava/lang/String;
+}
+
+public final class com/makeboon/gradle/extension/LibAccessorExtensionsKt {
+	public static final fun getBuildLogic (Lorg/gradle/api/Project;)Lorg/gradle/accessors/dm/LibrariesForBuildLogic;
+	public static final fun getKmp (Lorg/gradle/api/Project;)Lorg/gradle/accessors/dm/LibrariesForKmp;
+	public static final fun getKmpAndroid (Lorg/gradle/api/Project;)Lorg/gradle/accessors/dm/LibrariesForKmpAndroid;
+	public static final fun getKmpApp (Lorg/gradle/api/Project;)Lorg/gradle/accessors/dm/LibrariesForKmpApp;
+	public static final fun getKmpExt (Lorg/gradle/api/Project;)Lorg/gradle/accessors/dm/LibrariesForKmpExt;
+	public static final fun getKmpIos (Lorg/gradle/api/Project;)Lorg/gradle/accessors/dm/LibrariesForKmpIos;
+	public static final fun getMakeboon (Lorg/gradle/api/Project;)Lorg/gradle/accessors/dm/LibrariesForMakeboon;
+}
+
+public final class com/makeboon/gradle/extension/PrimitiveExtensionsKt {
+	public static final fun -X ([Ljava/lang/String;)Ljava/util/List;
+	public static final fun -opt-in ([Ljava/lang/String;)Ljava/util/List;
+	public static final fun bom (Lorg/jetbrains/kotlin/gradle/plugin/KotlinDependencyHandler;Lorg/gradle/api/provider/Provider;)Lorg/gradle/api/artifacts/Dependency;
+	public static final fun getAsFile (Ljava/lang/String;)Ljava/io/File;
+	public static final fun getFiles (Lorg/gradle/api/file/Directory;)Ljava/util/List;
+	public static final fun getPropertyBoolean (Ljava/util/Properties;Ljava/lang/String;)Z
+	public static final fun getPropertyBooleanOrNull (Ljava/util/Properties;Ljava/lang/String;)Ljava/lang/Boolean;
+	public static final fun getPropertyInt (Ljava/util/Properties;Ljava/lang/String;)I
+	public static final fun getPropertyIntOrNull (Ljava/util/Properties;Ljava/lang/String;)Ljava/lang/Integer;
+	public static final fun getRegularFiles (Lorg/gradle/api/file/Directory;)Ljava/util/List;
+	public static final fun regularFilesInDir (Lorg/gradle/api/file/Directory;Ljava/lang/String;)Ljava/util/List;
+	public static final fun toFile (Ljava/lang/String;Ljava/lang/String;)Ljava/io/File;
+	public static final fun toProperties (Ljava/io/File;)Ljava/util/Properties;
+}
+
+public final class com/makeboon/gradle/extension/ProjectExtensionsKt {
+	public static final fun apply (Lorg/gradle/api/plugins/PluginManager;Lorg/gradle/api/provider/Provider;)V
+	public static final fun dirInBuildDir (Lorg/gradle/api/Project;Ljava/lang/String;)Lorg/gradle/api/file/Directory;
+	public static final fun dirInProjectDir (Lorg/gradle/api/Project;Ljava/lang/String;)Lorg/gradle/api/file/Directory;
+	public static final fun dirInRootDir (Lorg/gradle/api/Project;Ljava/lang/String;)Lorg/gradle/api/file/Directory;
+	public static final fun dirProviderInBuildDir (Lorg/gradle/api/Project;Ljava/lang/String;)Lorg/gradle/api/provider/Provider;
+	public static final fun fileInBuildDir (Lorg/gradle/api/Project;Ljava/lang/String;)Ljava/io/File;
+	public static final fun fileInProjectDir (Lorg/gradle/api/Project;Ljava/lang/String;)Ljava/io/File;
+	public static final fun fileInRootDir (Lorg/gradle/api/Project;Ljava/lang/String;)Ljava/io/File;
+	public static final fun fileProviderInBuildDir (Lorg/gradle/api/Project;Ljava/lang/String;)Lorg/gradle/api/provider/Provider;
+	public static final fun filesInProjectDir (Lorg/gradle/api/Project;Ljava/lang/String;)Ljava/util/List;
+	public static final fun filesInRootDir (Lorg/gradle/api/Project;Ljava/lang/String;)Ljava/util/List;
+	public static final fun getModuleNamespace (Lorg/gradle/api/Project;)Ljava/lang/String;
+	public static final fun hasPlugin (Lorg/gradle/api/Project;Lorg/gradle/api/provider/Provider;)Z
+	public static final fun regularFileInBuildDir (Lorg/gradle/api/Project;Ljava/lang/String;)Lorg/gradle/api/file/RegularFile;
+	public static final fun regularFileInProjectDir (Lorg/gradle/api/Project;Ljava/lang/String;)Lorg/gradle/api/file/RegularFile;
+	public static final fun regularFileInRootDir (Lorg/gradle/api/Project;Ljava/lang/String;)Lorg/gradle/api/file/RegularFile;
+	public static final fun regularFilesInProjectDir (Lorg/gradle/api/Project;Ljava/lang/String;)Ljava/util/List;
+	public static final fun regularFilesInRootDir (Lorg/gradle/api/Project;Ljava/lang/String;)Ljava/util/List;
+}
+
+public final class com/makeboon/gradle/extension/VersionCatalogExtensionsKt {
+	public static final fun createVersionCatalogs (Lorg/gradle/api/initialization/Settings;[Ljava/lang/String;)V
+}
+
