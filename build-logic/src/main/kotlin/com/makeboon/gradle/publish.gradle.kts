@@ -12,10 +12,12 @@ plugins {
     id("com.vanniktech.maven.publish")
 }
 
-tasks.withType<PublishToMavenRepository> {
-    dependsOn(tasks.named("checkKotlinAbi"))
-}
+afterEvaluate {
+    tasks.withType<PublishToMavenRepository> {
+        dependsOn(tasks.named("checkKotlinAbi"))
+    }
 
-tasks.withType<PublishToMavenLocal> {
-    dependsOn(tasks.named("checkKotlinAbi"))
+    tasks.withType<PublishToMavenLocal> {
+        dependsOn(tasks.named("checkKotlinAbi"))
+    }
 }
