@@ -1,19 +1,35 @@
 package com.makeboon.gradle.kmp.extension
 
+import org.gradle.api.NamedDomainObjectContainer
 import org.gradle.kotlin.dsl.getByType
+import org.gradle.kotlin.dsl.invoke
 import org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension
+import org.jetbrains.kotlin.gradle.plugin.KotlinSourceSet
 import org.jetbrains.kotlin.gradle.plugin.mpp.Framework
 import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget
 import org.jetbrains.kotlin.gradle.plugin.mpp.apple.XCFramework
 
-public val KotlinMultiplatformExtension.iosTargets: List<KotlinNativeTarget>
-    get() = listOf(iosArm64(), iosSimulatorArm64())
-public val KotlinMultiplatformExtension.iosTargetsWithLegacy: List<KotlinNativeTarget>
-    get() = listOf(iosArm64(), iosSimulatorArm64(), iosX64())
+/**
+ * https://kotlinlang.org/docs/multiplatform/multiplatform-dsl-reference.html#targets
+ * https://kotlinlang.org/docs/native-target-support.html
+ */
+public val KotlinMultiplatformExtension.appleTargets: Array<KotlinNativeTarget>
+    get() = iosTargets + macosTargets + watchosTargets + tvosTargets
+public val KotlinMultiplatformExtension.iosTargets: Array<KotlinNativeTarget>
+    get() = arrayOf(iosArm64(), iosSimulatorArm64())
+public val KotlinMultiplatformExtension.macosTargets: Array<KotlinNativeTarget>
+    get() = arrayOf(macosArm64())
+public val KotlinMultiplatformExtension.watchosTargets: Array<KotlinNativeTarget>
+    get() = arrayOf(watchosDeviceArm64(), watchosArm64(), watchosSimulatorArm64())
+public val KotlinMultiplatformExtension.tvosTargets: Array<KotlinNativeTarget>
+    get() = arrayOf(tvosArm64(), tvosSimulatorArm64())
+
+public val KotlinMultiplatformExtension.iosMacosTargets: Array<KotlinNativeTarget>
+    get() = iosTargets + macosTargets
 
 public fun KotlinMultiplatformExtension.xcFramework(
     name: String = "ComposeApp",
-    targets: List<KotlinNativeTarget> = iosTargets,
+    targets: Array<KotlinNativeTarget> = iosTargets,
     configure: Framework.() -> Unit,
 ) {
     val (xcf, appConfig) = with(project) {
@@ -34,5 +50,14 @@ public fun KotlinMultiplatformExtension.xcFramework(
 
             xcf.add(this)
         }
+    }
+}
+
+public fun NamedDomainObjectContainer<KotlinSourceSet>.mobileMain(
+    configure: KotlinSourceSet.() -> Unit
+) {
+    listOf("androidMain", "iosMain").forEach {
+
+        named(it).invoke(configure)
     }
 }
