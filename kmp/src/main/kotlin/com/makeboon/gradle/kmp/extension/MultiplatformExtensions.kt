@@ -6,14 +6,22 @@ import org.jetbrains.kotlin.gradle.plugin.mpp.Framework
 import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget
 import org.jetbrains.kotlin.gradle.plugin.mpp.apple.XCFramework
 
-public val KotlinMultiplatformExtension.iosTargets: List<KotlinNativeTarget>
-    get() = listOf(iosArm64(), iosSimulatorArm64())
-public val KotlinMultiplatformExtension.iosTargetsWithLegacy: List<KotlinNativeTarget>
-    get() = listOf(iosArm64(), iosSimulatorArm64(), iosX64())
+/**
+ * https://kotlinlang.org/docs/multiplatform/multiplatform-dsl-reference.html#targets
+ * https://kotlinlang.org/docs/native-target-support.html
+ */
+public val KotlinMultiplatformExtension.appleTargets: Array<KotlinNativeTarget>
+    get() = arrayOf(*iosTargets, *watchosTargets, *tvosTargets)
+public val KotlinMultiplatformExtension.iosTargets: Array<KotlinNativeTarget>
+    get() = arrayOf(iosArm64(), iosSimulatorArm64())
+public val KotlinMultiplatformExtension.watchosTargets: Array<KotlinNativeTarget>
+    get() = arrayOf(watchosDeviceArm64(), watchosArm64(), watchosSimulatorArm64())
+public val KotlinMultiplatformExtension.tvosTargets: Array<KotlinNativeTarget>
+    get() = arrayOf(tvosArm64(), tvosSimulatorArm64())
 
 public fun KotlinMultiplatformExtension.xcFramework(
     name: String = "ComposeApp",
-    targets: List<KotlinNativeTarget> = iosTargets,
+    targets: Array<KotlinNativeTarget> = appleTargets,
     configure: Framework.() -> Unit,
 ) {
     val (xcf, appConfig) = with(project) {
