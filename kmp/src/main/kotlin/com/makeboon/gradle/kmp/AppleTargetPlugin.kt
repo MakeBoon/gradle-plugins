@@ -1,18 +1,18 @@
 package com.makeboon.gradle.kmp
 
 import com.makeboon.gradle.extension.filesInProjectDir
-import com.makeboon.gradle.kmp.extension.iosTargets
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.configure
 import org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension
 import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget
 
-@Suppress("ClassName")
-public object iOSTargetPlugin : Plugin<Project> {
+public class AppleTargetPlugin(
+    private val block: KotlinMultiplatformExtension.() -> Array<KotlinNativeTarget>
+) : Plugin<Project> {
     override fun apply(target: Project): Unit = with(target) {
         extensions.configure<KotlinMultiplatformExtension> {
-            iosTargets.forEach(KotlinNativeTarget::configureCinterop)
+            block().forEach(KotlinNativeTarget::configureCinterop)
         }
     }
 }

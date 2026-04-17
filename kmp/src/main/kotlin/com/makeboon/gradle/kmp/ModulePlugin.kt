@@ -2,6 +2,7 @@ package com.makeboon.gradle.kmp
 
 import com.makeboon.gradle.kmp.extension.AppConfig
 import com.makeboon.gradle.kmp.extension.OptIn
+import com.makeboon.gradle.kmp.extension.iosMacosTargets
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 
@@ -23,7 +24,7 @@ public object ModulePlugin {
                     listOf(
                         FrameworkPlugin(library),
                         AndroidTargetPlugin,
-                        iOSTargetPlugin,
+                        AppleTargetPlugin { iosMacosTargets },
                     )
                 )
 

@@ -11,17 +11,22 @@ import org.jetbrains.kotlin.gradle.plugin.mpp.apple.XCFramework
  * https://kotlinlang.org/docs/native-target-support.html
  */
 public val KotlinMultiplatformExtension.appleTargets: Array<KotlinNativeTarget>
-    get() = arrayOf(*iosTargets, *watchosTargets, *tvosTargets)
+    get() = iosTargets + macosTargets + watchosTargets + tvosTargets
 public val KotlinMultiplatformExtension.iosTargets: Array<KotlinNativeTarget>
     get() = arrayOf(iosArm64(), iosSimulatorArm64())
+public val KotlinMultiplatformExtension.macosTargets: Array<KotlinNativeTarget>
+    get() = arrayOf(macosArm64())
 public val KotlinMultiplatformExtension.watchosTargets: Array<KotlinNativeTarget>
     get() = arrayOf(watchosDeviceArm64(), watchosArm64(), watchosSimulatorArm64())
 public val KotlinMultiplatformExtension.tvosTargets: Array<KotlinNativeTarget>
     get() = arrayOf(tvosArm64(), tvosSimulatorArm64())
 
+public val KotlinMultiplatformExtension.iosMacosTargets: Array<KotlinNativeTarget>
+    get() = iosTargets + macosTargets
+
 public fun KotlinMultiplatformExtension.xcFramework(
     name: String = "ComposeApp",
-    targets: Array<KotlinNativeTarget> = appleTargets,
+    targets: Array<KotlinNativeTarget> = iosMacosTargets,
     configure: Framework.() -> Unit,
 ) {
     val (xcf, appConfig) = with(project) {
