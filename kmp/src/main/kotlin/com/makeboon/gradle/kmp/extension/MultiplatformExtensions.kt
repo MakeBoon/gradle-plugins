@@ -26,7 +26,7 @@ public val KotlinMultiplatformExtension.iosMacosTargets: Array<KotlinNativeTarge
 
 public fun KotlinMultiplatformExtension.xcFramework(
     name: String = "ComposeApp",
-    targets: Array<KotlinNativeTarget> = iosMacosTargets,
+    targets: Array<KotlinNativeTarget> = iosTargets,
     configure: Framework.() -> Unit,
 ) {
     val (xcf, appConfig) = with(project) {

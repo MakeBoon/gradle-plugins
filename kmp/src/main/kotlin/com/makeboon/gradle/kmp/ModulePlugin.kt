@@ -4,7 +4,7 @@ import com.makeboon.gradle.SQLDelightPlugin
 import com.makeboon.gradle.WirePlugin
 import com.makeboon.gradle.kmp.extension.AppConfig
 import com.makeboon.gradle.kmp.extension.OptIn
-import com.makeboon.gradle.kmp.extension.iosMacosTargets
+import com.makeboon.gradle.kmp.extension.iosTargets
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 
@@ -26,7 +26,8 @@ public object ModulePlugin {
                     listOf(
                         FrameworkPlugin(library),
                         AndroidTargetPlugin,
-                        AppleTargetPlugin { iosMacosTargets },
+                        AppleTargetPlugin { iosTargets },
+                        DesktopTargetPlugin,
                     )
                 )
 
