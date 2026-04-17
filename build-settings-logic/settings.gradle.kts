@@ -14,13 +14,10 @@ dependencyResolutionManagement {
         gradlePluginPortal()
     }
     listOf(
-        "build-logic",
-        "makeboon",
-        "kmp",
-        "kmp-ext",
-        "kmp-android",
-        "kmp-apple",
-        "kmp-app",
+        "build-logic", "kotlinx", "makeboon",
+        "kmp", "kmp-ext",
+        "kmp-android", "kmp-apple",
+        "kmp-application",
     ).forEach { target ->
         val path = "../catalog/$target/$target.toml"
         layout.rootDirectory.files(path)
