@@ -1,5 +1,7 @@
 package com.makeboon.gradle.kmp
 
+import com.makeboon.gradle.SQLDelightPlugin
+import com.makeboon.gradle.WirePlugin
 import com.makeboon.gradle.kmp.extension.AppConfig
 import com.makeboon.gradle.kmp.extension.OptIn
 import com.makeboon.gradle.kmp.extension.iosMacosTargets
@@ -39,11 +41,10 @@ public object ModulePlugin {
             }.forEach { it.apply(target) }
 
             listOf(
-                "com.makeboon.gradle.wire",
-                "com.makeboon.gradle.sqldelight"
-            ).forEach(::apply)
-
-            Room3Plugin.apply(target)
+                WirePlugin,
+                SQLDelightPlugin,
+                Room3Plugin,
+            ).forEach { it.apply(target) }
 
             OptIn.configure(target, library, compose)
         }
