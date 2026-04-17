@@ -45,7 +45,7 @@ ktor = [
     "ktor-client-logging",
 ]
 ktor-android = ["ktor-client-okhttp"]
-ktor-ios = ["ktor-client-drawain"]
+ktor-apple = ["ktor-client-drawain"]
 
 
 [plugins]

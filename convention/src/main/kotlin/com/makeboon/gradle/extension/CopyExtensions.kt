@@ -9,7 +9,7 @@ import org.gradle.kotlin.dsl.getByName
 public val DefaultVersionCatalogNames: List<String> = listOf(
     "build-logic", "kotlinx", "makeboon",
     "kmp", "kmp-ext",
-    "kmp-android", "kmp-ios",
+    "kmp-android", "kmp-apple",
     "kmp-app",
 )
 

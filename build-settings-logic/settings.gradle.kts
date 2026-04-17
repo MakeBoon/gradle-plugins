@@ -19,7 +19,7 @@ dependencyResolutionManagement {
         "kmp",
         "kmp-ext",
         "kmp-android",
-        "kmp-ios",
+        "kmp-apple",
         "kmp-app",
     ).forEach { target ->
         val path = "../catalog/$target/$target.toml"

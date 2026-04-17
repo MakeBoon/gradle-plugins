@@ -12,7 +12,7 @@ dependencies {
     listOf(
         buildLogic, makeboon,
         kmp, kmpExt,
-        kmpAndroid, kmpIos,
+        kmpAndroid, kmpApple,
         kmpApp,
     ).forEach {
         implementation(files(it.javaClass.superclass.protectionDomain.codeSource.location))
