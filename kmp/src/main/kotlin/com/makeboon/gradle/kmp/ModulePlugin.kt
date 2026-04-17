@@ -27,7 +27,7 @@ public object ModulePlugin {
                         FrameworkPlugin(library),
                         AndroidTargetPlugin,
                         AppleTargetPlugin { iosTargets },
-                        DesktopTargetPlugin,
+//                        DesktopTargetPlugin,
                     )
                 )
 

@@ -4,7 +4,7 @@
 molecule = "2.2.0" # https://github.com/cashapp/molecule
 filekit = "0.13.0" # https://github.com/vinceglb/FileKit
 # Media
-landscapist = "2.9.5" # https://github.com/skydoves/landscapist
+landscapist = "2.9.6" # https://github.com/skydoves/landscapist
 coil = "3.4.0" # https://github.com/coil-kt/coil
 krop = "0.3.0-alpha01" # https://github.com/tamimattafi/krop
 composeMediaPlayer = "0.9.0" # https://github.com/kdroidFilter/ComposeMediaPlayer
@@ -67,9 +67,9 @@ landscapist = [
     "landscapist-animation",
     "landscapist-placeholder",
     "landscapist-palette",
-    "landscapist-transformation",
     "landscapist-zoomable",
 ]
+landscapistExt = ["landscapist-transformation"]
 krop = ["krop-core", "krop-ui", "krop-filekit"]
 ui = ["materialkolor", "colorpicker"]
 renderEffect = ["cloudy", "haze", "haze-materials"]

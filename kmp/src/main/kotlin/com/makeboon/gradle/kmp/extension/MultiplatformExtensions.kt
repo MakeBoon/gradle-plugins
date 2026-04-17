@@ -1,7 +1,10 @@
 package com.makeboon.gradle.kmp.extension
 
+import org.gradle.api.NamedDomainObjectContainer
 import org.gradle.kotlin.dsl.getByType
+import org.gradle.kotlin.dsl.invoke
 import org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension
+import org.jetbrains.kotlin.gradle.plugin.KotlinSourceSet
 import org.jetbrains.kotlin.gradle.plugin.mpp.Framework
 import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget
 import org.jetbrains.kotlin.gradle.plugin.mpp.apple.XCFramework
@@ -47,5 +50,14 @@ public fun KotlinMultiplatformExtension.xcFramework(
 
             xcf.add(this)
         }
+    }
+}
+
+public fun NamedDomainObjectContainer<KotlinSourceSet>.mobileMain(
+    configure: KotlinSourceSet.() -> Unit
+) {
+    listOf("androidMain", "iosMain").forEach {
+
+        named(it).invoke(configure)
     }
 }

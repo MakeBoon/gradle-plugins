@@ -53,6 +53,8 @@ internal class FrameworkPlugin(val library: Boolean) : Plugin<Project> {
                     )
                 )
             }
+
+            applyDefaultHierarchyTemplate()
         }
     }
 }
