@@ -9,6 +9,8 @@ kotlin {
 dependencies {
     implementation(buildLogic.gradlePlugin.gradlePublish)
     implementation(buildLogic.gradlePlugin.kotlin)
+    implementation(buildLogic.gradlePlugin.binaryCompatibility)
+    implementation(buildLogic.gradlePlugin.serialization)
     implementation(buildLogic.gradlePlugin.buildconfig)
     implementation(buildLogic.gradlePlugin.dokka)
     implementation(buildLogic.gradlePlugin.publish)
@@ -20,7 +22,14 @@ private val copyTask by tasks.registering(Copy::class) {
     val packagePath = "src/main/kotlin/com/makeboon/gradle"
     from(projectDir.resolve(packagePath))
     into(rootDir.resolve("../convention/$packagePath"))
-    include(*listOf("artifact", "dokka").map { "$it.gradle.kts" }.toTypedArray())
+    include(
+        *listOf(
+            "artifact",
+            "dokka",
+            "publish",
+            "kotlin-jvm"
+        ).map { "$it.gradle.kts" }.toTypedArray()
+    )
 }
 
 tasks.compileKotlin { dependsOn(copyTask) }
