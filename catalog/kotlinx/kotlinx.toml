@@ -6,6 +6,8 @@ kotlinx-coroutines = "1.10.2" # https://github.com/Kotlin/kotlinx.coroutines
 kotlinx-serialization = "1.11.0" # https://github.com/Kotlin/kotlinx.serialization
 kotlinx-collections-immutable = "0.4.0" # https://github.com/Kotlin/kotlinx.collections.immutable
 ktor = "3.4.2" # https://github.com/ktorio/ktor
+exposed = "1.2.0" # https://github.com/JetBrains/Exposed
+h2 = "2.4.240" # https://mvnrepository.com/artifact/com.h2database/h2
 
 
 [libraries]
@@ -16,6 +18,8 @@ kotlinx-serialization-json = { group = "org.jetbrains.kotlinx", name = "kotlinx-
 kotlinx-serialization-protobuf = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-protobuf", version.ref = "kotlinx-serialization" }
 kotlinx-serialization-cbor = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-cbor", version.ref = "kotlinx-serialization" }
 kotlinx-collections-immutable = { group = "org.jetbrains.kotlinx", name = "kotlinx-collections-immutable", version.ref = "kotlinx-collections-immutable" }
+# https://ktor.io/docs/client-dependencies.html
+# https://ktor.io/docs/server-dependencies.html
 ktor-bom = { group = "io.ktor", name = "ktor-bom", version.ref = "ktor" }
 ktor-client-core = { group = "io.ktor", name = "ktor-client-core" }
 ktor-client-cio = { group = "io.ktor", name = "ktor-client-cio" }
@@ -30,6 +34,18 @@ ktor-serialization-kotlinx-cbor = { group = "io.ktor", name = "ktor-serializatio
 ktor-server-core = { group = "io.ktor", name = "ktor-server-core-jvm" }
 ktor-server-netty = { group = "io.ktor", name = "ktor-server-netty-jvm" }
 ktor-server-tests = { group = "io.ktor", name = "ktor-server-tests-jvm" }
+# https://www.jetbrains.com/help/exposed/adding-dependencies.html
+exposed = { group = "org.jetbrains.exposed", name = "exposed-core", version.ref = "exposed" }
+exposed-jdbc = { group = "org.jetbrains.exposed", name = "exposed-jdbc", version.ref = "exposed" }
+exposed-r2dbc = { group = "org.jetbrains.exposed", name = "exposed-r2dbc", version.ref = "exposed" }
+exposed-dao = { group = "org.jetbrains.exposed", name = "exposed-dao", version.ref = "exposed" }
+exposed-json = { group = "org.jetbrains.exposed", name = "exposed-json", version.ref = "exposed" }
+exposed-kotlinx-datetime = { group = "org.jetbrains.exposed", name = "exposed-kotlinx-datetime", version.ref = "exposed" }
+exposed-money = { group = "org.jetbrains.exposed", name = "exposed-money", version.ref = "exposed" }
+exposed-migration-core = { group = "org.jetbrains.exposed", name = "exposed-migration-core", version.ref = "exposed" }
+exposed-migration-jdbc = { group = "org.jetbrains.exposed", name = "exposed-migration-jdbc", version.ref = "exposed" }
+exposed-migration-r2dbc = { group = "org.jetbrains.exposed", name = "exposed-migration-r2dbc", version.ref = "exposed" }
+h2 = { group = "com.h2database", name = "h2", version.ref = "h2" }
 
 
 [bundles]
@@ -46,6 +62,9 @@ ktor = [
 ]
 ktor-android = ["ktor-client-okhttp"]
 ktor-apple = ["ktor-client-drawain"]
+exposed-jdbc = ["exposed-migration-jdbc", "exposed-jdbc", "exposed-dao"]
+exposed-r2dbc = ["exposed-migration-r2dbc", "exposed-r2dbc"]
+exposed-ext = ["exposed-json", "exposed-kotlinx-datetime", "exposed-money"]
 
 
 [plugins]
