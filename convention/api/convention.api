@@ -31,6 +31,17 @@ public final class com/makeboon/gradle/Kotlin_jvm_gradle : org/gradle/kotlin/dsl
 	public static final fun main ([Ljava/lang/String;)V
 }
 
+public final class com/makeboon/gradle/KspPlugin : org/gradle/api/Plugin {
+	public fun <init> ()V
+	public synthetic fun apply (Ljava/lang/Object;)V
+	public fun apply (Lorg/gradle/api/Project;)V
+}
+
+public final class com/makeboon/gradle/Ksp_gradle : org/gradle/kotlin/dsl/precompile/v1/PrecompiledProjectScript {
+	public fun <init> (Lorg/gradle/api/Project;Lorg/gradle/api/Project;)V
+	public static final fun main ([Ljava/lang/String;)V
+}
+
 public final class com/makeboon/gradle/PublishPlugin : org/gradle/api/Plugin {
 	public fun <init> ()V
 	public synthetic fun apply (Ljava/lang/Object;)V
@@ -40,12 +51,6 @@ public final class com/makeboon/gradle/PublishPlugin : org/gradle/api/Plugin {
 public final class com/makeboon/gradle/Publish_gradle : org/gradle/kotlin/dsl/precompile/v1/PrecompiledProjectScript {
 	public fun <init> (Lorg/gradle/api/Project;Lorg/gradle/api/Project;)V
 	public static final fun main ([Ljava/lang/String;)V
-}
-
-public final class com/makeboon/gradle/SQLDelightPlugin : org/gradle/api/Plugin {
-	public static final field INSTANCE Lcom/makeboon/gradle/SQLDelightPlugin;
-	public synthetic fun apply (Ljava/lang/Object;)V
-	public fun apply (Lorg/gradle/api/Project;)V
 }
 
 public final class com/makeboon/gradle/SettingsPlugin : org/gradle/api/Plugin {
@@ -59,10 +64,26 @@ public final class com/makeboon/gradle/Settings_settings_gradle : org/gradle/kot
 	public static final fun main ([Ljava/lang/String;)V
 }
 
-public final class com/makeboon/gradle/WirePlugin : org/gradle/api/Plugin {
-	public static final field INSTANCE Lcom/makeboon/gradle/WirePlugin;
+public final class com/makeboon/gradle/SqldelightPlugin : org/gradle/api/Plugin {
+	public fun <init> ()V
 	public synthetic fun apply (Ljava/lang/Object;)V
 	public fun apply (Lorg/gradle/api/Project;)V
+}
+
+public final class com/makeboon/gradle/Sqldelight_gradle : org/gradle/kotlin/dsl/precompile/v1/PrecompiledProjectScript {
+	public fun <init> (Lorg/gradle/api/Project;Lorg/gradle/api/Project;)V
+	public static final fun main ([Ljava/lang/String;)V
+}
+
+public final class com/makeboon/gradle/WirePlugin : org/gradle/api/Plugin {
+	public fun <init> ()V
+	public synthetic fun apply (Ljava/lang/Object;)V
+	public fun apply (Lorg/gradle/api/Project;)V
+}
+
+public final class com/makeboon/gradle/Wire_gradle : org/gradle/kotlin/dsl/precompile/v1/PrecompiledProjectScript {
+	public fun <init> (Lorg/gradle/api/Project;Lorg/gradle/api/Project;)V
+	public static final fun main ([Ljava/lang/String;)V
 }
 
 public final class com/makeboon/gradle/extension/CopyExtensionsKt {
