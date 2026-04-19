@@ -10,6 +10,7 @@ dependencies {
     implementation(buildLogic.gradlePlugin.kotlin)
     implementation(buildLogic.gradlePlugin.binaryCompatibility)
     implementation(buildLogic.gradlePlugin.serialization)
+    implementation(buildLogic.gradlePlugin.ksp)
     implementation(buildLogic.gradlePlugin.buildconfig)
     implementation(buildLogic.gradlePlugin.wire)
     implementation(buildLogic.gradlePlugin.sqldelight)

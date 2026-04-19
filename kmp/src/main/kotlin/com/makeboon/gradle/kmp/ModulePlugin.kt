@@ -19,6 +19,10 @@ public object ModulePlugin {
             if (publish) // should be the first plugin. group, name.
                 apply("com.makeboon.gradle.publish")
 
+            listOf(
+                "com.makeboon.gradle.ksp",
+            ).forEach(::apply)
+
             mutableListOf<Plugin<Project>>().apply {
                 addAll(
                     listOf(
