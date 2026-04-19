@@ -11,10 +11,7 @@ kotlin = "2.4.0-Beta1"
 kotlin-compile = "2.4"
 kotlin-jvmToolchain = "21"
 binaryCompatibility = "0.18.1" # https://github.com/Kotlin/binary-compatibility-validator
-ksp = "2.3.6" # https://github.com/google/ksp
 buildconfig = "6.0.9" # https://github.com/gmazzo/gradle-buildconfig-plugin
-wire = "6.2.0" # https://github.com/square/wire
-sqldelight = "2.3.2" # https://github.com/sqldelight/sqldelight
 dokka = "2.2.0" # https://github.com/Kotlin/dokka
 publish = "0.36.0" # https://github.com/vanniktech/gradle-maven-publish-plugin
 ### KMP
@@ -33,10 +30,7 @@ gradlePlugin-kotlin = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-pl
 gradlePlugin-kotlin-api = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin-api", version.ref = "kotlin" }
 gradlePlugin-binaryCompatibility = { group = "org.jetbrains.kotlinx.binary-compatibility-validator", name = "org.jetbrains.kotlinx.binary-compatibility-validator.gradle.plugin", version.ref = "binaryCompatibility" }
 gradlePlugin-serialization = { group = "org.jetbrains.kotlin.plugin.serialization", name = "org.jetbrains.kotlin.plugin.serialization.gradle.plugin", version.ref = "kotlin" }
-gradlePlugin-ksp = { group = "com.google.devtools.ksp", name = "com.google.devtools.ksp.gradle.plugin", version.ref = "ksp" }
 gradlePlugin-buildconfig = { group = "com.github.gmazzo.buildconfig", name = "plugin", version.ref = "buildconfig" }
-gradlePlugin-wire = { group = "com.squareup.wire", name = "wire-gradle-plugin", version.ref = "wire" }
-gradlePlugin-sqldelight = { group = "app.cash.sqldelight", name = "gradle-plugin", version.ref = "sqldelight" }
 gradlePlugin-dokka = { group = "org.jetbrains.dokka", name = "dokka-gradle-plugin", version.ref = "dokka" }
 gradlePlugin-publish = { group = "com.vanniktech", name = "gradle-maven-publish-plugin", version.ref = "publish" }
 ### KMP
@@ -60,10 +54,7 @@ foojayResolverConvention = { id = "org.gradle.toolchains.foojay-resolver-convent
 gradle-publish = { id = "com.gradle.plugin-publish", version.ref = "gradle-publish" }
 kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
 binaryCompatibility = { id = "org.jetbrains.kotlinx.binary-compatibility-validator", version.ref = "binaryCompatibility" }
-ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 buildconfig = { id = "com.github.gmazzo.buildconfig", version.ref = "buildconfig" }
-wire = { id = "com.squareup.wire", version.ref = "wire" }
-sqldelight = { id = "app.cash.sqldelight", version.ref = "sqldelight" }
 dokka = { id = "org.jetbrains.dokka", version.ref = "dokka" }
 publish = { id = "com.vanniktech.maven.publish", version.ref = "publish" }
 ### KMP

@@ -14,7 +14,8 @@ dependencyResolutionManagement {
         gradlePluginPortal()
     }
     listOf(
-        "build-logic", "kotlinx", "makeboon",
+        "build-logic", "kotlinx",
+        "support", "makeboon",
         "kmp", "kmp-ext",
         "kmp-android", "kmp-apple",
         "kmp-application",

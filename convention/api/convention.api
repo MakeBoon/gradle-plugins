@@ -101,7 +101,9 @@ public final class com/makeboon/gradle/extension/LibAccessorExtensionsKt {
 	public static final fun getKmpApple (Lorg/gradle/api/Project;)Lorg/gradle/accessors/dm/LibrariesForKmpApple;
 	public static final fun getKmpApplication (Lorg/gradle/api/Project;)Lorg/gradle/accessors/dm/LibrariesForKmpApplication;
 	public static final fun getKmpExt (Lorg/gradle/api/Project;)Lorg/gradle/accessors/dm/LibrariesForKmpExt;
+	public static final fun getKotlinx (Lorg/gradle/api/Project;)Lorg/gradle/accessors/dm/LibrariesForKotlinx;
 	public static final fun getMakeboon (Lorg/gradle/api/Project;)Lorg/gradle/accessors/dm/LibrariesForMakeboon;
+	public static final fun getSupport (Lorg/gradle/api/Project;)Lorg/gradle/accessors/dm/LibrariesForSupport;
 }
 
 public final class com/makeboon/gradle/extension/PrimitiveExtensionsKt {

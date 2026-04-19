@@ -1,0 +1,30 @@
+# 26.04.16
+
+[versions]
+ksp = "2.3.6" # https://github.com/google/ksp
+wire = "6.2.0" # https://github.com/square/wire
+sqldelight = "2.3.2" # https://github.com/sqldelight/sqldelight
+
+
+[libraries]
+gradlePlugin-ksp = { group = "com.google.devtools.ksp", name = "com.google.devtools.ksp.gradle.plugin", version.ref = "ksp" }
+gradlePlugin-wire = { group = "com.squareup.wire", name = "wire-gradle-plugin", version.ref = "wire" }
+gradlePlugin-sqldelight = { group = "app.cash.sqldelight", name = "gradle-plugin", version.ref = "sqldelight" }
+sqldelight-drivder-jdbc = { group = "app.cash.sqldelight", name = "jdbc-driver", version.ref = "sqldelight" }
+sqldelight-drivder-sqlite = { group = "app.cash.sqldelight", name = "sqlite-driver", version.ref = "sqldelight" }
+sqldelight-drivder-native = { group = "app.cash.sqldelight", name = "native-driver", version.ref = "sqldelight" }
+sqldelight-drivder-android = { group = "app.cash.sqldelight", name = "android-driver", version.ref = "sqldelight" }
+sqldelight-drivder-web = { group = "app.cash.sqldelight", name = "web-worker-driver", version.ref = "sqldelight" }
+sqldelight-dialect-mysql = { group = "app.cash.sqldelight", name = "mysql-dialect", version.ref = "sqldelight" }
+sqldelight-dialect-postgresql = { group = "app.cash.sqldelight", name = "postgresql-dialect", version.ref = "sqldelight" }
+sqldelight-dialect-hsql = { group = "app.cash.sqldelight", name = "hsql-dialect", version.ref = "sqldelight" }
+
+
+[bundles]
+
+
+[plugins]
+ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
+wire = { id = "com.squareup.wire", version.ref = "wire" }
+sqldelight = { id = "app.cash.sqldelight", version.ref = "sqldelight" }
+

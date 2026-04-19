@@ -10,12 +10,12 @@ dependencies {
     implementation(buildLogic.gradlePlugin.kotlin)
     implementation(buildLogic.gradlePlugin.binaryCompatibility)
     implementation(buildLogic.gradlePlugin.serialization)
-    implementation(buildLogic.gradlePlugin.ksp)
     implementation(buildLogic.gradlePlugin.buildconfig)
-    implementation(buildLogic.gradlePlugin.wire)
-    implementation(buildLogic.gradlePlugin.sqldelight)
     implementation(buildLogic.gradlePlugin.dokka)
     implementation(buildLogic.gradlePlugin.publish)
+    implementation(support.gradlePlugin.ksp)
+    implementation(support.gradlePlugin.wire)
+    implementation(support.gradlePlugin.sqldelight)
 
     implementationDefaultVersionCatalogLibraries()
 }
