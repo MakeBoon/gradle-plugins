@@ -22,12 +22,4 @@ dependencies {
 
 buildConfig {
     packageName("$group")
-    useKotlinOutput { topLevelConstants = true }
-
-    with(project) {
-        buildConfigField("LOCAL_ROOT_PROJECT_NAME", rootProject.name)
-        buildConfigField("LOCAL_ROOT_DIR_NAME", rootDir.name)
-        buildConfigField("GROUP_ID", "${ext["GROUP"]}")
-        buildConfigField("VERSION", "${ext["VERSION_NAME"]}")
-    }
 }
