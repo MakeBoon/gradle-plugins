@@ -40,7 +40,7 @@ exposed-jdbc = { group = "org.jetbrains.exposed", name = "exposed-jdbc", version
 exposed-r2dbc = { group = "org.jetbrains.exposed", name = "exposed-r2dbc", version.ref = "exposed" }
 exposed-dao = { group = "org.jetbrains.exposed", name = "exposed-dao", version.ref = "exposed" }
 exposed-json = { group = "org.jetbrains.exposed", name = "exposed-json", version.ref = "exposed" }
-exposed-kotlinx-datetime = { group = "org.jetbrains.exposed", name = "exposed-kotlinx-datetime", version.ref = "exposed" }
+exposed-kotlin-datetime = { group = "org.jetbrains.exposed", name = "exposed-kotlin-datetime", version.ref = "exposed" }
 exposed-money = { group = "org.jetbrains.exposed", name = "exposed-money", version.ref = "exposed" }
 exposed-migration-core = { group = "org.jetbrains.exposed", name = "exposed-migration-core", version.ref = "exposed" }
 exposed-migration-jdbc = { group = "org.jetbrains.exposed", name = "exposed-migration-jdbc", version.ref = "exposed" }
@@ -65,7 +65,7 @@ ktor-android = ["ktor-client-okhttp"]
 ktor-apple = ["ktor-client-drawain"]
 exposed-jdbc = ["exposed-migration-jdbc", "exposed-jdbc", "exposed-dao"]
 exposed-r2dbc = ["exposed-migration-r2dbc", "exposed-r2dbc"]
-exposed-ext = ["exposed-json", "exposed-kotlinx-datetime", "exposed-money"]
+exposed-ext = ["exposed-json", "exposed-kotlin-datetime", "exposed-money"]
 
 
 [plugins]
