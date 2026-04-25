@@ -10,14 +10,6 @@ pluginManagement {
     includeBuild("../build-settings-logic")
 }
 
-dependencyResolutionManagement {
-    repositoriesMode = RepositoriesMode.FAIL_ON_PROJECT_REPOS
-    repositories {
-        mavenCentral()
-        gradlePluginPortal()
-    }
-}
-
 createProjectVersionCatalogs()
 
 plugins {
