@@ -11,5 +11,5 @@ plugins {
 kotlin {
     explicitApi()
     @OptIn(ExperimentalAbiValidation::class)
-    abiValidation { enabled = true }
+    abiValidation()
 }

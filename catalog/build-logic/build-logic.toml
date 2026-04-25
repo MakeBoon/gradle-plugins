@@ -7,7 +7,7 @@ foojay-resolver = "1.0.0" # https://plugins.gradle.org/plugin/org.gradle.toolcha
 shadow = "9.4.1" # https://plugins.gradle.org/plugin/com.gradleup.shadow
 # https://kotlinlang.org/docs/releases.html
 # https://github.com/JetBrains/kotlin
-kotlin = "2.4.0-Beta1"
+kotlin = "2.4.0-Beta2"
 kotlin-compile = "2.4"
 kotlin-jvmToolchain = "21"
 binaryCompatibility = "0.18.1" # https://github.com/Kotlin/binary-compatibility-validator

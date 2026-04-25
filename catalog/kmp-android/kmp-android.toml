@@ -4,10 +4,11 @@
 # https://developer.android.com/build/releases/about-agp
 # https://developer.android.com/reference/tools/gradle-api
 # https://mvnrepository.com/artifact/com.android.tools.build/gradle
-gradlePlugin = "9.1.1"
+# https://maven.google.com/web/index.html#com.android.tools.build:gradle
+gradlePlugin = "9.2.0"
 tools = "32.1.0" # https://mvnrepository.com/artifact/com.android.tools/sdk-common
-compileSdk = "36"
-compileSdkApi = "1"
+compileSdk = "37"
+compileSdkApi = "0"
 compileSdkExt = "-" # Num or '-'
 minSdk = "31" # https://apilevels.com/
 ### AndroidX

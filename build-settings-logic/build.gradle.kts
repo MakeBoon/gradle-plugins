@@ -10,7 +10,8 @@ dependencies {
     // TODO: workaround for accessing version-catalog in convention plugins
     // https://github.com/gradle/gradle/issues/15383#issuecomment-779893192
     listOf(
-        buildLogic, makeboon,
+        buildLogic, kotlinx,
+        support, makeboon,
         kmp, kmpExt,
         kmpAndroid, kmpApple,
         kmpApplication,
