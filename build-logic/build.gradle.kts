@@ -20,16 +20,20 @@ dependencies {
 
 private val copyTask by tasks.registering(Copy::class) {
     val packagePath = "src/main/kotlin/com/makeboon/gradle"
-    from(projectDir.resolve(packagePath))
-    into(rootDir.resolve("../convention/$packagePath"))
-    include(
-        *listOf(
-            "artifact",
-            "dokka",
-            "publish",
-            "kotlin-jvm"
-        ).map { "$it.gradle.kts" }.toTypedArray()
-    )
+    val srcDir = projectDir.resolve(packagePath)
+    val destDir = rootDir.resolve("../convention/$packagePath")
+
+    into(destDir)
+    from(srcDir) {
+        include(
+            *listOf(
+                "artifact",
+                "dokka",
+                "publish",
+                "kotlin-jvm"
+            ).map { "$it.gradle.kts" }.toTypedArray()
+        )
+    }
 }
 
 tasks.compileKotlin { dependsOn(copyTask) }

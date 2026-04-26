@@ -16,6 +16,8 @@ dependencies {
     implementation(support.gradlePlugin.ksp)
     implementation(support.gradlePlugin.wire)
     implementation(support.gradlePlugin.sqldelight)
+    // For KSP
+    implementation(kmpAndroid.gradlePlugin.api)
 
     implementationDefaultVersionCatalogLibraries()
 }
