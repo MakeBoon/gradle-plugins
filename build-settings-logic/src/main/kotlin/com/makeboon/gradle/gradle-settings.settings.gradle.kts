@@ -1,5 +1,7 @@
 package com.makeboon.gradle
 
+import com.makeboon.gradle.extension.createProjectVersionCatalogs
+
 /**
  * This plugin configures dependencyResolutionManagement for all projects.
  * Note: pluginManagement repositories must be declared separately in settings.gradle
@@ -19,6 +21,8 @@ dependencyResolutionManagement {
         gradlePluginPortal()
     }
 }
+
+createProjectVersionCatalogs()
 
 plugins {
     id("org.gradle.toolchains.foojay-resolver-convention")
