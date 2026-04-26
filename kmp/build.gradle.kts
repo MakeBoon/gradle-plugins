@@ -7,8 +7,8 @@ plugins {
 
 dependencies {
     implementation(projects.convention)
-    implementation(buildLogic.gradlePlugin.ksp)
     implementation(buildLogic.gradlePlugin.compose.compiler)
+    implementation(support.gradlePlugin.ksp)
     implementation(kmp.gradlePlugin.compose)
     implementation(kmp.gradlePlugin.room3)
     implementation(kmpAndroid.gradlePlugin)

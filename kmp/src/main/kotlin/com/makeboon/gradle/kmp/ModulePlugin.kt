@@ -1,7 +1,5 @@
 package com.makeboon.gradle.kmp
 
-import com.makeboon.gradle.SQLDelightPlugin
-import com.makeboon.gradle.WirePlugin
 import com.makeboon.gradle.kmp.extension.AppConfig
 import com.makeboon.gradle.kmp.extension.OptIn
 import com.makeboon.gradle.kmp.extension.iosTargets
@@ -20,6 +18,10 @@ public object ModulePlugin {
         with(pluginManager) {
             if (publish) // should be the first plugin. group, name.
                 apply("com.makeboon.gradle.publish")
+
+            listOf(
+                "com.makeboon.gradle.ksp",
+            ).forEach(::apply)
 
             mutableListOf<Plugin<Project>>().apply {
                 addAll(
@@ -42,10 +44,10 @@ public object ModulePlugin {
             }.forEach { it.apply(target) }
 
             listOf(
-                WirePlugin,
-                SQLDelightPlugin,
-                Room3Plugin,
-            ).forEach { it.apply(target) }
+                "com.makeboon.gradle.wire",
+                "com.makeboon.gradle.sqldelight",
+                "com.makeboon.gradle.kmp.room3",
+            ).forEach(::apply)
 
             OptIn.configure(target, library, compose)
         }

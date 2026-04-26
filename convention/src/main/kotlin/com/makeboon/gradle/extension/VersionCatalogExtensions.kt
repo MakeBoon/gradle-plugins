@@ -1,7 +1,7 @@
 package com.makeboon.gradle.extension
 
 import com.makeboon.gradle.GROUP_ID
-import com.makeboon.gradle.LOCAL_ROOT_DIR_NAME
+import com.makeboon.gradle.ROOT_DIR_NAME
 import com.makeboon.gradle.VERSION
 import org.gradle.api.initialization.Settings
 import org.gradle.plugin.management.internal.PluginManagementSpecInternal
@@ -10,7 +10,7 @@ public fun Settings.createVersionCatalogs(vararg targets: String) {
     val localDir = (pluginManagement as PluginManagementSpecInternal)
         .includedBuilds
         .map { it.rootDir }
-        .firstOrNull { it.nameWithoutExtension == LOCAL_ROOT_DIR_NAME }
+        .firstOrNull { it.nameWithoutExtension == ROOT_DIR_NAME }
 
     val (isLocal, relativePath) = when (localDir) {
         null -> false to null
