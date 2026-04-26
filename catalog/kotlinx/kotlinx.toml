@@ -1,0 +1,72 @@
+# 26.04.16
+
+[versions]
+kotlinx-datetime = "0.7.1" # https://github.com/Kotlin/kotlinx-datetime
+kotlinx-coroutines = "1.10.2" # https://github.com/Kotlin/kotlinx.coroutines
+kotlinx-serialization = "1.11.0" # https://github.com/Kotlin/kotlinx.serialization
+kotlinx-collections-immutable = "0.4.0" # https://github.com/Kotlin/kotlinx.collections.immutable
+ktor = "3.4.2" # https://github.com/ktorio/ktor
+exposed = "1.2.0" # https://github.com/JetBrains/Exposed
+sqlite-jdbc = "3.53.0.0" # https://github.com/xerial/sqlite-jdbc
+
+
+[libraries]
+kotlinx-datetime = { group = "org.jetbrains.kotlinx", name = "kotlinx-datetime", version.ref = "kotlinx-datetime" }
+kotlinx-coroutines-core = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-core", version.ref = "kotlinx-coroutines" }
+kotlinx-serialization-core = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-core", version.ref = "kotlinx-serialization" }
+kotlinx-serialization-json = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json", version.ref = "kotlinx-serialization" }
+kotlinx-serialization-protobuf = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-protobuf", version.ref = "kotlinx-serialization" }
+kotlinx-serialization-cbor = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-cbor", version.ref = "kotlinx-serialization" }
+kotlinx-collections-immutable = { group = "org.jetbrains.kotlinx", name = "kotlinx-collections-immutable", version.ref = "kotlinx-collections-immutable" }
+# https://ktor.io/docs/client-dependencies.html
+# https://ktor.io/docs/server-dependencies.html
+ktor-bom = { group = "io.ktor", name = "ktor-bom", version.ref = "ktor" }
+ktor-client-core = { group = "io.ktor", name = "ktor-client-core" }
+ktor-client-cio = { group = "io.ktor", name = "ktor-client-cio" }
+ktor-client-okhttp = { group = "io.ktor", name = "ktor-client-okhttp" }
+ktor-client-android = { group = "io.ktor", name = "ktor-client-android" }
+ktor-client-drawain = { group = "io.ktor", name = "ktor-client-darwin" }
+ktor-client-logging = { group = "io.ktor", name = "ktor-client-logging" }
+ktor-client-content-negotiation = { group = "io.ktor", name = "ktor-client-content-negotiation" }
+ktor-serialization-kotlinx-json = { group = "io.ktor", name = "ktor-serialization-kotlinx-json" }
+ktor-serialization-kotlinx-protobuf = { group = "io.ktor", name = "ktor-serialization-kotlinx-protobuf" }
+ktor-serialization-kotlinx-cbor = { group = "io.ktor", name = "ktor-serialization-kotlinx-cbor" }
+ktor-server-core = { group = "io.ktor", name = "ktor-server-core-jvm" }
+ktor-server-netty = { group = "io.ktor", name = "ktor-server-netty-jvm" }
+ktor-server-tests = { group = "io.ktor", name = "ktor-server-tests-jvm" }
+# https://www.jetbrains.com/help/exposed/adding-dependencies.html
+exposed = { group = "org.jetbrains.exposed", name = "exposed-core", version.ref = "exposed" }
+exposed-jdbc = { group = "org.jetbrains.exposed", name = "exposed-jdbc", version.ref = "exposed" }
+exposed-r2dbc = { group = "org.jetbrains.exposed", name = "exposed-r2dbc", version.ref = "exposed" }
+exposed-dao = { group = "org.jetbrains.exposed", name = "exposed-dao", version.ref = "exposed" }
+exposed-json = { group = "org.jetbrains.exposed", name = "exposed-json", version.ref = "exposed" }
+exposed-kotlin-datetime = { group = "org.jetbrains.exposed", name = "exposed-kotlin-datetime", version.ref = "exposed" }
+exposed-money = { group = "org.jetbrains.exposed", name = "exposed-money", version.ref = "exposed" }
+exposed-migration-core = { group = "org.jetbrains.exposed", name = "exposed-migration-core", version.ref = "exposed" }
+exposed-migration-jdbc = { group = "org.jetbrains.exposed", name = "exposed-migration-jdbc", version.ref = "exposed" }
+exposed-migration-r2dbc = { group = "org.jetbrains.exposed", name = "exposed-migration-r2dbc", version.ref = "exposed" }
+# https://www.jetbrains.com/help/exposed/working-with-database.html#connecting-to-a-database
+sqlite-jdbc = { group = "org.xerial", name = "sqlite-jdbc", version.ref = "sqlite-jdbc" }
+
+
+[bundles]
+ecosystem = [
+    "kotlinx-datetime",
+    "kotlinx-serialization-core",
+    "kotlinx-coroutines-core",
+#    "kotlinx-collections-immutable", # compose-runtime 에 내장되어 있음.
+]
+ktor = [
+    "ktor-client-core",
+    "ktor-client-content-negotiation", "ktor-serialization-kotlinx-json", "ktor-serialization-kotlinx-protobuf",
+    "ktor-client-logging",
+]
+ktor-android = ["ktor-client-okhttp"]
+ktor-apple = ["ktor-client-drawain"]
+exposed-jdbc = ["exposed-migration-jdbc", "exposed-jdbc", "exposed-dao"]
+exposed-r2dbc = ["exposed-migration-r2dbc", "exposed-r2dbc"]
+exposed-ext = ["exposed-json", "exposed-kotlin-datetime", "exposed-money"]
+
+
+[plugins]
+

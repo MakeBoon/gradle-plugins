@@ -7,10 +7,11 @@ import org.gradle.kotlin.dsl.dependencies
 import org.gradle.kotlin.dsl.getByName
 
 public val DefaultVersionCatalogNames: List<String> = listOf(
-    "build-logic", "makeboon",
+    "build-logic", "kotlinx",
+    "support", "makeboon",
     "kmp", "kmp-ext",
-    "kmp-android", "kmp-ios",
-    "kmp-app",
+    "kmp-android", "kmp-apple",
+    "kmp-application",
 )
 
 public fun String.toCamelCase(): String =

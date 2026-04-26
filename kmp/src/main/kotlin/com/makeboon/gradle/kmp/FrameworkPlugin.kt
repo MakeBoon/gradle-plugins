@@ -22,7 +22,7 @@ internal class FrameworkPlugin(val library: Boolean) : Plugin<Project> {
             jvmToolchain(buildLogic.versions.kotlin.jvmToolchain.get().toInt())
             if (library) explicitApi()
             @OptIn(ExperimentalAbiValidation::class)
-            abiValidation { enabled = true }
+            abiValidation()
             compilerOptions {
                 val kotlinVersion = KotlinVersion.fromVersion(buildLogic.versions.kotlin.compile.get())
                 languageVersion = kotlinVersion
@@ -46,13 +46,16 @@ internal class FrameworkPlugin(val library: Boolean) : Plugin<Project> {
                         "explicit-backing-fields", // https://kotlinlang.org/docs/whatsnew23.html#explicit-backing-fields
                         // whatsnew2320
                         "name-based-destructuring=name-mismatch", // https://kotlinlang.org/docs/whatsnew2320.html#language-name-based-destructuring
-                        // whatsnew-eap: 2.4.0-Beta1
+                        // whatsnew-eap: 2.4.0-Beta2
                         "explicit-context-arguments", // https://kotlinlang.org/docs/whatsnew-eap.html#explicit-context-arguments-for-context-parameters
+                        "collection-literals", // https://kotlinlang.org/docs/whatsnew-eap.html#support-for-collection-literals
                         "klib-ir-inliner=full", // https://kotlinlang.org/docs/whatsnew-eap.html#consistent-intra-module-function-inlining-during-klib-compilation
                         // whatsnew-eap: ?
                     )
                 )
             }
+
+            applyDefaultHierarchyTemplate()
         }
     }
 }

@@ -8,19 +8,17 @@ pluginManagement {
 }
 
 dependencyResolutionManagement {
-    repositoriesMode = RepositoriesMode.PREFER_SETTINGS
+    repositoriesMode = RepositoriesMode.FAIL_ON_PROJECT_REPOS
     repositories {
         mavenCentral()
         gradlePluginPortal()
     }
     listOf(
-        "build-logic",
-        "makeboon",
-        "kmp",
-        "kmp-ext",
-        "kmp-android",
-        "kmp-ios",
-        "kmp-app",
+        "build-logic", "kotlinx",
+        "support", "makeboon",
+        "kmp", "kmp-ext",
+        "kmp-android", "kmp-apple",
+        "kmp-application",
     ).forEach { target ->
         val path = "../catalog/$target/$target.toml"
         layout.rootDirectory.files(path)

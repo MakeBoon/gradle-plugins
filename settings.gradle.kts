@@ -1,4 +1,3 @@
-import com.makeboon.gradle.extension.createProjectVersionCatalogs
 import com.makeboon.gradle.extension.DefaultVersionCatalogNames
 
 rootProject.name = "gradle-plugins"
@@ -12,23 +11,6 @@ pluginManagement {
     includeBuild("build-settings-logic")
     includeBuild("build-logic")
 }
-
-dependencyResolutionManagement {
-    repositories {
-        mavenCentral()
-        gradlePluginPortal()
-        google {
-            mavenContent {
-                // https://github.com/gradle/gradle/issues/35562
-                includeGroupAndSubgroups("com.android")
-                includeGroupAndSubgroups("com.google")
-                includeGroupAndSubgroups("androidx")
-            }
-        }
-    }
-}
-
-createProjectVersionCatalogs()
 
 plugins {
     id("com.makeboon.gradle.gradle-settings")
