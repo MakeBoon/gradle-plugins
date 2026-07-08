@@ -5,7 +5,7 @@
 # https://developer.android.com/reference/tools/gradle-api
 # https://mvnrepository.com/artifact/com.android.tools.build/gradle
 # https://maven.google.com/web/index.html#com.android.tools.build:gradle
-gradlePlugin = "9.2.0"
+gradlePlugin = "9.2.1"
 tools = "32.1.0" # https://mvnrepository.com/artifact/com.android.tools/sdk-common
 compileSdk = "37"
 compileSdkApi = "0"
