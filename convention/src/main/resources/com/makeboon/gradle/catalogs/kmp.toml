@@ -1,0 +1,86 @@
+# 26.07.08
+# https://repo.maven.apache.org/maven2/org/jetbrains/
+# https://maven.google.com/web/index.html#androidx.compose
+
+[versions]
+# https://github.com/JetBrains/compose-multiplatform/releases/tag/v1.12.0-beta01
+compose = "1.12.0-beta01"
+compose-material3 = "1.12.0-alpha03"
+compose-material3-adaptive = "1.3.0-beta02"
+compose-lifecycle = "2.11.0-rc01"
+compose-navigation3 = "1.2.0-alpha02" # browser: https://github.com/terrakok/navigation3-browser
+compose-navigationEvent = "1.1.0"
+compose-savedstate = "1.4.0"
+compose-window = "1.5.1"
+datastore = "1.3.0-alpha09" # https://developer.android.com/jetpack/androidx/releases/datastore
+room3 = "3.0.0" # https://developer.android.com/jetpack/androidx/releases/room3
+sqlite = "2.7.0" # https://developer.android.com/jetpack/androidx/releases/sqlite
+
+
+[libraries]
+gradlePlugin-compose = { group = "org.jetbrains.compose", name = "compose-gradle-plugin", version.ref = "compose" }
+gradlePlugin-room3 = { group = "androidx.room3", name = "room3-gradle-plugin", version.ref = "room3" }
+compose-full = { group = "org.jetbrains.compose", name = "compose-full", version.ref = "compose" }
+compose-animation = { group = "org.jetbrains.compose.animation", name = "animation", version.ref = "compose" }
+compose-animation-graphics = { group = "org.jetbrains.compose.animation", name = "animation-graphics", version.ref = "compose" }
+compose-foundation = { group = "org.jetbrains.compose.foundation", name = "foundation", version.ref = "compose" }
+compose-runtime = { group = "org.jetbrains.compose.runtime", name = "runtime", version.ref = "compose" }
+compose-runtimeSaveable = { group = "org.jetbrains.compose.runtime", name = "runtime-saveable", version.ref = "compose" }
+compose-ui = { group = "org.jetbrains.compose.ui", name = "ui", version.ref = "compose" }
+compose-ui-test = { group = "org.jetbrains.compose.ui", name = "ui-test", version.ref = "compose" }
+compose-ui-tooling = { group = "org.jetbrains.compose.ui", name = "ui-tooling", version.ref = "compose" }
+compose-ui-tooling-preview = { group = "org.jetbrains.compose.ui", name = "ui-tooling-preview", version.ref = "compose" }
+compose-ui-util = { group = "org.jetbrains.compose.ui", name = "ui-util", version.ref = "compose" }
+compose-components-resources = { group = "org.jetbrains.compose.components", name = "components-resources", version.ref = "compose" }
+compose-material = { group = "org.jetbrains.compose.material", name = "material", version.ref = "compose" }
+compose-material-iconsExtended = { group = "org.jetbrains.compose.material", name = "material-icons-extended", version = "1.7.3" }
+compose-material3 = { group = "org.jetbrains.compose.material3", name = "material3", version.ref = "compose-material3" }
+compose-material3AdaptiveNavigationSuite = { group = "org.jetbrains.compose.material3", name = "material3-adaptive-navigation-suite", version.ref = "compose-material3" }
+compose-material3-adaptive = { group = "org.jetbrains.compose.material3.adaptive", name = "adaptive", version.ref = "compose-material3-adaptive" }
+compose-material3-adaptive-layout = { group = "org.jetbrains.compose.material3.adaptive", name = "adaptive-layout", version.ref = "compose-material3-adaptive" }
+compose-material3-adaptive-navigation3 = { group = "org.jetbrains.compose.material3.adaptive", name = "adaptive-navigation3", version.ref = "compose-material3-adaptive" }
+compose-lifecycle = { group = "org.jetbrains.androidx.lifecycle", name = "lifecycle-runtime-compose", version.ref = "compose-lifecycle" }
+compose-lifecycle-viewmodel = { group = "org.jetbrains.androidx.lifecycle", name = "lifecycle-viewmodel-compose", version.ref = "compose-lifecycle" }
+compose-lifecycle-viewmodel-savedstate = { group = "org.jetbrains.androidx.lifecycle", name = "lifecycle-viewmodel-savedstate", version.ref = "compose-lifecycle" }
+compose-lifecycle-viewmodel-navigation3 = { group = "org.jetbrains.androidx.lifecycle", name = "lifecycle-viewmodel-navigation3", version.ref = "compose-lifecycle" }
+compose-navigation3 = { group = "org.jetbrains.androidx.navigation3", name = "navigation3-ui", version.ref = "compose-navigation3" }
+compose-navigationEvent = { group = "org.jetbrains.androidx.navigationevent", name = "navigationevent-compose", version.ref = "compose-navigationEvent" }
+compose-savedstate = { group = "org.jetbrains.androidx.savedstate", name = "savedstate-compose", version.ref = "compose-savedstate" }
+compose-window = { group = "org.jetbrains.androidx.window", name = "window-core", version.ref = "compose-window" }
+datastore = { group = "androidx.datastore", name = "datastore-core", version.ref = "datastore" }
+datastore-okio = { group = "androidx.datastore", name = "datastore-core-okio", version.ref = "datastore" }
+datastore-preferences = { group = "androidx.datastore", name = "datastore-preferences-core", version.ref = "datastore" }
+room3 = { group = "androidx.room3", name = "room3-runtime", version.ref = "room3" }
+room3-paging = { group = "androidx.room3", name = "room3-paging", version.ref = "room3" }
+room3-compiler = { group = "androidx.room3", name = "room3-compiler", version.ref = "room3" }
+room3-testing = { group = "androidx.room3", name = "room3-testing", version.ref = "room3" }
+sqlite-bundled = { group = "androidx.sqlite", name = "sqlite-bundled", version.ref = "sqlite" }
+sqlite-async = { group = "androidx.sqlite", name = "sqlite-async", version.ref = "sqlite" }
+sqlite-web = { group = "androidx.sqlite", name = "sqlite-web", version.ref = "sqlite" }
+
+
+[bundles]
+compose = [
+    "compose-animation", "compose-animation-graphics",
+    "compose-foundation",
+    "compose-material", "compose-material-iconsExtended",
+    "compose-material3", "compose-material3AdaptiveNavigationSuite",
+    "compose-runtime", "compose-runtimeSaveable",
+    "compose-ui", "compose-ui-util",
+    "compose-components-resources",
+    # androidx
+    "compose-material3-adaptive", "compose-material3-adaptive-layout", "compose-material3-adaptive-navigation3",
+    "compose-lifecycle", "compose-lifecycle-viewmodel", "compose-lifecycle-viewmodel-savedstate", "compose-lifecycle-viewmodel-navigation3",
+    "compose-navigation3", "compose-navigationEvent",
+    "compose-savedstate",
+    "compose-window",
+]
+compose-test = ["compose-ui-test"]
+datastore = ["datastore", "datastore-okio", "datastore-preferences"]
+room3 = ["room3", "room3-paging", "sqlite-async"]
+
+
+[plugins]
+compose = { id = "org.jetbrains.compose", version.ref = "compose" }
+room3 = { id = "androidx.room3", version.ref = "room3" }
+

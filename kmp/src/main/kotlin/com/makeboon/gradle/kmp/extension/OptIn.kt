@@ -9,6 +9,7 @@ import org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension
 
 public enum class OptIn(private vararg val value: String) {
     Shared(
+        "kotlin.ExperimentalStdlibApi",
         "kotlin.concurrent.atomics.ExperimentalAtomicApi",
         "kotlin.experimental.ExperimentalNativeApi",
         "kotlin.experimental.ExperimentalObjCName",

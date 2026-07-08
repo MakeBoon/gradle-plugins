@@ -1,0 +1,25 @@
+# 26.07.08
+
+[versions]
+gradle-kmp = "0.0.1"
+
+
+[libraries]
+
+
+[bundles]
+
+
+[plugins]
+kmp-module-android-application = { id = "com.makeboon.gradle.kmp.module-mobile-android-application", version.ref = "gradle-kmp" }
+kmp-module-mobile-application = { id = "com.makeboon.gradle.kmp.module-mobile-application", version.ref = "gradle-kmp" }
+kmp-module-mobile-application-compose-library = { id = "com.makeboon.gradle.kmp.module-mobile-application-compose-library", version.ref = "gradle-kmp" }
+kmp-module-mobile-application-library = { id = "com.makeboon.gradle.kmp.module-mobile-application-library", version.ref = "gradle-kmp" }
+kmp-module-mobile-compose-library = { id = "com.makeboon.gradle.kmp.module-mobile-compose-library", version.ref = "gradle-kmp" }
+kmp-module-mobile-library = { id = "com.makeboon.gradle.kmp.module-mobile-library", version.ref = "gradle-kmp" }
+kmp-module-web-application = { id = "com.makeboon.gradle.kmp.module-web-application", version.ref = "gradle-kmp" }
+kmp-module-web-application-compose-library = { id = "com.makeboon.gradle.kmp.module-web-application-compose-library", version.ref = "gradle-kmp" }
+kmp-module-web-application-library = { id = "com.makeboon.gradle.kmp.module-web-application-library", version.ref = "gradle-kmp" }
+kmp-module-web-compose-library = { id = "com.makeboon.gradle.kmp.module-web-compose-library", version.ref = "gradle-kmp" }
+kmp-module-web-library = { id = "com.makeboon.gradle.kmp.module-web-library", version.ref = "gradle-kmp" }
+

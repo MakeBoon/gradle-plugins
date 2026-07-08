@@ -20,7 +20,7 @@ dependencyResolutionManagement {
         "kmp-android", "kmp-apple",
         "kmp-application",
     ).forEach { target ->
-        val path = "../catalog/$target/$target.toml"
+        val path = "../convention/src/main/resources/com/makeboon/gradle/catalogs/$target.toml"
         layout.rootDirectory.files(path)
             .takeIf { it.singleFile.exists() }
             ?.also { fileCollection ->

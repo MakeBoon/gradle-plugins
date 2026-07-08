@@ -10,7 +10,7 @@ public fun Settings.createVersionCatalogs(vararg targets: String) {
                     startsWith("build-") && endsWith("-logic")
                 }
                 if (isBuildLogic) append("../")
-                append("catalog/$target/$target.toml")
+                append("convention/src/main/resources/com/makeboon/gradle/catalogs/$target.toml")
             }.also { path ->
                 versionCatalogs.create(target.toCamelCase()) {
                     from(layout.rootDirectory.files(path))
