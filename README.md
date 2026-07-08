@@ -2,6 +2,10 @@
 
 ## [Kotlin Multiplatform](kmp)
 
+Set `makeboon.kmp.wasmJs=true` in a module's (or the root) `gradle.properties` to add a
+wasmJs browser target to the `module-*` plugins. Application modules also get
+`binaries.executable()`; Room3 is skipped for wasmJs modules since it publishes no wasm artifacts.
+
 ## Publishing
 
 ### Maven Local
