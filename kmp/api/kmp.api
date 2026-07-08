@@ -152,7 +152,7 @@ public final class com/makeboon/gradle/kmp/Room3_gradle : org/gradle/kotlin/dsl/
 	public static final fun main ([Ljava/lang/String;)V
 }
 
-public final class com/makeboon/gradle/kmp/WasmJsTargetPlugin : org/gradle/api/Plugin {
+public final class com/makeboon/gradle/kmp/WebTargetPlugin : org/gradle/api/Plugin {
 	public fun <init> (Z)V
 	public synthetic fun apply (Ljava/lang/Object;)V
 	public fun apply (Lorg/gradle/api/Project;)V

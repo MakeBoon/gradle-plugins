@@ -1,9 +1,9 @@
-package com.makeboon.gradle.kmp
+package com.makeboon.gradle.kmp.plugin
 
 import com.android.ide.common.vectordrawable.Svg2Vector
 import com.makeboon.gradle.extension.asFile
-import com.makeboon.gradle.kmp.ComposeFlattenDrawableResourceExtension.Companion.EXTENSION_NAME
-import com.makeboon.gradle.kmp.ComposeFlattenDrawableResourceTask.Companion.TASK_NAME
+import com.makeboon.gradle.kmp.plugin.ComposeFlattenDrawableResourceExtension.Companion.EXTENSION_NAME
+import com.makeboon.gradle.kmp.plugin.ComposeFlattenDrawableResourceTask.Companion.TASK_NAME
 import org.gradle.api.DefaultTask
 import org.gradle.api.Plugin
 import org.gradle.api.Project

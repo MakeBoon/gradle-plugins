@@ -5,10 +5,6 @@ plugins {
     id("com.makeboon.gradle.gradle-publish")
 }
 
-// Version catalogs live under src/main/resources/com/makeboon/gradle/catalogs/
-// so they're bundled into the jar as-is; the published settings plugin reads
-// them from there without needing a Maven repository (see VersionCatalogExtensions.kt).
-
 dependencies {
     implementation(buildLogic.gradlePlugin.foojayResolver)
     implementation(buildLogic.gradlePlugin.kotlin)

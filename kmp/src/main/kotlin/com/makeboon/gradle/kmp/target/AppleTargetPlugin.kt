@@ -1,7 +1,6 @@
-package com.makeboon.gradle.kmp
+package com.makeboon.gradle.kmp.target
 
 import com.makeboon.gradle.extension.filesInProjectDir
-import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.configure
 import org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension
@@ -9,7 +8,7 @@ import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget
 
 public class AppleTargetPlugin(
     private val block: KotlinMultiplatformExtension.() -> Array<KotlinNativeTarget>
-) : Plugin<Project> {
+) : TargetPlugin() {
     override fun apply(target: Project): Unit = with(target) {
         extensions.configure<KotlinMultiplatformExtension> {
             block().forEach(KotlinNativeTarget::configureCinterop)

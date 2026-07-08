@@ -1,17 +1,16 @@
-package com.makeboon.gradle.kmp
+package com.makeboon.gradle.kmp.target
 
 import com.android.build.api.dsl.KotlinMultiplatformAndroidLibraryTarget
 import com.makeboon.gradle.extension.apply
 import com.makeboon.gradle.extension.kmpAndroid
 import com.makeboon.gradle.extension.moduleNamespace
 import com.makeboon.gradle.kmp.extension.release
-import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.configure
 import org.gradle.kotlin.dsl.withType
 import org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension
 
-public object AndroidTargetPlugin : Plugin<Project> {
+public object AndroidTargetPlugin : TargetPlugin() {
     override fun apply(target: Project): Unit = with(target) {
         with(pluginManager) {
             apply(kmpAndroid.plugins.library)

@@ -1,4 +1,4 @@
-package com.makeboon.gradle.kmp
+package com.makeboon.gradle.kmp.plugin
 
 import com.makeboon.gradle.extension.apply
 import com.makeboon.gradle.extension.kmpAndroid
