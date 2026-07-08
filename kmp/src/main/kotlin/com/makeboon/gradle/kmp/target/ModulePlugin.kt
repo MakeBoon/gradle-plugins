@@ -1,5 +1,7 @@
 package com.makeboon.gradle.kmp.target
 
+import com.makeboon.gradle.extension.apply
+import com.makeboon.gradle.extension.kmpExt
 import com.makeboon.gradle.kmp.extension.AppConfig
 import com.makeboon.gradle.kmp.extension.OptIn
 import com.makeboon.gradle.kmp.plugin.ComposeFlattenDrawableResourcePlugin
@@ -31,13 +33,8 @@ public object ModulePlugin {
                     listOf(
                         FrameworkPlugin(library),
                         *targets
-//                        AndroidTargetPlugin,
-//                        AppleTargetPlugin { iosTargets },
-//                        DesktopTargetPlugin,
                     )
                 )
-
-//                if (wasmJs) add(WebTargetPlugin(application = !library))
 
                 if (compose) {
                     addAll(
@@ -51,8 +48,13 @@ public object ModulePlugin {
 
             listOf(
                 "com.makeboon.gradle.wire",
+                "com.makeboon.gradle.sqldelight",
                 "com.makeboon.gradle.kmp.room3",
             ).forEach(::apply)
+
+            listOf(
+                kmpExt.plugins.metro
+            ).forEach { this.apply(it) }
 
             OptIn.configure(target, library, compose)
         }

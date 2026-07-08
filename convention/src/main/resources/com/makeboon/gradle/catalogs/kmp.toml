@@ -54,7 +54,7 @@ room3 = { group = "androidx.room3", name = "room3-runtime", version.ref = "room3
 room3-paging = { group = "androidx.room3", name = "room3-paging", version.ref = "room3" }
 room3-compiler = { group = "androidx.room3", name = "room3-compiler", version.ref = "room3" }
 room3-testing = { group = "androidx.room3", name = "room3-testing", version.ref = "room3" }
-sqlite = { group = "androidx.sqlite", name = "sqlite-bundled", version.ref = "sqlite" }
+sqlite-bundled = { group = "androidx.sqlite", name = "sqlite-bundled", version.ref = "sqlite" }
 sqlite-async = { group = "androidx.sqlite", name = "sqlite-async", version.ref = "sqlite" }
 sqlite-web = { group = "androidx.sqlite", name = "sqlite-web", version.ref = "sqlite" }
 
@@ -77,7 +77,6 @@ compose = [
 ]
 compose-test = ["compose-ui-test"]
 datastore = ["datastore", "datastore-okio", "datastore-preferences"]
-# sqlite(-bundled) is wired per source set in room3.gradle.kts (no web targets)
 room3 = ["room3", "room3-paging", "sqlite-async"]
 
 

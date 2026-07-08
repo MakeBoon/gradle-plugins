@@ -1,13 +1,24 @@
 package com.makeboon.gradle.kmp.extension
 
+import com.makeboon.gradle.extension.isWeb
 import org.gradle.api.NamedDomainObjectContainer
 import org.gradle.kotlin.dsl.getByType
 import org.gradle.kotlin.dsl.invoke
 import org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension
+import org.jetbrains.kotlin.gradle.plugin.KotlinPlatformType
 import org.jetbrains.kotlin.gradle.plugin.KotlinSourceSet
 import org.jetbrains.kotlin.gradle.plugin.mpp.Framework
 import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget
 import org.jetbrains.kotlin.gradle.plugin.mpp.apple.XCFramework
+
+public val KotlinMultiplatformExtension.hasWeb: Boolean
+    get() = targets.any { it.platformType.isWeb }
+public val KotlinMultiplatformExtension.hasJVM: Boolean
+    get() = targets.any { it.platformType == KotlinPlatformType.jvm }
+public val KotlinMultiplatformExtension.hasAndroid: Boolean
+    get() = targets.any { it.platformType == KotlinPlatformType.androidJvm }
+public val KotlinMultiplatformExtension.hasNative: Boolean
+    get() = targets.any { it.platformType == KotlinPlatformType.native }
 
 /**
  * https://kotlinlang.org/docs/multiplatform/multiplatform-dsl-reference.html#targets
@@ -57,7 +68,6 @@ public fun NamedDomainObjectContainer<KotlinSourceSet>.mobileMain(
     configure: KotlinSourceSet.() -> Unit
 ) {
     listOf("androidMain", "iosMain").forEach {
-
         named(it).invoke(configure)
     }
 }
