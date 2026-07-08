@@ -19,7 +19,8 @@ jobs:
       - uses: gradle/actions/setup-gradle@v4
 
       # Publishes :convention and :kmp plugins to the Gradle Plugin Portal.
-      # Version catalogs cannot be hosted on the Portal; see publish-catalogs.yml.
+      # Version catalogs are bundled into the settings plugin as jar resources,
+      # so no separate catalog deployment is needed.
       - name: Publish to Gradle Plugin Portal
         run: ./gradlew publishPlugins
         env:
