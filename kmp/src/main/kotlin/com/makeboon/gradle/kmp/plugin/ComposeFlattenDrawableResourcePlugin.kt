@@ -14,6 +14,7 @@ import org.gradle.api.tasks.InputDirectory
 import org.gradle.api.tasks.OutputDirectory
 import org.gradle.api.tasks.TaskAction
 import org.gradle.kotlin.dsl.create
+import org.gradle.kotlin.dsl.findByType
 import org.gradle.kotlin.dsl.invoke
 import org.gradle.kotlin.dsl.register
 import java.io.ByteArrayOutputStream
@@ -21,16 +22,12 @@ import java.nio.file.Files
 import java.nio.file.Path
 import java.nio.file.StandardCopyOption
 import java.util.regex.Pattern
-import kotlin.io.path.Path
-import kotlin.io.path.deleteIfExists
-import kotlin.io.path.extension
-import kotlin.io.path.isRegularFile
-import kotlin.io.path.name
-import kotlin.io.path.pathString
-import kotlin.io.path.writeText
+import kotlin.io.path.*
 
 public object ComposeFlattenDrawableResourcePlugin : Plugin<Project> {
     override fun apply(target: Project): Unit = with(target) {
+        if (extensions.findByType<ComposeFlattenDrawableResourceExtension>() != null)
+            return
         val extension = extensions.create(
             EXTENSION_NAME,
             ComposeFlattenDrawableResourceExtension::class
