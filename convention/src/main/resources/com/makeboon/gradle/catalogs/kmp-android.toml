@@ -1,4 +1,4 @@
-# 26.04.16
+# 26.07.08
 
 [versions]
 # https://developer.android.com/build/releases/about-agp
@@ -13,17 +13,17 @@ compileSdkExt = "-" # Num or '-'
 minSdk = "31" # https://apilevels.com/
 ### AndroidX
 # https://developer.android.com/google/play/billing/release-notes
-billing = "8.3.0"
+billing = "9.1.0"
 # https://github.com/androidx/androidx
 # https://developer.android.com/jetpack/androidx/versions
-core = "1.18.0" # https://developer.android.com/jetpack/androidx/releases/core
+core = "1.19.0" # https://developer.android.com/jetpack/androidx/releases/core
 activity = "1.13.0" # https://developer.android.com/jetpack/androidx/releases/activity
-media3 = "1.10.0" # https://developer.android.com/jetpack/androidx/releases/media3
+media3 = "1.10.1" # https://developer.android.com/jetpack/androidx/releases/media3
 ### Others
-firebase-bom = "34.11.0" # https://firebase.google.com/support/release-notes/android
-gms-googleServices = "4.4.4" # https://mvnrepository.com/artifact/com.google.gms/google-services
-firebase-appDistribution = "5.2.1" # https://firebase.google.com/docs/app-distribution/android/distribute-gradle
-firebase-crashlytics = "3.0.6" # https://firebase.google.com/docs/crashlytics/android/get-started
+firebase-bom = "34.15.0" # https://firebase.google.com/support/release-notes/android
+gms-googleServices = "4.5.0" # https://mvnrepository.com/artifact/com.google.gms/google-services
+firebase-appDistribution = "5.3.0" # https://firebase.google.com/docs/app-distribution/android/distribute-gradle
+firebase-crashlytics = "3.0.7" # https://firebase.google.com/docs/crashlytics/android/get-started
 
 [libraries]
 gradlePlugin = { group = "com.android.tools.build", name = "gradle", version.ref = "gradlePlugin" }

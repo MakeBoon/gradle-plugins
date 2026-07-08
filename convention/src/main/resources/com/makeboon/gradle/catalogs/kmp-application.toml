@@ -1,12 +1,12 @@
-# 26.04.16
+# 26.07.08
 
 [versions]
 ### KMP
 makeboon-kmp-shared = "0.0.1" # https://github.com/MakeBoon/kmp-shared
 ### Android
-amplitude-android = "1.27.0" # https://github.com/amplitude/Amplitude-Kotlin
-facebook-android = "18.2.3" # https://github.com/facebook/facebook-android-sdk
-appsFlyer-android = "6.18.0" # https://github.com/AppsFlyerSDK/appsflyer-android-sdk
+amplitude-android = "1.29.1" # https://github.com/amplitude/Amplitude-Kotlin
+facebook-android = "18.3.0" # https://github.com/facebook/facebook-android-sdk
+appsFlyer-android = "7.0.0" # https://github.com/AppsFlyerSDK/appsflyer-android-sdk
 ### iOS
 #amplitude-ios = ""
 #facebook-ios = ""
