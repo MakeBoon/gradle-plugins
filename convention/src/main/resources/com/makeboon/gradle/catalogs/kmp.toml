@@ -3,12 +3,12 @@
 # https://maven.google.com/web/index.html#androidx.compose
 
 [versions]
-# https://github.com/JetBrains/compose-multiplatform
-compose = "1.11.1"
+# https://github.com/JetBrains/compose-multiplatform/releases/tag/v1.12.0-beta01
+compose = "1.12.0-beta01"
 compose-material3 = "1.12.0-alpha03"
 compose-material3-adaptive = "1.3.0-beta02"
 compose-lifecycle = "2.11.0-rc01"
-compose-navigation3 = "1.1.1" # browser: https://github.com/terrakok/navigation3-browser
+compose-navigation3 = "1.2.0-alpha02" # browser: https://github.com/terrakok/navigation3-browser
 compose-navigationEvent = "1.1.0"
 compose-savedstate = "1.4.0"
 compose-window = "1.5.1"
