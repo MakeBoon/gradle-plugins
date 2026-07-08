@@ -19,6 +19,18 @@ kotlin {
     sourceSets.commonMain.dependencies {
         api(kmp.bundles.room3)
     }
+
+    // sqlite-bundled publishes no web targets, so wasmJs modules get the
+    // WebWorkerSQLiteDriver artifact on web and the bundled driver elsewhere.
+    when {
+        wasmJs -> {
+            sourceSets.androidMain.dependencies { api(kmp.sqlite) }
+            sourceSets.appleMain.dependencies { api(kmp.sqlite) }
+            sourceSets.wasmJsMain.dependencies { api(kmp.sqlite.web) }
+        }
+
+        else -> sourceSets.commonMain.dependencies { api(kmp.sqlite) }
+    }
 }
 
 dependencies {

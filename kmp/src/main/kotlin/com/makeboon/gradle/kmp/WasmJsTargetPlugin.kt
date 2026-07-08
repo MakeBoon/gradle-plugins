@@ -6,6 +6,10 @@ import org.gradle.kotlin.dsl.configure
 import org.jetbrains.kotlin.gradle.ExperimentalWasmDsl
 import org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension
 
+/** Set `makeboon.kmp.wasmJs=true` in gradle.properties to add a wasmJs browser target. */
+internal val Project.wasmJs: Boolean
+    get() = findProperty("makeboon.kmp.wasmJs")?.toString().toBoolean()
+
 /**
  * https://kotlinlang.org/docs/wasm-get-started.html
  *

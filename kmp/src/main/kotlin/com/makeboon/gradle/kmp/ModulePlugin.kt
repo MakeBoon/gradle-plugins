@@ -7,10 +7,6 @@ import org.gradle.api.Plugin
 import org.gradle.api.Project
 
 public object ModulePlugin {
-    /** Set `makeboon.kmp.wasmJs=true` in gradle.properties to add a wasmJs browser target. */
-    private val Project.wasmJs: Boolean
-        get() = findProperty("makeboon.kmp.wasmJs")?.toString().toBoolean()
-
     public fun apply(
         target: Project,
         library: Boolean,
@@ -49,14 +45,11 @@ public object ModulePlugin {
                 }
             }.forEach { it.apply(target) }
 
-            mutableListOf(
+            listOf(
                 "com.makeboon.gradle.wire",
                 "com.makeboon.gradle.sqldelight",
-            ).apply {
-                // room3.gradle.kts puts the room3 bundle in commonMain,
-                // but Room3 does not publish wasm artifacts.
-                if (!wasmJs) add("com.makeboon.gradle.kmp.room3")
-            }.forEach(::apply)
+                "com.makeboon.gradle.kmp.room3",
+            ).forEach(::apply)
 
             OptIn.configure(target, library, compose)
         }

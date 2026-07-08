@@ -3,8 +3,10 @@
 ## [Kotlin Multiplatform](kmp)
 
 Set `makeboon.kmp.wasmJs=true` in a module's (or the root) `gradle.properties` to add a
-wasmJs browser target to the `module-*` plugins. Application modules also get
-`binaries.executable()`; Room3 is skipped for wasmJs modules since it publishes no wasm artifacts.
+wasmJs browser target to the `module-*` plugins (`module-android-application` is unaffected).
+Application modules also get `binaries.executable()`. Room3 supports wasmJs: wasm modules get
+`androidx.sqlite:sqlite-web` (WebWorkerSQLiteDriver) on `wasmJsMain` and the bundled SQLite
+driver on the native source sets instead of commonMain.
 
 ## Publishing
 
