@@ -12,11 +12,13 @@
 
 ### Gradle Plugin Portal
 
-버전(`VERSION_NAME`)과 그룹(`GROUP`)은 루트 [gradle.properties](gradle.properties),
-플러그인별 displayName / description / tags 는 [gradle-publish.gradle.kts](build-logic/src/main/kotlin/com/makeboon/gradle/gradle-publish.gradle.kts) 에서 채워진다.
+The version (`VERSION_NAME`) and group (`GROUP`) are defined in the root [gradle.properties](gradle.properties).
+Per-plugin displayName / description / tags are filled in by
+[gradle-publish.gradle.kts](build-logic/src/main/kotlin/com/makeboon/gradle/gradle-publish.gradle.kts).
 
-버전 카탈로그(`catalog/*/*.toml`)는 별도 배포 없이 `:convention` jar 에 리소스로 내장되고,
-`com.makeboon.gradle.settings` 플러그인이 적용될 때 등록된다:
+Version catalogs (`catalog/*/*.toml`) are not deployed separately; they are bundled
+into the `:convention` jar as resources and registered when the
+`com.makeboon.gradle.settings` plugin is applied:
 
 ```kotlin
 // consumer settings.gradle.kts
@@ -25,18 +27,20 @@ plugins {
 }
 ```
 
-GitHub Release 발행(또는 Actions 수동 실행) 시 [publish.yml](.github/workflows/publish.yml) 워크플로가 `publishPlugins` 를 실행한다.
-사전에 GitHub Secrets 등록이 필요하다:
+Publishing runs via the [publish.yml](.github/workflows/publish.yml) workflow when a
+GitHub Release is published (or triggered manually from Actions), executing `publishPlugins`.
+The following GitHub Secrets must be configured beforehand:
 
-| Secret | 값 |
+| Secret | Value |
 |---|---|
-| `GRADLE_PUBLISH_KEY` | [Plugin Portal](https://plugins.gradle.org) 계정의 API key |
+| `GRADLE_PUBLISH_KEY` | API key of your [Plugin Portal](https://plugins.gradle.org) account |
 | `GRADLE_PUBLISH_SECRET` | Plugin Portal API secret |
 
-> 최초 배포는 Portal 측 수동 승인을 거친다. 승인 과정에서 `com.makeboon` namespace
-> 소유 확인(makeboon.com 도메인 또는 GitHub org 증빙)을 요구할 수 있다.
+> The first publication goes through the Portal's manual approval process.
+> During review you may be asked to prove ownership of the `com.makeboon` namespace
+> (the makeboon.com domain or the GitHub org).
 
-로컬에서 직접 배포하려면:
+To publish directly from a local machine:
 
 ```shell
 ./gradlew publishPlugins -Pgradle.publish.key=... -Pgradle.publish.secret=...
