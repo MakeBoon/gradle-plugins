@@ -14,4 +14,9 @@ catalog {
 
 mavenPublishing {
     coordinates(artifactId = "catalog-$name")
+
+    pom {
+        name = "MakeBoon Version Catalog (${project.name})"
+        description = "Gradle version catalog '${project.name}' shared across MakeBoon projects."
+    }
 }
