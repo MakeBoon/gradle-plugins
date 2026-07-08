@@ -23,7 +23,7 @@ public fun Settings.createVersionCatalogs(vararg targets: String) {
                 from(
                     layout.rootDirectory.files(
                         when {
-                            isLocal -> "$relativePath/catalog/$target/$target.toml"
+                            isLocal -> "$relativePath/convention/src/main/resources/com/makeboon/gradle/catalogs/$target.toml"
                             else -> extractBundledCatalog(target).absolutePath
                         }
                     )
@@ -34,8 +34,8 @@ public fun Settings.createVersionCatalogs(vararg targets: String) {
 }
 
 /**
- * The published plugin bundles each catalog toml as a jar resource
- * (see convention/build.gradle.kts); versionCatalogs.from only reads files,
+ * Each catalog toml lives under src/main/resources/com/makeboon/gradle/catalogs/
+ * and is bundled into the jar as-is; versionCatalogs.from only reads files,
  * so extract the resource under the consumer's .gradle directory.
  */
 private fun Settings.extractBundledCatalog(target: String): File {

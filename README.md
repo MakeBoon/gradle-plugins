@@ -16,9 +16,9 @@ The version (`VERSION_NAME`) and group (`GROUP`) are defined in the root [gradle
 Per-plugin displayName / description / tags are filled in by
 [gradle-publish.gradle.kts](build-logic/src/main/kotlin/com/makeboon/gradle/gradle-publish.gradle.kts).
 
-Version catalogs (`catalog/*/*.toml`) are not deployed separately; they are bundled
-into the `:convention` jar as resources and registered when the
-`com.makeboon.gradle.settings` plugin is applied:
+Version catalogs (`convention/src/main/resources/com/makeboon/gradle/catalogs/*.toml`)
+are not deployed separately; they are bundled into the `:convention` jar as resources
+and registered when the `com.makeboon.gradle.settings` plugin is applied:
 
 ```kotlin
 // consumer settings.gradle.kts

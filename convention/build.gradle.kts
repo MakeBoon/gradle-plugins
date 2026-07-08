@@ -1,4 +1,3 @@
-import com.makeboon.gradle.extension.DefaultVersionCatalogNames
 import com.makeboon.gradle.extension.implementationDefaultVersionCatalogLibraries
 
 plugins {
@@ -6,15 +5,9 @@ plugins {
     id("com.makeboon.gradle.gradle-publish")
 }
 
-// Bundle the version catalogs into the jar so the published settings plugin
-// can register them without a Maven repository (see VersionCatalogExtensions.kt).
-tasks.processResources {
-    DefaultVersionCatalogNames.forEach { target ->
-        from(rootDir.resolve("catalog/$target/$target.toml")) {
-            into("com/makeboon/gradle/catalogs")
-        }
-    }
-}
+// Version catalogs live under src/main/resources/com/makeboon/gradle/catalogs/
+// so they're bundled into the jar as-is; the published settings plugin reads
+// them from there without needing a Maven repository (see VersionCatalogExtensions.kt).
 
 dependencies {
     implementation(buildLogic.gradlePlugin.foojayResolver)
