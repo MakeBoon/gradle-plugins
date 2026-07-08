@@ -16,6 +16,7 @@ dependencies {
     implementation(support.gradlePlugin.ksp)
     implementation(support.gradlePlugin.wire)
     implementation(support.gradlePlugin.sqldelight)
+    implementation(kmpExt.gradlePlugin.metro)
     // For KSP
     implementation(kmpAndroid.gradlePlugin.api)
 

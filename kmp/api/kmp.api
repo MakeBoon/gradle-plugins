@@ -1,114 +1,67 @@
-public final class com/makeboon/gradle/kmp/AndroidApplicationPlugin : org/gradle/api/Plugin {
-	public static final field INSTANCE Lcom/makeboon/gradle/kmp/AndroidApplicationPlugin;
-	public synthetic fun apply (Ljava/lang/Object;)V
-	public fun apply (Lorg/gradle/api/Project;)V
-}
-
-public final class com/makeboon/gradle/kmp/AndroidTargetPlugin : org/gradle/api/Plugin {
-	public static final field INSTANCE Lcom/makeboon/gradle/kmp/AndroidTargetPlugin;
-	public synthetic fun apply (Ljava/lang/Object;)V
-	public fun apply (Lorg/gradle/api/Project;)V
-}
-
-public final class com/makeboon/gradle/kmp/AppleTargetPlugin : org/gradle/api/Plugin {
-	public fun <init> (Lkotlin/jvm/functions/Function1;)V
-	public synthetic fun apply (Ljava/lang/Object;)V
-	public fun apply (Lorg/gradle/api/Project;)V
-}
-
-public final class com/makeboon/gradle/kmp/AppleTargetPluginKt {
-	public static final field DIR_cinterop Ljava/lang/String;
-}
-
-public abstract class com/makeboon/gradle/kmp/ComposeFlattenDrawableResourceExtension {
-	public static final field Companion Lcom/makeboon/gradle/kmp/ComposeFlattenDrawableResourceExtension$Companion;
-	public static final field EXTENSION_NAME Ljava/lang/String;
-	public fun <init> ()V
-	public final fun getClearOutputDir ()Z
-	public final fun getInputDir ()Ljava/lang/String;
-	public final fun setClearOutputDir (Z)V
-	public final fun setInputDir (Ljava/lang/String;)V
-}
-
-public final class com/makeboon/gradle/kmp/ComposeFlattenDrawableResourceExtension$Companion {
-}
-
-public final class com/makeboon/gradle/kmp/ComposeFlattenDrawableResourcePlugin : org/gradle/api/Plugin {
-	public static final field INSTANCE Lcom/makeboon/gradle/kmp/ComposeFlattenDrawableResourcePlugin;
-	public synthetic fun apply (Ljava/lang/Object;)V
-	public fun apply (Lorg/gradle/api/Project;)V
-}
-
-public abstract class com/makeboon/gradle/kmp/ComposeFlattenDrawableResourceTask : org/gradle/api/DefaultTask {
-	public static final field Companion Lcom/makeboon/gradle/kmp/ComposeFlattenDrawableResourceTask$Companion;
-	public static final field TASK_NAME Ljava/lang/String;
-	public fun <init> ()V
-	public final fun action ()V
-	public abstract fun getClearOutputDir ()Lorg/gradle/api/provider/Property;
-	public abstract fun getInputDirectory ()Lorg/gradle/api/file/DirectoryProperty;
-	public abstract fun getOutputDirectory ()Lorg/gradle/api/file/DirectoryProperty;
-}
-
-public final class com/makeboon/gradle/kmp/ComposeFlattenDrawableResourceTask$Companion {
-}
-
-public final class com/makeboon/gradle/kmp/ComposePlugin : org/gradle/api/Plugin {
-	public static final field INSTANCE Lcom/makeboon/gradle/kmp/ComposePlugin;
-	public synthetic fun apply (Ljava/lang/Object;)V
-	public fun apply (Lorg/gradle/api/Project;)V
-}
-
-public final class com/makeboon/gradle/kmp/DesktopTargetPlugin : org/gradle/api/Plugin {
-	public static final field INSTANCE Lcom/makeboon/gradle/kmp/DesktopTargetPlugin;
-	public synthetic fun apply (Ljava/lang/Object;)V
-	public fun apply (Lorg/gradle/api/Project;)V
-}
-
-public final class com/makeboon/gradle/kmp/FirebasePlugin : org/gradle/api/Plugin {
-	public fun <init> ()V
-	public synthetic fun apply (Ljava/lang/Object;)V
-	public fun apply (Lorg/gradle/api/Project;)V
-}
-
 public final class com/makeboon/gradle/kmp/ModuleAndroidApplicationPlugin : org/gradle/api/Plugin {
 	public fun <init> ()V
 	public synthetic fun apply (Ljava/lang/Object;)V
 	public fun apply (Lorg/gradle/api/Project;)V
 }
 
-public final class com/makeboon/gradle/kmp/ModuleApplicationComposeLibraryPlugin : org/gradle/api/Plugin {
+public final class com/makeboon/gradle/kmp/ModuleMobileApplicationComposeLibraryPlugin : org/gradle/api/Plugin {
 	public fun <init> ()V
 	public synthetic fun apply (Ljava/lang/Object;)V
 	public fun apply (Lorg/gradle/api/Project;)V
 }
 
-public final class com/makeboon/gradle/kmp/ModuleApplicationLibraryPlugin : org/gradle/api/Plugin {
+public final class com/makeboon/gradle/kmp/ModuleMobileApplicationLibraryPlugin : org/gradle/api/Plugin {
 	public fun <init> ()V
 	public synthetic fun apply (Ljava/lang/Object;)V
 	public fun apply (Lorg/gradle/api/Project;)V
 }
 
-public final class com/makeboon/gradle/kmp/ModuleApplicationPlugin : org/gradle/api/Plugin {
+public final class com/makeboon/gradle/kmp/ModuleMobileApplicationPlugin : org/gradle/api/Plugin {
 	public fun <init> ()V
 	public synthetic fun apply (Ljava/lang/Object;)V
 	public fun apply (Lorg/gradle/api/Project;)V
 }
 
-public final class com/makeboon/gradle/kmp/ModuleComposeLibraryPlugin : org/gradle/api/Plugin {
+public final class com/makeboon/gradle/kmp/ModuleMobileComposeLibraryPlugin : org/gradle/api/Plugin {
 	public fun <init> ()V
 	public synthetic fun apply (Ljava/lang/Object;)V
 	public fun apply (Lorg/gradle/api/Project;)V
 }
 
-public final class com/makeboon/gradle/kmp/ModuleLibraryPlugin : org/gradle/api/Plugin {
+public final class com/makeboon/gradle/kmp/ModuleMobileLibraryPlugin : org/gradle/api/Plugin {
 	public fun <init> ()V
 	public synthetic fun apply (Ljava/lang/Object;)V
 	public fun apply (Lorg/gradle/api/Project;)V
 }
 
-public final class com/makeboon/gradle/kmp/ModulePlugin {
-	public static final field INSTANCE Lcom/makeboon/gradle/kmp/ModulePlugin;
-	public final fun apply (Lorg/gradle/api/Project;ZZZ)V
+public final class com/makeboon/gradle/kmp/ModuleWebApplicationComposeLibraryPlugin : org/gradle/api/Plugin {
+	public fun <init> ()V
+	public synthetic fun apply (Ljava/lang/Object;)V
+	public fun apply (Lorg/gradle/api/Project;)V
+}
+
+public final class com/makeboon/gradle/kmp/ModuleWebApplicationLibraryPlugin : org/gradle/api/Plugin {
+	public fun <init> ()V
+	public synthetic fun apply (Ljava/lang/Object;)V
+	public fun apply (Lorg/gradle/api/Project;)V
+}
+
+public final class com/makeboon/gradle/kmp/ModuleWebApplicationPlugin : org/gradle/api/Plugin {
+	public fun <init> ()V
+	public synthetic fun apply (Ljava/lang/Object;)V
+	public fun apply (Lorg/gradle/api/Project;)V
+}
+
+public final class com/makeboon/gradle/kmp/ModuleWebComposeLibraryPlugin : org/gradle/api/Plugin {
+	public fun <init> ()V
+	public synthetic fun apply (Ljava/lang/Object;)V
+	public fun apply (Lorg/gradle/api/Project;)V
+}
+
+public final class com/makeboon/gradle/kmp/ModuleWebLibraryPlugin : org/gradle/api/Plugin {
+	public fun <init> ()V
+	public synthetic fun apply (Ljava/lang/Object;)V
+	public fun apply (Lorg/gradle/api/Project;)V
 }
 
 public final class com/makeboon/gradle/kmp/Module_android_application_gradle : org/gradle/kotlin/dsl/precompile/v1/PrecompiledProjectScript {
@@ -116,27 +69,52 @@ public final class com/makeboon/gradle/kmp/Module_android_application_gradle : o
 	public static final fun main ([Ljava/lang/String;)V
 }
 
-public final class com/makeboon/gradle/kmp/Module_application_compose_library_gradle : org/gradle/kotlin/dsl/precompile/v1/PrecompiledProjectScript {
+public final class com/makeboon/gradle/kmp/Module_mobile_application_compose_library_gradle : org/gradle/kotlin/dsl/precompile/v1/PrecompiledProjectScript {
 	public fun <init> (Lorg/gradle/api/Project;Lorg/gradle/api/Project;)V
 	public static final fun main ([Ljava/lang/String;)V
 }
 
-public final class com/makeboon/gradle/kmp/Module_application_gradle : org/gradle/kotlin/dsl/precompile/v1/PrecompiledProjectScript {
+public final class com/makeboon/gradle/kmp/Module_mobile_application_gradle : org/gradle/kotlin/dsl/precompile/v1/PrecompiledProjectScript {
 	public fun <init> (Lorg/gradle/api/Project;Lorg/gradle/api/Project;)V
 	public static final fun main ([Ljava/lang/String;)V
 }
 
-public final class com/makeboon/gradle/kmp/Module_application_library_gradle : org/gradle/kotlin/dsl/precompile/v1/PrecompiledProjectScript {
+public final class com/makeboon/gradle/kmp/Module_mobile_application_library_gradle : org/gradle/kotlin/dsl/precompile/v1/PrecompiledProjectScript {
 	public fun <init> (Lorg/gradle/api/Project;Lorg/gradle/api/Project;)V
 	public static final fun main ([Ljava/lang/String;)V
 }
 
-public final class com/makeboon/gradle/kmp/Module_compose_library_gradle : org/gradle/kotlin/dsl/precompile/v1/PrecompiledProjectScript {
+public final class com/makeboon/gradle/kmp/Module_mobile_compose_library_gradle : org/gradle/kotlin/dsl/precompile/v1/PrecompiledProjectScript {
 	public fun <init> (Lorg/gradle/api/Project;Lorg/gradle/api/Project;)V
 	public static final fun main ([Ljava/lang/String;)V
 }
 
-public final class com/makeboon/gradle/kmp/Module_library_gradle : org/gradle/kotlin/dsl/precompile/v1/PrecompiledProjectScript {
+public final class com/makeboon/gradle/kmp/Module_mobile_library_gradle : org/gradle/kotlin/dsl/precompile/v1/PrecompiledProjectScript {
+	public fun <init> (Lorg/gradle/api/Project;Lorg/gradle/api/Project;)V
+	public static final fun main ([Ljava/lang/String;)V
+}
+
+public final class com/makeboon/gradle/kmp/Module_web_application_compose_library_gradle : org/gradle/kotlin/dsl/precompile/v1/PrecompiledProjectScript {
+	public fun <init> (Lorg/gradle/api/Project;Lorg/gradle/api/Project;)V
+	public static final fun main ([Ljava/lang/String;)V
+}
+
+public final class com/makeboon/gradle/kmp/Module_web_application_gradle : org/gradle/kotlin/dsl/precompile/v1/PrecompiledProjectScript {
+	public fun <init> (Lorg/gradle/api/Project;Lorg/gradle/api/Project;)V
+	public static final fun main ([Ljava/lang/String;)V
+}
+
+public final class com/makeboon/gradle/kmp/Module_web_application_library_gradle : org/gradle/kotlin/dsl/precompile/v1/PrecompiledProjectScript {
+	public fun <init> (Lorg/gradle/api/Project;Lorg/gradle/api/Project;)V
+	public static final fun main ([Ljava/lang/String;)V
+}
+
+public final class com/makeboon/gradle/kmp/Module_web_compose_library_gradle : org/gradle/kotlin/dsl/precompile/v1/PrecompiledProjectScript {
+	public fun <init> (Lorg/gradle/api/Project;Lorg/gradle/api/Project;)V
+	public static final fun main ([Ljava/lang/String;)V
+}
+
+public final class com/makeboon/gradle/kmp/Module_web_library_gradle : org/gradle/kotlin/dsl/precompile/v1/PrecompiledProjectScript {
 	public fun <init> (Lorg/gradle/api/Project;Lorg/gradle/api/Project;)V
 	public static final fun main ([Ljava/lang/String;)V
 }
@@ -187,6 +165,10 @@ public final class com/makeboon/gradle/kmp/extension/AppConfig$Companion {
 
 public final class com/makeboon/gradle/kmp/extension/MultiplatformExtensionsKt {
 	public static final fun getAppleTargets (Lorg/jetbrains/kotlin/gradle/dsl/KotlinMultiplatformExtension;)[Lorg/jetbrains/kotlin/gradle/plugin/mpp/KotlinNativeTarget;
+	public static final fun getHasAndroid (Lorg/jetbrains/kotlin/gradle/dsl/KotlinMultiplatformExtension;)Z
+	public static final fun getHasJVM (Lorg/jetbrains/kotlin/gradle/dsl/KotlinMultiplatformExtension;)Z
+	public static final fun getHasNative (Lorg/jetbrains/kotlin/gradle/dsl/KotlinMultiplatformExtension;)Z
+	public static final fun getHasWeb (Lorg/jetbrains/kotlin/gradle/dsl/KotlinMultiplatformExtension;)Z
 	public static final fun getIosMacosTargets (Lorg/jetbrains/kotlin/gradle/dsl/KotlinMultiplatformExtension;)[Lorg/jetbrains/kotlin/gradle/plugin/mpp/KotlinNativeTarget;
 	public static final fun getIosTargets (Lorg/jetbrains/kotlin/gradle/dsl/KotlinMultiplatformExtension;)[Lorg/jetbrains/kotlin/gradle/plugin/mpp/KotlinNativeTarget;
 	public static final fun getMacosTargets (Lorg/jetbrains/kotlin/gradle/dsl/KotlinMultiplatformExtension;)[Lorg/jetbrains/kotlin/gradle/plugin/mpp/KotlinNativeTarget;
@@ -214,5 +196,96 @@ public final class com/makeboon/gradle/kmp/extension/OptIn$Companion {
 public final class com/makeboon/gradle/kmp/extension/TargetExtensionsKt {
 	public static final fun release (Lcom/android/build/api/dsl/CompileSdkSpec;Lorg/gradle/api/provider/Provider;Lorg/gradle/api/provider/Provider;Lorg/gradle/api/provider/Provider;)Lcom/android/build/api/dsl/CompileSdkVersion;
 	public static final fun release (Lcom/android/build/api/dsl/MinSdkSpec;Lorg/gradle/api/provider/Provider;)Lcom/android/build/api/dsl/MinSdkVersion;
+}
+
+public final class com/makeboon/gradle/kmp/plugin/AndroidApplicationPlugin : org/gradle/api/Plugin {
+	public static final field INSTANCE Lcom/makeboon/gradle/kmp/plugin/AndroidApplicationPlugin;
+	public synthetic fun apply (Ljava/lang/Object;)V
+	public fun apply (Lorg/gradle/api/Project;)V
+}
+
+public abstract class com/makeboon/gradle/kmp/plugin/ComposeFlattenDrawableResourceExtension {
+	public static final field Companion Lcom/makeboon/gradle/kmp/plugin/ComposeFlattenDrawableResourceExtension$Companion;
+	public static final field EXTENSION_NAME Ljava/lang/String;
+	public fun <init> ()V
+	public final fun getClearOutputDir ()Z
+	public final fun getInputDir ()Ljava/lang/String;
+	public final fun setClearOutputDir (Z)V
+	public final fun setInputDir (Ljava/lang/String;)V
+}
+
+public final class com/makeboon/gradle/kmp/plugin/ComposeFlattenDrawableResourceExtension$Companion {
+}
+
+public final class com/makeboon/gradle/kmp/plugin/ComposeFlattenDrawableResourcePlugin : org/gradle/api/Plugin {
+	public static final field INSTANCE Lcom/makeboon/gradle/kmp/plugin/ComposeFlattenDrawableResourcePlugin;
+	public synthetic fun apply (Ljava/lang/Object;)V
+	public fun apply (Lorg/gradle/api/Project;)V
+}
+
+public abstract class com/makeboon/gradle/kmp/plugin/ComposeFlattenDrawableResourceTask : org/gradle/api/DefaultTask {
+	public static final field Companion Lcom/makeboon/gradle/kmp/plugin/ComposeFlattenDrawableResourceTask$Companion;
+	public static final field TASK_NAME Ljava/lang/String;
+	public fun <init> ()V
+	public final fun action ()V
+	public abstract fun getClearOutputDir ()Lorg/gradle/api/provider/Property;
+	public abstract fun getInputDirectory ()Lorg/gradle/api/file/DirectoryProperty;
+	public abstract fun getOutputDirectory ()Lorg/gradle/api/file/DirectoryProperty;
+}
+
+public final class com/makeboon/gradle/kmp/plugin/ComposeFlattenDrawableResourceTask$Companion {
+}
+
+public final class com/makeboon/gradle/kmp/plugin/ComposePlugin : org/gradle/api/Plugin {
+	public static final field INSTANCE Lcom/makeboon/gradle/kmp/plugin/ComposePlugin;
+	public synthetic fun apply (Ljava/lang/Object;)V
+	public fun apply (Lorg/gradle/api/Project;)V
+}
+
+public final class com/makeboon/gradle/kmp/plugin/FirebasePlugin : org/gradle/api/Plugin {
+	public fun <init> ()V
+	public synthetic fun apply (Ljava/lang/Object;)V
+	public fun apply (Lorg/gradle/api/Project;)V
+}
+
+public final class com/makeboon/gradle/kmp/target/AndroidTargetPlugin : com/makeboon/gradle/kmp/target/TargetPlugin {
+	public static final field INSTANCE Lcom/makeboon/gradle/kmp/target/AndroidTargetPlugin;
+	public synthetic fun apply (Ljava/lang/Object;)V
+	public fun apply (Lorg/gradle/api/Project;)V
+}
+
+public final class com/makeboon/gradle/kmp/target/AppleTargetPlugin : com/makeboon/gradle/kmp/target/TargetPlugin {
+	public fun <init> (Lkotlin/jvm/functions/Function1;)V
+	public synthetic fun apply (Ljava/lang/Object;)V
+	public fun apply (Lorg/gradle/api/Project;)V
+}
+
+public final class com/makeboon/gradle/kmp/target/AppleTargetPluginKt {
+	public static final field DIR_cinterop Ljava/lang/String;
+}
+
+public final class com/makeboon/gradle/kmp/target/DesktopTargetPlugin : com/makeboon/gradle/kmp/target/TargetPlugin {
+	public static final field INSTANCE Lcom/makeboon/gradle/kmp/target/DesktopTargetPlugin;
+	public synthetic fun apply (Ljava/lang/Object;)V
+	public fun apply (Lorg/gradle/api/Project;)V
+}
+
+public final class com/makeboon/gradle/kmp/target/ModulePlugin {
+	public static final field INSTANCE Lcom/makeboon/gradle/kmp/target/ModulePlugin;
+	public final fun apply (Lorg/gradle/api/Project;ZZZ[Lcom/makeboon/gradle/kmp/target/TargetPlugin;)V
+}
+
+public abstract class com/makeboon/gradle/kmp/target/TargetPlugin : org/gradle/api/Plugin {
+	public fun <init> ()V
+}
+
+public final class com/makeboon/gradle/kmp/target/TargetPluginKt {
+	public static final fun getMobileTargets ()[Lcom/makeboon/gradle/kmp/target/TargetPlugin;
+}
+
+public final class com/makeboon/gradle/kmp/target/WebTargetPlugin : com/makeboon/gradle/kmp/target/TargetPlugin {
+	public fun <init> (Z)V
+	public synthetic fun apply (Ljava/lang/Object;)V
+	public fun apply (Lorg/gradle/api/Project;)V
 }
 

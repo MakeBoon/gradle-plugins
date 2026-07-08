@@ -4,6 +4,7 @@ import org.gradle.api.file.Directory
 import org.gradle.api.file.RegularFile
 import org.gradle.api.provider.Provider
 import org.jetbrains.kotlin.gradle.plugin.KotlinDependencyHandler
+import org.jetbrains.kotlin.gradle.plugin.KotlinPlatformType
 import java.io.File
 import java.util.*
 import org.gradle.api.artifacts.MinimalExternalModuleDependency as Dependency
@@ -24,3 +25,9 @@ public fun Properties.getPropertyBooleanOrNull(key: String): Boolean? = getPrope
 
 public fun KotlinDependencyHandler.bom(dependencyProvider: Provider<Dependency>): org.gradle.api.artifacts.Dependency? =
     api(project.dependencies.platform(dependencyProvider))
+
+public val KotlinPlatformType.isWeb: Boolean
+    get() = when (this) {
+        KotlinPlatformType.js, KotlinPlatformType.wasm -> true
+        else -> false
+    }

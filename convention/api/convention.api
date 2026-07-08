@@ -117,6 +117,7 @@ public final class com/makeboon/gradle/extension/PrimitiveExtensionsKt {
 	public static final fun getPropertyInt (Ljava/util/Properties;Ljava/lang/String;)I
 	public static final fun getPropertyIntOrNull (Ljava/util/Properties;Ljava/lang/String;)Ljava/lang/Integer;
 	public static final fun getRegularFiles (Lorg/gradle/api/file/Directory;)Ljava/util/List;
+	public static final fun isWeb (Lorg/jetbrains/kotlin/gradle/plugin/KotlinPlatformType;)Z
 	public static final fun regularFilesInDir (Lorg/gradle/api/file/Directory;Ljava/lang/String;)Ljava/util/List;
 	public static final fun toFile (Ljava/lang/String;Ljava/lang/String;)Ljava/io/File;
 	public static final fun toProperties (Ljava/io/File;)Ljava/util/Properties;
