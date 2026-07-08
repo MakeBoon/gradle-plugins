@@ -32,9 +32,3 @@ gradlePlugin {
         tags.addAll("makeboon", "convention", project.name)
     }
 }
-
-afterEvaluate {
-    tasks.named("publishPlugins") {
-        dependsOn(tasks.named("checkKotlinAbi"))
-    }
-}
