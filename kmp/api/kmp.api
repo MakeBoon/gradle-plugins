@@ -4,6 +4,36 @@ public final class com/makeboon/gradle/kmp/ModuleAndroidApplicationPlugin : org/
 	public fun apply (Lorg/gradle/api/Project;)V
 }
 
+public final class com/makeboon/gradle/kmp/ModuleApplicationComposeLibraryPlugin : org/gradle/api/Plugin {
+	public fun <init> ()V
+	public synthetic fun apply (Ljava/lang/Object;)V
+	public fun apply (Lorg/gradle/api/Project;)V
+}
+
+public final class com/makeboon/gradle/kmp/ModuleApplicationLibraryPlugin : org/gradle/api/Plugin {
+	public fun <init> ()V
+	public synthetic fun apply (Ljava/lang/Object;)V
+	public fun apply (Lorg/gradle/api/Project;)V
+}
+
+public final class com/makeboon/gradle/kmp/ModuleApplicationPlugin : org/gradle/api/Plugin {
+	public fun <init> ()V
+	public synthetic fun apply (Ljava/lang/Object;)V
+	public fun apply (Lorg/gradle/api/Project;)V
+}
+
+public final class com/makeboon/gradle/kmp/ModuleComposeLibraryPlugin : org/gradle/api/Plugin {
+	public fun <init> ()V
+	public synthetic fun apply (Ljava/lang/Object;)V
+	public fun apply (Lorg/gradle/api/Project;)V
+}
+
+public final class com/makeboon/gradle/kmp/ModuleLibraryPlugin : org/gradle/api/Plugin {
+	public fun <init> ()V
+	public synthetic fun apply (Ljava/lang/Object;)V
+	public fun apply (Lorg/gradle/api/Project;)V
+}
+
 public final class com/makeboon/gradle/kmp/ModuleMobileApplicationComposeLibraryPlugin : org/gradle/api/Plugin {
 	public fun <init> ()V
 	public synthetic fun apply (Ljava/lang/Object;)V
@@ -65,6 +95,31 @@ public final class com/makeboon/gradle/kmp/ModuleWebLibraryPlugin : org/gradle/a
 }
 
 public final class com/makeboon/gradle/kmp/Module_android_application_gradle : org/gradle/kotlin/dsl/precompile/v1/PrecompiledProjectScript {
+	public fun <init> (Lorg/gradle/api/Project;Lorg/gradle/api/Project;)V
+	public static final fun main ([Ljava/lang/String;)V
+}
+
+public final class com/makeboon/gradle/kmp/Module_application_compose_library_gradle : org/gradle/kotlin/dsl/precompile/v1/PrecompiledProjectScript {
+	public fun <init> (Lorg/gradle/api/Project;Lorg/gradle/api/Project;)V
+	public static final fun main ([Ljava/lang/String;)V
+}
+
+public final class com/makeboon/gradle/kmp/Module_application_gradle : org/gradle/kotlin/dsl/precompile/v1/PrecompiledProjectScript {
+	public fun <init> (Lorg/gradle/api/Project;Lorg/gradle/api/Project;)V
+	public static final fun main ([Ljava/lang/String;)V
+}
+
+public final class com/makeboon/gradle/kmp/Module_application_library_gradle : org/gradle/kotlin/dsl/precompile/v1/PrecompiledProjectScript {
+	public fun <init> (Lorg/gradle/api/Project;Lorg/gradle/api/Project;)V
+	public static final fun main ([Ljava/lang/String;)V
+}
+
+public final class com/makeboon/gradle/kmp/Module_compose_library_gradle : org/gradle/kotlin/dsl/precompile/v1/PrecompiledProjectScript {
+	public fun <init> (Lorg/gradle/api/Project;Lorg/gradle/api/Project;)V
+	public static final fun main ([Ljava/lang/String;)V
+}
+
+public final class com/makeboon/gradle/kmp/Module_library_gradle : org/gradle/kotlin/dsl/precompile/v1/PrecompiledProjectScript {
 	public fun <init> (Lorg/gradle/api/Project;Lorg/gradle/api/Project;)V
 	public static final fun main ([Ljava/lang/String;)V
 }
@@ -280,6 +335,7 @@ public abstract class com/makeboon/gradle/kmp/target/TargetPlugin : org/gradle/a
 }
 
 public final class com/makeboon/gradle/kmp/target/TargetPluginKt {
+	public static final fun AllTargets (Z)[Lcom/makeboon/gradle/kmp/target/TargetPlugin;
 	public static final fun getMobileTargets ()[Lcom/makeboon/gradle/kmp/target/TargetPlugin;
 }
 
