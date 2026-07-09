@@ -14,7 +14,6 @@ import org.gradle.api.tasks.InputDirectory
 import org.gradle.api.tasks.OutputDirectory
 import org.gradle.api.tasks.TaskAction
 import org.gradle.kotlin.dsl.create
-import org.gradle.kotlin.dsl.findByType
 import org.gradle.kotlin.dsl.invoke
 import org.gradle.kotlin.dsl.register
 import java.io.ByteArrayOutputStream
@@ -26,8 +25,6 @@ import kotlin.io.path.*
 
 public object ComposeFlattenDrawableResourcePlugin : Plugin<Project> {
     override fun apply(target: Project): Unit = with(target) {
-        if (extensions.findByType<ComposeFlattenDrawableResourceExtension>() != null)
-            return
         val extension = extensions.create(
             EXTENSION_NAME,
             ComposeFlattenDrawableResourceExtension::class
