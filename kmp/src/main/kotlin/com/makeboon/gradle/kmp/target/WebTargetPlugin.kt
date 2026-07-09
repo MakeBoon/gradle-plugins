@@ -1,5 +1,6 @@
 package com.makeboon.gradle.kmp.target
 
+import com.makeboon.gradle.extension.kotlinx
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.configure
 import org.jetbrains.kotlin.gradle.ExperimentalWasmDsl
@@ -12,6 +13,10 @@ public class WebTargetPlugin(private val library: Boolean) : TargetPlugin() {
             wasmJs {
                 browser()
                 if (!library) binaries.executable()
+            }
+
+            sourceSets.webMain.dependencies {
+                api(kotlinx.kotlinx.browser)
             }
         }
     }
