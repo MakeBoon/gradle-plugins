@@ -7,6 +7,7 @@ plugins {
 
 dependencies {
     implementation(projects.convention)
+    implementation(buildLogic.gradlePlugin.buildconfig)
     implementation(buildLogic.gradlePlugin.compose.compiler)
     implementation(support.gradlePlugin.ksp)
     implementation(kmp.gradlePlugin.compose)

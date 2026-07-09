@@ -2,8 +2,8 @@ package com.makeboon.gradle.kmp.target
 
 import com.makeboon.gradle.extension.apply
 import com.makeboon.gradle.extension.kmpExt
-import com.makeboon.gradle.kmp.extension.AppConfig
 import com.makeboon.gradle.kmp.extension.OptIn
+import com.makeboon.gradle.kmp.plugin.BuildConfigPlugin
 import com.makeboon.gradle.kmp.plugin.ComposeFlattenDrawableResourcePlugin
 import com.makeboon.gradle.kmp.plugin.ComposePlugin
 import com.makeboon.gradle.kmp.plugin.FrameworkPlugin
@@ -18,8 +18,7 @@ public object ModulePlugin {
         publish: Boolean,
         vararg targets: TargetPlugin,
     ): Unit = with(target) {
-        if (!library) AppConfig.configure(this)
-
+        BuildConfigPlugin(library).apply(target)
         with(pluginManager) {
             if (publish) // should be the first plugin. group, name.
                 apply("com.makeboon.gradle.publish")
