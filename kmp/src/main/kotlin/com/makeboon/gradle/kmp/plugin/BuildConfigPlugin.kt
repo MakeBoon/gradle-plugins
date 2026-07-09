@@ -19,6 +19,9 @@ internal class BuildConfigPlugin(val library: Boolean) : Plugin<Project> {
         val appConfig = AppConfig.configure(target)
         extensions.configure<BuildConfigExtension> {
             packageName(appConfig.projectNamespace)
+            useKotlinOutput { topLevelConstants = true }
+            buildConfigField("PROJECT_NAMESPACE", appConfig.projectNamespace)
+            buildConfigField("DISPLAY_NAME", appConfig.displayName)
             buildConfigField("PRODUCT_VERSION", appConfig.versionName)
             buildConfigField("BUNDLE_VERSION", "${appConfig.versionCode}")
         }

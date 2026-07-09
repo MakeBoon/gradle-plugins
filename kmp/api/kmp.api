@@ -187,18 +187,20 @@ public final class com/makeboon/gradle/kmp/Room3_gradle : org/gradle/kotlin/dsl/
 
 public final class com/makeboon/gradle/kmp/extension/AppConfig {
 	public static final field Companion Lcom/makeboon/gradle/kmp/extension/AppConfig$Companion;
-	public fun <init> (Ljava/lang/String;IIIIZLjava/lang/String;Ljava/lang/String;)V
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;IIIIZLjava/lang/String;Ljava/lang/String;)V
 	public final fun component1 ()Ljava/lang/String;
-	public final fun component2 ()I
+	public final fun component2 ()Ljava/lang/String;
 	public final fun component3 ()I
 	public final fun component4 ()I
 	public final fun component5 ()I
-	public final fun component6 ()Z
-	public final fun component7 ()Ljava/lang/String;
+	public final fun component6 ()I
+	public final fun component7 ()Z
 	public final fun component8 ()Ljava/lang/String;
-	public final fun copy (Ljava/lang/String;IIIIZLjava/lang/String;Ljava/lang/String;)Lcom/makeboon/gradle/kmp/extension/AppConfig;
-	public static synthetic fun copy$default (Lcom/makeboon/gradle/kmp/extension/AppConfig;Ljava/lang/String;IIIIZLjava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lcom/makeboon/gradle/kmp/extension/AppConfig;
+	public final fun component9 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;IIIIZLjava/lang/String;Ljava/lang/String;)Lcom/makeboon/gradle/kmp/extension/AppConfig;
+	public static synthetic fun copy$default (Lcom/makeboon/gradle/kmp/extension/AppConfig;Ljava/lang/String;Ljava/lang/String;IIIIZLjava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lcom/makeboon/gradle/kmp/extension/AppConfig;
 	public fun equals (Ljava/lang/Object;)Z
+	public final fun getDisplayName ()Ljava/lang/String;
 	public final fun getKeyStoreDir ()Ljava/lang/String;
 	public final fun getPaymentTest ()Z
 	public final fun getProguardDir ()Ljava/lang/String;
