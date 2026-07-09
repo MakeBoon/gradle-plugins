@@ -3,6 +3,7 @@ package com.makeboon.gradle.kmp.plugin
 import com.makeboon.gradle.extension.`-X`
 import com.makeboon.gradle.extension.apply
 import com.makeboon.gradle.extension.buildLogic
+import com.makeboon.gradle.extension.kotlinx
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.assign
@@ -52,6 +53,11 @@ internal class FrameworkPlugin(val library: Boolean) : Plugin<Project> {
             }
 
             applyDefaultHierarchyTemplate()
+
+            sourceSets.commonTest.dependencies {
+                implementation(kotlin("test"))
+                implementation(kotlinx.kotlinx.coroutines.test)
+            }
         }
     }
 }

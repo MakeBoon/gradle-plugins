@@ -31,8 +31,13 @@ public object ComposePlugin : Plugin<Project> {
         }
 
         extensions.findByType<KotlinMultiplatformExtension>()?.apply {
-            sourceSets.commonMain.dependencies {
-                implementation(kmp.compose.ui.tooling.preview)
+            with(sourceSets) {
+                commonMain.dependencies {
+                    implementation(kmp.compose.ui.tooling.preview)
+                }
+                commonTest.dependencies {
+                    implementation(kmp.compose.ui.test)
+                }
             }
         }
 

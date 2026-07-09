@@ -16,7 +16,7 @@ public class WebTargetPlugin(private val library: Boolean) : TargetPlugin() {
             }
 
             sourceSets.webMain.dependencies {
-                api(kotlinx.kotlinx.browser)
+                implementation(kotlinx.kotlinx.browser)
             }
         }
     }
