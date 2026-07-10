@@ -29,7 +29,7 @@ kotlin {
         fun applyDependencies(
             target: NamedDomainObjectProvider<KotlinSourceSet>,
             lib: Provider<MinimalExternalModuleDependency>
-        ) = target.dependencies { api(lib) }
+        ) = target.dependencies { implementation(lib) }
 
         // https://cs.android.com/androidx/platform/frameworks/support/+/androidx-main:sqlite/sqlite-bundled/src/
         if (hasWeb) applyDependencies(webMain, kmp.sqlite.web)

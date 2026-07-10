@@ -18,6 +18,7 @@ public enum class OptIn(private vararg val value: String) {
         "kotlinx.cinterop.ExperimentalForeignApi",
         "kotlinx.coroutines.ExperimentalCoroutinesApi",
         "kotlinx.coroutines.ExperimentalForInheritanceCoroutinesApi",
+        "kotlin.js.ExperimentalWasmJsInterop",
     ),
     Compose(
         "org.jetbrains.compose.resources.InternalResourceApi",

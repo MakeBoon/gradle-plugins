@@ -2,11 +2,28 @@
 
 ## [Kotlin Multiplatform](kmp)
 
-Set `makeboon.kmp.wasmJs=true` in a module's (or the root) `gradle.properties` to add a
-wasmJs browser target to the `module-*` plugins (`module-android-application` is unaffected).
-Application modules also get `binaries.executable()`. Room3 supports wasmJs: wasm modules get
+Module plugins are picked by target platform rather than an opt-in flag — each id is
+`com.makeboon.gradle.kmp.<plugin>`:
+
+| Plugin | Targets | library | compose |
+|---|---|---|---|
+| `module-mobile-application` | Android, Apple | ✗ | ✓ |
+| `module-mobile-application-library` | Android, Apple | ✓ | ✗ |
+| `module-mobile-application-compose-library` | Android, Apple | ✓ | ✓ |
+| `module-mobile-library` | Android, Apple | ✓ | ✗ |
+| `module-mobile-compose-library` | Android, Apple | ✓ | ✓ |
+| `module-web-application` | wasmJs | ✗ | ✓ |
+| `module-web-application-library` | wasmJs | ✓ | ✗ |
+| `module-web-application-compose-library` | wasmJs | ✓ | ✓ |
+| `module-web-library` | wasmJs | ✓ | ✗ |
+| `module-web-compose-library` | wasmJs | ✓ | ✓ |
+| `module-android-application` | Android only (not KMP) | — | ✓ |
+
+`application` plugins add `binaries.executable()` for their web/native binaries; `library`
+plugins publish instead. Room3 and Metro are applied to every mobile/web module. Room3 wires
 `androidx.sqlite:sqlite-web` (WebWorkerSQLiteDriver) on `wasmJsMain` and the bundled SQLite
-driver on the native source sets instead of commonMain.
+driver on the JVM/Android/native source sets, based on whichever targets the module actually
+configures (see `room3.gradle.kts`).
 
 ## Publishing
 

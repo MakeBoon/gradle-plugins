@@ -15,10 +15,7 @@ public val DefaultVersionCatalogNames: List<String> = listOf(
 )
 
 public fun String.toCamelCase(): String =
-    lowercase()
-        .replace(Regex("[\\s-_]+([a-z])")) {
-            it.groupValues[1].uppercase()
-        }
+    replace(Regex("[\\s-_]+([a-z])")) { it.groupValues[1].uppercase() }
 
 public fun Settings.createProjectVersionCatalogs() {
     createVersionCatalogs(*DefaultVersionCatalogNames.toTypedArray())

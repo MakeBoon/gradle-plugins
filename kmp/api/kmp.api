@@ -4,6 +4,36 @@ public final class com/makeboon/gradle/kmp/ModuleAndroidApplicationPlugin : org/
 	public fun apply (Lorg/gradle/api/Project;)V
 }
 
+public final class com/makeboon/gradle/kmp/ModuleApplicationComposeLibraryPlugin : org/gradle/api/Plugin {
+	public fun <init> ()V
+	public synthetic fun apply (Ljava/lang/Object;)V
+	public fun apply (Lorg/gradle/api/Project;)V
+}
+
+public final class com/makeboon/gradle/kmp/ModuleApplicationLibraryPlugin : org/gradle/api/Plugin {
+	public fun <init> ()V
+	public synthetic fun apply (Ljava/lang/Object;)V
+	public fun apply (Lorg/gradle/api/Project;)V
+}
+
+public final class com/makeboon/gradle/kmp/ModuleApplicationPlugin : org/gradle/api/Plugin {
+	public fun <init> ()V
+	public synthetic fun apply (Ljava/lang/Object;)V
+	public fun apply (Lorg/gradle/api/Project;)V
+}
+
+public final class com/makeboon/gradle/kmp/ModuleComposeLibraryPlugin : org/gradle/api/Plugin {
+	public fun <init> ()V
+	public synthetic fun apply (Ljava/lang/Object;)V
+	public fun apply (Lorg/gradle/api/Project;)V
+}
+
+public final class com/makeboon/gradle/kmp/ModuleLibraryPlugin : org/gradle/api/Plugin {
+	public fun <init> ()V
+	public synthetic fun apply (Ljava/lang/Object;)V
+	public fun apply (Lorg/gradle/api/Project;)V
+}
+
 public final class com/makeboon/gradle/kmp/ModuleMobileApplicationComposeLibraryPlugin : org/gradle/api/Plugin {
 	public fun <init> ()V
 	public synthetic fun apply (Ljava/lang/Object;)V
@@ -65,6 +95,31 @@ public final class com/makeboon/gradle/kmp/ModuleWebLibraryPlugin : org/gradle/a
 }
 
 public final class com/makeboon/gradle/kmp/Module_android_application_gradle : org/gradle/kotlin/dsl/precompile/v1/PrecompiledProjectScript {
+	public fun <init> (Lorg/gradle/api/Project;Lorg/gradle/api/Project;)V
+	public static final fun main ([Ljava/lang/String;)V
+}
+
+public final class com/makeboon/gradle/kmp/Module_application_compose_library_gradle : org/gradle/kotlin/dsl/precompile/v1/PrecompiledProjectScript {
+	public fun <init> (Lorg/gradle/api/Project;Lorg/gradle/api/Project;)V
+	public static final fun main ([Ljava/lang/String;)V
+}
+
+public final class com/makeboon/gradle/kmp/Module_application_gradle : org/gradle/kotlin/dsl/precompile/v1/PrecompiledProjectScript {
+	public fun <init> (Lorg/gradle/api/Project;Lorg/gradle/api/Project;)V
+	public static final fun main ([Ljava/lang/String;)V
+}
+
+public final class com/makeboon/gradle/kmp/Module_application_library_gradle : org/gradle/kotlin/dsl/precompile/v1/PrecompiledProjectScript {
+	public fun <init> (Lorg/gradle/api/Project;Lorg/gradle/api/Project;)V
+	public static final fun main ([Ljava/lang/String;)V
+}
+
+public final class com/makeboon/gradle/kmp/Module_compose_library_gradle : org/gradle/kotlin/dsl/precompile/v1/PrecompiledProjectScript {
+	public fun <init> (Lorg/gradle/api/Project;Lorg/gradle/api/Project;)V
+	public static final fun main ([Ljava/lang/String;)V
+}
+
+public final class com/makeboon/gradle/kmp/Module_library_gradle : org/gradle/kotlin/dsl/precompile/v1/PrecompiledProjectScript {
 	public fun <init> (Lorg/gradle/api/Project;Lorg/gradle/api/Project;)V
 	public static final fun main ([Ljava/lang/String;)V
 }
@@ -132,18 +187,20 @@ public final class com/makeboon/gradle/kmp/Room3_gradle : org/gradle/kotlin/dsl/
 
 public final class com/makeboon/gradle/kmp/extension/AppConfig {
 	public static final field Companion Lcom/makeboon/gradle/kmp/extension/AppConfig$Companion;
-	public fun <init> (Ljava/lang/String;IIIIZLjava/lang/String;Ljava/lang/String;)V
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;IIIIZLjava/lang/String;Ljava/lang/String;)V
 	public final fun component1 ()Ljava/lang/String;
-	public final fun component2 ()I
+	public final fun component2 ()Ljava/lang/String;
 	public final fun component3 ()I
 	public final fun component4 ()I
 	public final fun component5 ()I
-	public final fun component6 ()Z
-	public final fun component7 ()Ljava/lang/String;
+	public final fun component6 ()I
+	public final fun component7 ()Z
 	public final fun component8 ()Ljava/lang/String;
-	public final fun copy (Ljava/lang/String;IIIIZLjava/lang/String;Ljava/lang/String;)Lcom/makeboon/gradle/kmp/extension/AppConfig;
-	public static synthetic fun copy$default (Lcom/makeboon/gradle/kmp/extension/AppConfig;Ljava/lang/String;IIIIZLjava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lcom/makeboon/gradle/kmp/extension/AppConfig;
+	public final fun component9 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;IIIIZLjava/lang/String;Ljava/lang/String;)Lcom/makeboon/gradle/kmp/extension/AppConfig;
+	public static synthetic fun copy$default (Lcom/makeboon/gradle/kmp/extension/AppConfig;Ljava/lang/String;Ljava/lang/String;IIIIZLjava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lcom/makeboon/gradle/kmp/extension/AppConfig;
 	public fun equals (Ljava/lang/Object;)Z
+	public final fun getDisplayName ()Ljava/lang/String;
 	public final fun getKeyStoreDir ()Ljava/lang/String;
 	public final fun getPaymentTest ()Z
 	public final fun getProguardDir ()Ljava/lang/String;
@@ -280,6 +337,7 @@ public abstract class com/makeboon/gradle/kmp/target/TargetPlugin : org/gradle/a
 }
 
 public final class com/makeboon/gradle/kmp/target/TargetPluginKt {
+	public static final fun AllTargets (Z)[Lcom/makeboon/gradle/kmp/target/TargetPlugin;
 	public static final fun getMobileTargets ()[Lcom/makeboon/gradle/kmp/target/TargetPlugin;
 }
 

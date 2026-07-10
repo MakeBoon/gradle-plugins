@@ -1,11 +1,6 @@
 package com.makeboon.gradle.kmp.plugin
 
-import com.makeboon.gradle.extension.apply
-import com.makeboon.gradle.extension.buildLogic
-import com.makeboon.gradle.extension.dirInBuildDir
-import com.makeboon.gradle.extension.hasPlugin
-import com.makeboon.gradle.extension.kmp
-import com.makeboon.gradle.extension.kmpAndroid
+import com.makeboon.gradle.extension.*
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.configure
@@ -36,8 +31,13 @@ public object ComposePlugin : Plugin<Project> {
         }
 
         extensions.findByType<KotlinMultiplatformExtension>()?.apply {
-            sourceSets.commonMain.dependencies {
-                implementation(kmp.compose.ui.tooling.preview)
+            with(sourceSets) {
+                commonMain.dependencies {
+                    implementation(kmp.compose.ui.tooling.preview)
+                }
+                commonTest.dependencies {
+                    implementation(kmp.compose.ui.test)
+                }
             }
         }
 

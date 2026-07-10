@@ -1,7 +1,7 @@
 package com.makeboon.gradle.kmp
 
+import com.makeboon.gradle.kmp.target.AllTargets
 import com.makeboon.gradle.kmp.target.ModulePlugin
-import com.makeboon.gradle.kmp.target.WebTargetPlugin
 
 private val library = true
 
@@ -10,7 +10,7 @@ ModulePlugin.apply(
     library = library,
     compose = false,
     publish = false,
-    WebTargetPlugin(library),
+    *AllTargets(library),
 )
 
 plugins {}

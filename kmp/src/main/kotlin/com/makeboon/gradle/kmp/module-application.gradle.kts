@@ -1,16 +1,16 @@
 package com.makeboon.gradle.kmp
 
+import com.makeboon.gradle.kmp.target.AllTargets
 import com.makeboon.gradle.kmp.target.ModulePlugin
-import com.makeboon.gradle.kmp.target.WebTargetPlugin
 
-private val library = true
+private val library = false
 
 ModulePlugin.apply(
     project,
     library = library,
-    compose = false,
+    compose = true,
     publish = false,
-    WebTargetPlugin(library),
+    *AllTargets(library),
 )
 
 plugins {}

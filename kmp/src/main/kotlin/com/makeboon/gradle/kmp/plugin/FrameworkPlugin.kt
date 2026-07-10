@@ -3,6 +3,7 @@ package com.makeboon.gradle.kmp.plugin
 import com.makeboon.gradle.extension.`-X`
 import com.makeboon.gradle.extension.apply
 import com.makeboon.gradle.extension.buildLogic
+import com.makeboon.gradle.extension.kotlinx
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.assign
@@ -33,12 +34,8 @@ internal class FrameworkPlugin(val library: Boolean) : Plugin<Project> {
                         "expect-actual-classes", // https://kotlinlang.org/docs/multiplatform/multiplatform-expect-actual.html#expected-and-actual-classes
                         // whatsnew22
                         "context-sensitive-resolution", // https://kotlinlang.org/docs/whatsnew22.html#preview-of-context-sensitive-resolution
-                        // whatsnew2220
-                        "allow-reified-type-in-catch", // https://kotlinlang.org/docs/whatsnew2220.html#support-for-reified-types-in-catch-clauses
-                        "when-expressions=indy", // https://kotlinlang.org/docs/whatsnew2220.html#kotlin-jvm-support-invokedynamic-with-when-expressions
                         // whatsnew23
                         "return-value-checker=check", // https://kotlinlang.org/docs/whatsnew23.html#unused-return-value-checker
-                        "explicit-backing-fields", // https://kotlinlang.org/docs/whatsnew23.html#explicit-backing-fields
                         // whatsnew2320
                         "name-based-destructuring=name-mismatch", // https://kotlinlang.org/docs/whatsnew2320.html#language-name-based-destructuring
                         // whatsnew24
@@ -52,6 +49,11 @@ internal class FrameworkPlugin(val library: Boolean) : Plugin<Project> {
             }
 
             applyDefaultHierarchyTemplate()
+
+            sourceSets.commonTest.dependencies {
+                implementation(kotlin("test"))
+                implementation(kotlinx.kotlinx.coroutines.test)
+            }
         }
     }
 }

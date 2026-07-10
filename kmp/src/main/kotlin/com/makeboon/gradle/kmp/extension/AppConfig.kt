@@ -9,6 +9,7 @@ import org.gradle.kotlin.dsl.typeOf
 
 public data class AppConfig(
     val projectNamespace: String,
+    val displayName: String,
     val versionMajor: Int,
     val versionMinor: Int,
     val versionPatch: Int,
@@ -39,6 +40,7 @@ public data class AppConfig(
             with(fileInRootDir("AppConfig.xcconfig").toProperties()) {
                 AppConfig(
                     projectNamespace = getProperty("ProjectNamespace"),
+                    displayName = getProperty("DisplayName"),
                     versionMajor = getPropertyInt("VersionMajor"),
                     versionMinor = getPropertyInt("VersionMinor"),
                     versionPatch = getPropertyInt("VersionPatch"),

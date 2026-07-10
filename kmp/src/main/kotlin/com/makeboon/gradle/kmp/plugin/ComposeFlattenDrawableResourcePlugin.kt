@@ -21,13 +21,7 @@ import java.nio.file.Files
 import java.nio.file.Path
 import java.nio.file.StandardCopyOption
 import java.util.regex.Pattern
-import kotlin.io.path.Path
-import kotlin.io.path.deleteIfExists
-import kotlin.io.path.extension
-import kotlin.io.path.isRegularFile
-import kotlin.io.path.name
-import kotlin.io.path.pathString
-import kotlin.io.path.writeText
+import kotlin.io.path.*
 
 public object ComposeFlattenDrawableResourcePlugin : Plugin<Project> {
     override fun apply(target: Project): Unit = with(target) {
