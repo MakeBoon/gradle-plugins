@@ -37,7 +37,7 @@ public data class AppConfig(
 
     public companion object {
         public fun configure(project: Project): AppConfig = with(project) {
-            with(fileInRootDir("AppConfig.xcconfig").toProperties()) {
+            with(fileInRootDir("app/AppConfig.xcconfig").toProperties()) {
                 AppConfig(
                     projectNamespace = getProperty("PROJECT_NAMESPACE"),
                     displayName = getProperty("DISPLAY_NAME"),
