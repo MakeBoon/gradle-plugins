@@ -27,8 +27,14 @@ public object AndroidTargetPlugin : TargetPlugin() {
                 }
                 androidResources { enable = true } // AndroidManifest
 
-//                withHostTestBuilder {}.configure {}
-//                withDeviceTestBuilder {}
+                // https://developer.android.com/kotlin/multiplatform/plugin#configure-tests
+                withHostTest {
+                    isIncludeAndroidResources = true
+                }
+                withDeviceTest {
+                    instrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+                    execution = "ANDROID_TEST_ORCHESTRATOR" // default: "HOST"
+                }
             }
         }
     }
