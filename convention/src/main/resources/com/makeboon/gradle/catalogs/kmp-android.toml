@@ -19,6 +19,9 @@ billing = "9.1.0"
 core = "1.19.0" # https://developer.android.com/jetpack/androidx/releases/core
 activity = "1.13.0" # https://developer.android.com/jetpack/androidx/releases/activity
 media3 = "1.10.1" # https://developer.android.com/jetpack/androidx/releases/media3
+# https://developer.android.com/jetpack/androidx/releases/test
+test-runner = "1.7.0"
+test-orchestrator = "1.6.1"
 ### Others
 firebase-bom = "34.15.0" # https://firebase.google.com/support/release-notes/android
 gms-googleServices = "4.5.0" # https://mvnrepository.com/artifact/com.google.gms/google-services
@@ -62,6 +65,8 @@ media3-database = { group = "androidx.media3", name = "media3-database", version
 media3-decoder = { group = "androidx.media3", name = "media3-decoder", version.ref = "media3" }
 media3-datasource = { group = "androidx.media3", name = "media3-datasource", version.ref = "media3" }
 media3-common = { group = "androidx.media3", name = "media3-common", version.ref = "media3" }
+test-runner = { group = "androidx.test", name = "runner", version.ref = "test-runner" }
+test-orchestrator = { group = "androidx.test", name = "orchestrator", version.ref = "test-orchestrator" }
 ### Others
 firebase-bom = { group = "com.google.firebase", name = "firebase-bom", version.ref = "firebase-bom" }
 firebase-analytics = { group = "com.google.firebase", name = "firebase-analytics" }

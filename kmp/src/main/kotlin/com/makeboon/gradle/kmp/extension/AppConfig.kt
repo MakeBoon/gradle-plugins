@@ -37,17 +37,17 @@ public data class AppConfig(
 
     public companion object {
         public fun configure(project: Project): AppConfig = with(project) {
-            with(fileInRootDir("AppConfig.xcconfig").toProperties()) {
+            with(fileInRootDir("app/AppConfig.xcconfig").toProperties()) {
                 AppConfig(
-                    projectNamespace = getProperty("ProjectNamespace"),
-                    displayName = getProperty("DisplayName"),
-                    versionMajor = getPropertyInt("VersionMajor"),
-                    versionMinor = getPropertyInt("VersionMinor"),
-                    versionPatch = getPropertyInt("VersionPatch"),
-                    versionBuild = getPropertyInt("VersionBuild"),
-                    paymentTest = getPropertyBooleanOrNull("PaymentTest") ?: false,
-                    keyStoreDir = getProperty("KeyStoreDir", "../kmp-resources/android"),
-                    proguardDir = getProperty("ProguardDir", "../kmp-resources/proguard"),
+                    projectNamespace = getProperty("PROJECT_NAMESPACE"),
+                    displayName = getProperty("DISPLAY_NAME"),
+                    versionMajor = getPropertyInt("VERSION_MAJOR"),
+                    versionMinor = getPropertyInt("VERSION_MINOR"),
+                    versionPatch = getPropertyInt("VERSION_PATCH"),
+                    versionBuild = getPropertyInt("VERSION_BUILD"),
+                    paymentTest = getPropertyBooleanOrNull("PAYMENT_TEST") ?: false,
+                    keyStoreDir = getProperty("KEYSTORE_DIR", "../kmp-resources/android"),
+                    proguardDir = getProperty("PROGUARD_DIR", "../kmp-resources/proguard"),
                 ).apply {
                     extensions.add(typeOf(), "appConfig", this)
                     group = projectNamespace

@@ -38,6 +38,8 @@ gradlePlugin-compose-compiler = { group = "org.jetbrains.kotlin", name = "compos
 ### Android
 ### iOS
 ### Others
+kotlin-test = { group = "org.jetbrains.kotlin", name = "kotlin-test", version.ref = "kotlin" }
+kotlin-test-junit = { group = "org.jetbrains.kotlin", name = "kotlin-test-junit", version.ref = "kotlin" }
 
 
 [bundles]
