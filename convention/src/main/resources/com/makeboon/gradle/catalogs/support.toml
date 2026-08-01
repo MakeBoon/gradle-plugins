@@ -1,0 +1,42 @@
+# 26.07.31
+
+[versions]
+ksp = "2.3.10" # https://github.com/google/ksp
+kotlinpoet = "2.3.0" # https://github.com/square/kotlinpoet
+wire = "6.4.5" # https://github.com/square/wire
+sqldelight = "2.3.2" # https://github.com/sqldelight/sqldelight
+sqldelight-androidx-driver = "0.2.1" # https://github.com/eygraber/sqldelight-androidx-driver
+
+
+[libraries]
+kotlinpoet = { group = "com.squareup", name = "kotlinpoet", version.ref = "kotlinpoet" }
+gradlePlugin-ksp = { group = "com.google.devtools.ksp", name = "com.google.devtools.ksp.gradle.plugin", version.ref = "ksp" }
+gradlePlugin-wire = { group = "com.squareup.wire", name = "wire-gradle-plugin", version.ref = "wire" }
+gradlePlugin-sqldelight = { group = "app.cash.sqldelight", name = "gradle-plugin", version.ref = "sqldelight" }
+sqldelight-driver-jdbc = { group = "app.cash.sqldelight", name = "jdbc-driver", version.ref = "sqldelight" }
+sqldelight-driver-sqlite = { group = "app.cash.sqldelight", name = "sqlite-driver", version.ref = "sqldelight" }
+sqldelight-driver-native = { group = "app.cash.sqldelight", name = "native-driver", version.ref = "sqldelight" }
+sqldelight-driver-android = { group = "app.cash.sqldelight", name = "android-driver", version.ref = "sqldelight" }
+sqldelight-driver-web = { group = "app.cash.sqldelight", name = "web-worker-driver", version.ref = "sqldelight" }
+sqldelight-dialect-mysql = { group = "app.cash.sqldelight", name = "mysql-dialect", version.ref = "sqldelight" }
+sqldelight-dialect-postgresql = { group = "app.cash.sqldelight", name = "postgresql-dialect", version.ref = "sqldelight" }
+sqldelight-dialect-hsql = { group = "app.cash.sqldelight", name = "hsql-dialect", version.ref = "sqldelight" }
+sqldelight-dialect-sqlite = { group = "app.cash.sqldelight", name = "sqlite-3-38-dialect", version.ref = "sqldelight" }
+sqldelight-extensions-coroutines = { group = "app.cash.sqldelight", name = "coroutines-extensions", version.ref = "sqldelight" }
+sqldelight-extensions-paging3 = { group = "app.cash.sqldelight", name = "androidx-paging3-extensions", version.ref = "sqldelight" }
+sqldelight-androidx-driver = { group = "com.eygraber", name = "sqldelight-androidx-driver", version.ref = "sqldelight-androidx-driver" }
+sqldelight-androidx-extensions = { group = "com.eygraber", name = "sqldelight-coroutines-extensions", version.ref = "sqldelight-androidx-driver" }
+
+
+[bundles]
+sqldelight-kmp = [
+    "sqldelight-extensions-coroutines", "sqldelight-extensions-paging3",
+    "sqldelight-androidx-driver", "sqldelight-androidx-extensions",
+]
+
+
+[plugins]
+ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
+wire = { id = "com.squareup.wire", version.ref = "wire" }
+sqldelight = { id = "app.cash.sqldelight", version.ref = "sqldelight" }
+

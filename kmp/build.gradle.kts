@@ -1,0 +1,21 @@
+import com.makeboon.gradle.extension.implementationDefaultVersionCatalogLibraries
+
+plugins {
+    `kotlin-dsl`
+    id("com.makeboon.gradle.gradle-publish")
+}
+
+dependencies {
+    implementation(projects.convention)
+    implementation(buildLogic.gradlePlugin.buildconfig)
+    implementation(buildLogic.gradlePlugin.compose.compiler)
+    implementation(support.gradlePlugin.ksp)
+    implementation(support.gradlePlugin.sqldelight)
+    implementation(kmp.gradlePlugin.compose)
+    implementation(kmp.gradlePlugin.room3)
+    implementation(kmpAndroid.gradlePlugin)
+    implementation(kmpAndroid.gradlePlugin.api)
+    implementation(kmpAndroid.gradlePlugin.tools)
+
+    implementationDefaultVersionCatalogLibraries()
+}

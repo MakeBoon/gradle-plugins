@@ -1,0 +1,41 @@
+package com.makeboon.gradle.kmp.target
+
+import com.android.build.api.dsl.KotlinMultiplatformAndroidLibraryTarget
+import com.makeboon.gradle.extension.apply
+import com.makeboon.gradle.extension.kmpAndroid
+import com.makeboon.gradle.extension.moduleNamespaceForPackage
+import com.makeboon.gradle.kmp.extension.release
+import org.gradle.api.Project
+import org.gradle.kotlin.dsl.configure
+import org.gradle.kotlin.dsl.withType
+import org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension
+
+public object AndroidTargetPlugin : TargetPlugin() {
+    override fun apply(target: Project): Unit = with(target) {
+        with(pluginManager) {
+            apply(kmpAndroid.plugins.library)
+        }
+
+        extensions.configure<KotlinMultiplatformExtension> {
+            targets.withType<KotlinMultiplatformAndroidLibraryTarget>().configureEach {
+                namespace = moduleNamespaceForPackage
+                with(kmpAndroid.versions) {
+                    compileSdk {
+                        version = release(compileSdk, compileSdkApi, compileSdkExt)
+                    }
+                    minSdk { version = release(minSdk) }
+                }
+                androidResources { enable = true } // AndroidManifest
+
+                // https://developer.android.com/kotlin/multiplatform/plugin#configure-tests
+                withHostTest {
+                    isIncludeAndroidResources = true
+                }
+                withDeviceTest {
+                    instrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+                    execution = "ANDROID_TEST_ORCHESTRATOR" // default: "HOST"
+                }
+            }
+        }
+    }
+}

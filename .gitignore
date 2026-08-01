@@ -4,6 +4,9 @@
 .idea
 local.properties
 
+### CocoaPods ###
+Pods/
+
 ### Gradle ###
 .gradle
 build/
