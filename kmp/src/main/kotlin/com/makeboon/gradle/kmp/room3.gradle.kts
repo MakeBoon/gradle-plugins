@@ -27,14 +27,15 @@ kotlin {
         }
 
         // https://cs.android.com/androidx/platform/frameworks/support/+/androidx-main:sqlite/sqlite-bundled/src/
-        if (hasJVM) jvmMain.dependencies {
-            implementation(kmp.sqlite.bundled)
-        }
-        if (hasAndroid) androidMain.dependencies {
-            implementation(kmp.sqlite.bundled)
-        }
-        if (hasNative) nativeMain.dependencies {
-            implementation(kmp.sqlite.bundled)
+        val bundledPlatformTargets = listOfNotNull(
+            "jvmMain".takeIf { hasJVM },
+            "androidMain".takeIf { hasAndroid },
+            "nativeMain".takeIf { hasNative },
+        )
+        bundledPlatformTargets.forEach { sourceSetName ->
+            named(sourceSetName).dependencies {
+                implementation(kmp.sqlite.bundled)
+            }
         }
         if (hasWeb) webMain.dependencies {
             implementation(kmp.sqlite.web)

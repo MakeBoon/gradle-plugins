@@ -1,5 +1,6 @@
 package com.makeboon.gradle.kmp
 
+import com.makeboon.gradle.extension.kmp
 import com.makeboon.gradle.extension.support
 import com.makeboon.gradle.kmp.extension.hasAndroid
 import com.makeboon.gradle.kmp.extension.hasJVM
@@ -19,6 +20,7 @@ sqldelight {
             dialect(support.sqldelight.dialect.sqlite)
 
             packageName = path.replace("[^a-z0-9_]".toRegex(), "_")
+            generateAsync = true
 
             srcDirs(basePath)
             schemaOutputDirectory = file("$basePath/databases")
@@ -33,16 +35,19 @@ kotlin {
         commonMain.dependencies {
             api(support.bundles.sqldelight.kmp)
         }
-        if (hasJVM) jvmMain.dependencies {
-            implementation(support.sqldelight.driver.sqlite)
-        }
-        if (hasAndroid) androidMain.dependencies {
-            implementation(support.sqldelight.driver.android)
-        }
-        if (hasNative) nativeMain.dependencies {
-            implementation(support.sqldelight.driver.native)
+
+        val bundledPlatformTargets = listOfNotNull(
+            "jvmMain".takeIf { hasJVM },
+            "androidMain".takeIf { hasAndroid },
+            "nativeMain".takeIf { hasNative },
+        )
+        bundledPlatformTargets.forEach { sourceSetName ->
+            named(sourceSetName).dependencies {
+                implementation(kmp.sqlite.bundled)
+            }
         }
         if (hasWeb) webMain.dependencies {
+            implementation(kmp.sqlite.web)
             implementation(support.sqldelight.driver.web)
 //            implementation npm("sql.js", "1.6.2")
 //            implementation devNpm("copy-webpack-plugin", "9.1.0")
