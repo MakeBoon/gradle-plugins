@@ -5,6 +5,7 @@ import com.makeboon.gradle.kmp.extension.hasAndroid
 import com.makeboon.gradle.kmp.extension.hasJVM
 import com.makeboon.gradle.kmp.extension.hasNative
 import com.makeboon.gradle.kmp.extension.hasWeb
+import org.jetbrains.kotlin.gradle.plugin.KotlinPlatformType
 import org.jetbrains.kotlin.gradle.plugin.KotlinSourceSet
 
 plugins {
@@ -40,5 +41,10 @@ kotlin {
 }
 
 dependencies {
-    ksp(kmp.room3.compiler)
+//kspCommonMainMetadata
+    kotlin.targets.configureEach {
+        if (platformType == KotlinPlatformType.common) return@configureEach
+        val targetName = name.replaceFirstChar { it.uppercase() }
+        add("ksp$targetName", kmp.room3.compiler)
+    }
 }

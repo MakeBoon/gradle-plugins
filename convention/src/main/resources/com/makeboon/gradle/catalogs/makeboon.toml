@@ -31,6 +31,7 @@ kmp-module-web-application-library = { id = "com.makeboon.gradle.kmp.module-web-
 kmp-module-web-compose-library = { id = "com.makeboon.gradle.kmp.module-web-compose-library", version.ref = "gradle-kmp" }
 kmp-module-web-library = { id = "com.makeboon.gradle.kmp.module-web-library", version.ref = "gradle-kmp" }
 # Precompiled
+kmp-room3 = { id = "com.makeboon.gradle.kmp.room3", version.ref = "gradle-kmp" }
 kmp-sqldelight-library = { id = "com.makeboon.gradle.kmp.sqldelight-library", version.ref = "gradle-kmp" }
 kmp-sqldelight-app = { id = "com.makeboon.gradle.kmp.sqldelight-app", version.ref = "gradle-kmp" }
 
