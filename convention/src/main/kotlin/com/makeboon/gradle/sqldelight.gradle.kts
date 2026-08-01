@@ -12,7 +12,6 @@ sqldelight {
         register("") {
 //            dialect(support.sqldelight.dialect.postgresql)
             packageName.set(moduleNamespaceForPackage)
-//            generateAsync.set(true)
         }
     }
 }

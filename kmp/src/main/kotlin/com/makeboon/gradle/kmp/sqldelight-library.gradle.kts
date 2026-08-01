@@ -14,12 +14,11 @@ plugins {
 sqldelight {
     linkSqlite = false
     databases {
-        val basePath = "src/main/sqldelight"
+        val basePath = "src/commonMain/sqldelight"
         register("AppDatabase") {
             dialect(support.sqldelight.dialect.sqlite)
 
             packageName = path.replace("[^a-z0-9_]".toRegex(), "_")
-            generateAsync = true
 
             srcDirs(basePath)
             schemaOutputDirectory = file("$basePath/databases")
