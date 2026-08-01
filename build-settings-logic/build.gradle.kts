@@ -20,7 +20,7 @@ dependencies {
     }
 }
 
-private val copyTask by tasks.registering(Copy::class) {
+tasks.register<Copy>("copyTask") {
     val packagePath = "src/main/kotlin/com/makeboon/gradle"
     val srcDir = projectDir.resolve(packagePath)
     val destDir = rootDir.resolve("../convention/$packagePath")
@@ -36,4 +36,4 @@ private val copyTask by tasks.registering(Copy::class) {
     }
 }
 
-tasks.compileKotlin { dependsOn(copyTask) }
+tasks.compileKotlin { dependsOn("copyTask") }

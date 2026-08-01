@@ -3,7 +3,7 @@ package com.makeboon.gradle.kmp.target
 import com.android.build.api.dsl.KotlinMultiplatformAndroidLibraryTarget
 import com.makeboon.gradle.extension.apply
 import com.makeboon.gradle.extension.kmpAndroid
-import com.makeboon.gradle.extension.moduleNamespace
+import com.makeboon.gradle.extension.moduleNamespaceForPackage
 import com.makeboon.gradle.kmp.extension.release
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.configure
@@ -18,7 +18,7 @@ public object AndroidTargetPlugin : TargetPlugin() {
 
         extensions.configure<KotlinMultiplatformExtension> {
             targets.withType<KotlinMultiplatformAndroidLibraryTarget>().configureEach {
-                namespace = moduleNamespace.replace("-", "_")
+                namespace = moduleNamespaceForPackage
                 with(kmpAndroid.versions) {
                     compileSdk {
                         version = release(compileSdk, compileSdkApi, compileSdkExt)
