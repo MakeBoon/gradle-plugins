@@ -5,7 +5,7 @@ import com.makeboon.gradle.kmp.extension.hasAndroid
 import com.makeboon.gradle.kmp.extension.hasJVM
 import com.makeboon.gradle.kmp.extension.hasNative
 import com.makeboon.gradle.kmp.extension.hasWeb
-import org.jetbrains.kotlin.gradle.plugin.KotlinSourceSet
+import org.jetbrains.kotlin.gradle.plugin.KotlinPlatformType
 
 plugins {
     id("com.makeboon.gradle.ksp")
@@ -26,19 +26,27 @@ kotlin {
             api(kmp.bundles.room3)
         }
 
-        fun applyDependencies(
-            target: NamedDomainObjectProvider<KotlinSourceSet>,
-            lib: Provider<MinimalExternalModuleDependency>
-        ) = target.dependencies { implementation(lib) }
-
         // https://cs.android.com/androidx/platform/frameworks/support/+/androidx-main:sqlite/sqlite-bundled/src/
-        if (hasWeb) applyDependencies(webMain, kmp.sqlite.web)
-        if (hasJVM) applyDependencies(jvmMain, kmp.sqlite.bundled)
-        if (hasAndroid) applyDependencies(androidMain, kmp.sqlite.bundled)
-        if (hasNative) applyDependencies(nativeMain, kmp.sqlite.bundled)
+        if (hasJVM) jvmMain.dependencies {
+            implementation(kmp.sqlite.bundled)
+        }
+        if (hasAndroid) androidMain.dependencies {
+            implementation(kmp.sqlite.bundled)
+        }
+        if (hasNative) nativeMain.dependencies {
+            implementation(kmp.sqlite.bundled)
+        }
+        if (hasWeb) webMain.dependencies {
+            implementation(kmp.sqlite.web)
+        }
     }
 }
 
 dependencies {
-    ksp(kmp.room3.compiler)
+//kspCommonMainMetadata
+    kotlin.targets.configureEach {
+        if (platformType == KotlinPlatformType.common) return@configureEach
+        val targetName = name.replaceFirstChar { it.uppercase() }
+        add("ksp$targetName", kmp.room3.compiler)
+    }
 }

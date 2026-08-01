@@ -1,13 +1,13 @@
-# 26.07.08
+# 26.07.31
 
 [versions]
 ### build-logic
 gradle-publish = "2.1.1" # https://plugins.gradle.org/plugin/com.gradle.plugin-publish
 foojay-resolver = "1.0.0" # https://plugins.gradle.org/plugin/org.gradle.toolchains.foojay-resolver-convention
-shadow = "9.5.1" # https://plugins.gradle.org/plugin/com.gradleup.shadow
+shadow = "9.6.1" # https://plugins.gradle.org/plugin/com.gradleup.shadow
 # https://kotlinlang.org/docs/releases.html
 # https://github.com/JetBrains/kotlin
-kotlin = "2.4.20-Beta1"
+kotlin = "2.4.20-Beta2"
 kotlin-compile = "2.4"
 kotlin-jvmToolchain = "21"
 binaryCompatibility = "0.18.1" # https://github.com/Kotlin/binary-compatibility-validator
@@ -18,7 +18,7 @@ publish = "0.37.0" # https://github.com/vanniktech/gradle-maven-publish-plugin
 ### Android
 ### iOS
 ### Others
-spotless = "8.8.0" # https://github.com/diffplug/spotless
+spotless = "8.9.0" # https://github.com/diffplug/spotless
 
 
 [libraries]

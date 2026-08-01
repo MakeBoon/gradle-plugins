@@ -10,6 +10,8 @@ import java.io.File
 
 public val Project.moduleNamespace: String
     get() = "$group.$name"
+public val Project.moduleNamespaceForPackage: String
+    get() = moduleNamespace.replace("-", "_")
 
 public fun PluginManager.apply(provider: Provider<PluginDependency>): Unit =
     apply(provider.get().pluginId)

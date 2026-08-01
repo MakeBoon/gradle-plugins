@@ -42,7 +42,7 @@ internal class FrameworkPlugin(val library: Boolean) : Plugin<Project> {
                         "explicit-context-arguments", // https://kotlinlang.org/docs/whatsnew24.html#explicit-context-arguments-for-context-parameters
                         "collection-literals", // https://kotlinlang.org/docs/whatsnew24.html#support-for-collection-literals
                         "allow-returns-result-of", // https://kotlinlang.org/docs/whatsnew24.html#improved-unused-result-checks-for-higher-order-functions
-                        // whatsnew-eap: 2.4.20-Beta1
+                        // whatsnew-eap: 2.4.20-Beta2
                         // whatsnew-eap: ?
                     )
                 )
