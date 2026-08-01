@@ -47,8 +47,8 @@ public object ModulePlugin {
 
             listOf(
                 "com.makeboon.gradle.wire",
-//                "com.makeboon.gradle.sqldelight",
-                "com.makeboon.gradle.kmp.room3",
+//                "com.makeboon.gradle.kmp.sqldelight",
+//                "com.makeboon.gradle.kmp.room3",
             ).forEach(::apply)
 
             listOf(

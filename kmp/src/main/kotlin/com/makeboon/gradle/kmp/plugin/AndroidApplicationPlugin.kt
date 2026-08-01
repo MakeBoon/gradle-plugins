@@ -40,7 +40,7 @@ public object AndroidApplicationPlugin : Plugin<Project> {
                 defaultConfig {
                     applicationId = namespace
                     minSdk { version = release(this@with.minSdk) }
-//                targetSdk { version = release(compileSdk)) }
+//                targetSdk { version = release(compileSdk) }
                     versionCode = appConfig.versionCode
                     versionName = appConfig.versionName
                 }
