@@ -64,6 +64,17 @@ public final class com/makeboon/gradle/Settings_settings_gradle : org/gradle/kot
 	public static final fun main ([Ljava/lang/String;)V
 }
 
+public final class com/makeboon/gradle/Settings_webPlugin : org/gradle/api/Plugin {
+	public fun <init> ()V
+	public synthetic fun apply (Ljava/lang/Object;)V
+	public fun apply (Lorg/gradle/api/initialization/Settings;)V
+}
+
+public final class com/makeboon/gradle/Settings_web_settings_gradle : org/gradle/kotlin/dsl/precompile/v1/PrecompiledSettingsScript {
+	public fun <init> (Lorg/gradle/api/initialization/Settings;Lorg/gradle/api/initialization/Settings;)V
+	public static final fun main ([Ljava/lang/String;)V
+}
+
 public final class com/makeboon/gradle/SqldelightPlugin : org/gradle/api/Plugin {
 	public fun <init> ()V
 	public synthetic fun apply (Ljava/lang/Object;)V
